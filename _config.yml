@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://lynnard.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: .hack/lynnard
+subtitle: Wake up and look around
+author: Lynnard
 simple_search: http://google.com/search
 description:
 
@@ -39,6 +39,7 @@ rdiscount:
     - autolink
     - footnotes
     - smart
+pygments: false # default python pygments have been replaced by pygments.rb
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
