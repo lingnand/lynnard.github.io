@@ -1,0 +1,36 @@
+---
+layout: post
+title: "人性之熵"
+date: 2013-07-31 15:02
+comments: true
+categories: [ACG, thoughts]
+---
+
+
+<a class='fancybox' rel='cowboy_crew' href='/images/cowboy_bebop/crew0.jpg'><img src='/images/cowboy_bebop/crew0.jpg' alt='The lovely crew of Cowboy Bebop; Click to view more'/></a>
+<a class='fancybox' rel='cowboy_crew' href='/images/cowboy_bebop/crew1.jpg'></a>
+
+<a class='fancybox' rel='samurai_crew' href='/images/samurai_champloo/theme.jpg'><img src='/images/samurai_champloo/theme.jpg' alt='Samurai的浮世绘风格是大受好评的'></a>
+
+
+不得不说，渡边的作品都很懒。不管是名噪一时的*Cowboy Bebop*，还是后来略低调的*Samurai Champloo*，主人公们的懒散都是刻画的一个重点。同其他大多动漫每集二十多分钟充斥各种悬疑、惊险、或是fantasy的做法不同，渡边的镜头里常会有主角们静默发呆的镜头，仅仅通过他们的表情和背景音乐来传递里面的微妙情感。
+
+<div>
+<a class='fancybox' rel='silence' href='/images/cowboy_bebop/spike_silent.png'><img width=100 style='margin: 15px; margin-top: 30px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888;float: left' src='/images/cowboy_bebop/spike_silent_thumbnail.jpg'/></a> 
+<a class='fancybox' rel='silence' href='/images/samurai_champloo/mugen_silent.jpg'><img width=100 style='margin: 15px; margin-top: 30px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888; float: right' src='/images/samurai_champloo/mugen_silent_thumbnail.jpg'/></a>
+</div>
+
+有大批人表示渡边这种吞吞吐吐的风格很小儿科：“看了20集没懂说什么！”；“没有主线到底是要怎样！”；“每集一个路人角色累死观众么！”即便是一些渡边的死忠也表示对很多剧情不能理解--最明显的莫过于*Samurai Champloo*的结局：三个刚刚为互相卖命并结下深深羁绊的人就这样在十字路口挥一挥手分道扬镳。。。*就这样？*看惯民工漫里遍地打肿脸说煽情话的观众们表示这不科学了：最后没有*爱情*，也至少有个*基情*吧！而等完整个credit依然没看到其中任何人回头的人也只能自扇巴掌了--“渡边果然不是一般的*COOL*啊。”
+
+开始我也觉得有点小心酸；就像一直呆久了的人总会希望对方对自己有所怀恋；但是听着收尾那大气的*Hip Hop*我觉得有点明白了。其实渡边一直就是一个enjoy描写旅途的人。在他的眼中生活没有一个开始，也没有一个完满的结尾，有的只是延绵不断的过程。一个真实的存在过的角色可以有属于他自己独特的过去、现在和未来，但却很难像大部分影视作品中描写的那样，能把他的经历浓缩成一部惊心动魄、前承后合、逻辑通顺的500分钟人生剪影。也许当每个人回忆自己的人生，都会像渡边描写的情节那样的*琐碎* 吧--每一集都是人生旅程中互相独立的一点小事，虽然没有500分钟的悬疑大剧来的刺激过瘾，但每每想起这些既没特意去记也没特意去忘的细节，总会忍不住淡淡一笑。
+
+记得从前读过的哲学书上讨论过的一个问题：现在的我是不是过去的那个我？这个问题看似简单，但到现在也没人想透。也许真的像钱老先生在*《围城》*里说的
+
+> （方鸿渐）他想现在想到重逢唐晓芙的可能性，木然无动于中，真见了面，准也如此。缘故是一年前爱她的自己早死了，爱她，怕苏文纨，给鲍小姐诱惑这许多自己，一个个全死了。有几个死掉的自己埋葬在记忆里，立碑志墓，偶一凭吊，像对唐晓芙的一番情感。有几个自己，仿佛是路毙的，不去收拾，让它们烂掉化掉，给鸟兽吃掉——不过始终消灭不了，譬如向爱尔兰人买文凭的自己。 
+
+所以当问起人生是什么，我想人生是跟皮影戏差不多的东西。千千万万个相似却又不同的被称做’我‘的影子，在千千万万个过去、现在、将来的互不干涉的时空里演着没有开始，没有结局，只有过程的小故事。人也是自然界里的一份子，虽然是一种高级动物，但却也逃不离*熵*的运作--每份经历和回忆，总会从一开始的连贯通顺，变成最后的一锅浆糊。你也许不再记得十年前那个女孩的名字，但是你却记得午后她低头的那个侧脸；你也许不再记得当年的自己喜欢哪个偶像，听什么歌，看什么片子，但却记得当时某个瞬间的心跳；更有甚者，你不再记得关于此情此景的任何东西，却莫名地感到一丝淡淡的熟悉感。
+
+当走到那个路口，我想我应该可以潇洒地对过去挥一挥手，阔步向前。
+
+*See you cowgirl, someday, somewhere!*
+
