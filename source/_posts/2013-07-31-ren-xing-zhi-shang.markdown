@@ -15,9 +15,9 @@ categories: [ACG, thoughts]
 
 不得不说，渡边的作品都很懒。不管是名噪一时的*Cowboy Bebop*，还是后来略低调的*Samurai Champloo*，主人公们的懒散都是刻画的一个重点。同其他大多动漫每集二十多分钟充斥各种悬疑、惊险、或是fantasy的做法不同，渡边的镜头里常会有主角们静默发呆的镜头，仅仅通过他们的表情和背景音乐来传递里面的微妙情感。
 
-<div>
-<a class='fancybox' rel='silence' href='/images/cowboy_bebop/spike_silent.png'><img width=100 style='margin: 15px; margin-top: 30px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888;float: left' src='/images/cowboy_bebop/spike_silent_thumbnail.jpg'/></a> 
-<a class='fancybox' rel='silence' href='/images/samurai_champloo/mugen_silent.jpg'><img width=100 style='margin: 15px; margin-top: 30px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888; float: right' src='/images/samurai_champloo/mugen_silent_thumbnail.jpg'/></a>
+<div style='margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto; width: 300px'>
+<a class='fancybox' rel='silence' href='/images/cowboy_bebop/spike_silent.png'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='/images/cowboy_bebop/spike_silent_thumbnail.jpg'/></a> 
+<a class='fancybox' rel='silence' href='/images/samurai_champloo/mugen_silent.jpg'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='/images/samurai_champloo/mugen_silent_thumbnail.jpg'/></a>
 </div>
 
 有大批人表示渡边这种吞吞吐吐的风格很小儿科：“看了20集没懂说什么！”；“没有主线到底是要怎样！”；“每集一个路人角色累死观众么！”即便是一些渡边的死忠也表示对很多剧情不能理解--最明显的莫过于*Samurai Champloo*的结局：三个刚刚为互相卖命并结下深深羁绊的人就这样在十字路口挥一挥手分道扬镳。。。*就这样？*看惯民工漫里遍地打肿脸说煽情话的观众们表示这不科学了：最后没有*爱情*，也至少有个*基情*吧！而等完整个credit依然没看到其中任何人回头的人也只能自扇巴掌了--“渡边果然不是一般的*COOL*啊。”
