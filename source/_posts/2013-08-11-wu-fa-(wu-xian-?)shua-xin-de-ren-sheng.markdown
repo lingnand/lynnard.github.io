@@ -6,13 +6,20 @@ comments: true
 categories: [IT, thoughts]
 ---
 
+<div>
+    <style>
+    .icon { 
+        margin : 7px; 
+    }
+    </style>
+</div>
+
 不知从什么时候开始对下列图标产生一种莫名的恐惧感
 
-<div style='width:200px; margin:0 auto'>
-    <img src='/images/refresh/refresh_icon_ios1.png' width=20 height=20 style='margin:10px'>
-    <img src='/images/refresh/refresh_icon_ios2.gif' width=20 height=20 style='margin:10px'>
-    <img src='/images/refresh/refresh_icon_android.png' width=20 height=20 style='margin:10px'>
-</div>
+->{% img icon /images/refresh/refresh_icon_ios1.png 20 20 %}
+{% img icon /images/refresh/refresh_icon_ios2.gif 20 20 %}
+{% img icon /images/refresh/refresh_icon_android.png 20 20 %}<-
+
 
 回想起来，最早对这类图标的认识来源于浏览器--对于大部分网页来说，refresh的意思更接近于reset，作用是快速地回到那个初始的、你所熟悉的状态。然而现在这类图标被广泛地使用于各类信息类应用：比如社交类的人人、微博、facebook，新闻类的flipboard、新浪，etc。在这些应用中，刷新意味着更新，而每次更新都意味着看到这样的画面
 
@@ -30,6 +37,6 @@ categories: [IT, thoughts]
 
 > To sell a product to a customer, you have to make the customer believe in its beauty.
 
-对于很多人来说Steve是一个怪人。他深信禅（Zen）的作用，终日满身臭气（这在晚年有所改善）；他常常纠结于细节，比如在做呈现（presentation）的时候关于展品的位置都要反复实验。但是对于很多人来说他也不是那么陌生。因为虽然他本人可能难以被理解，他的*工艺品*却得到了广泛的认同甚至追捧。他骨子里是那个次世代的*木匠*，总是举着锥子雕磨自己作品的每个细节不肯放手。但是就是这样的被时代抛弃的怪人，却通过他的作品给我们带来了一些那些曾经的，来自于*次世代*的感动。
+对于很多人来说Steve是一个怪人。他深信禅（Zen）的作用，终日满身臭气（这在晚年有所改善）；他常常纠结于细节，比如在做呈现的时候关于展品的位置都要反复实验。但是对于很多人来说他也不是那么陌生。因为虽然他本人可能难以被理解，他的*工艺品*却得到了广泛的认同甚至追捧。他骨子里是那个次世代的*木匠*，总是举着锥子雕磨自己作品的每个细节不肯放手。但是就是这样的被时代抛弃的怪人，却通过他的作品给我们带来了一些那些曾经的，来自于*次世代*的感动。
 
 
