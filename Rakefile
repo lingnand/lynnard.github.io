@@ -115,6 +115,31 @@ task :new_draft, :title do |t, args|
   end
 end
 
+# usage rake new_draft_edit[my-new-draft] or rake new_draft_edit['my new draft'] or rake new_draft_edit (defaults to "new-draft")
+desc "Begin a new draft in #{source_dir}/#{drafts_dir} and edit it"
+task :new_draft_edit, :title do |t, args|
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  mkdir_p "#{source_dir}/#{drafts_dir}"
+  args.with_defaults(:title => 'new-draft')
+  title = args.title
+  filename = "#{source_dir}/#{drafts_dir}/#{title.to_url}.#{new_post_ext}"
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+  puts "Creating new draft: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    # the date property can be toggled on or off to control whether automatic date setting should be used
+    post.puts "#date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "comments: true"
+    post.puts "published: false"
+    post.puts "categories: "
+    post.puts "---"
+  end
+  system(ENV['EDITOR'] + ' ' + filename)
+end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
@@ -140,6 +165,33 @@ task :new_post, :title do |t, args|
     post.puts "categories: "
     post.puts "---"
   end
+end
+
+# usage rake new_post_edit[my-new-post] or rake new_post_edit['my new post'] or rake new_post_edit (defaults to "new-post")
+desc "Begin a new post in #{source_dir}/#{posts_dir} and edit it"
+task :new_post_edit, :title do |t, args|
+  if args.title
+    title = args.title
+  else
+    title = get_stdin("Enter a title for your post: ")
+  end
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  mkdir_p "#{source_dir}/#{posts_dir}"
+  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "comments: true"
+    post.puts "categories: "
+    post.puts "---"
+  end
+  system(ENV['EDITOR'] + ' ' + filename)
 end
 
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")
