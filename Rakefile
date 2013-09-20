@@ -97,7 +97,7 @@ task :new_draft, :title do |t, args|
   mkdir_p "#{source_dir}/#{drafts_dir}"
   args.with_defaults(:title => 'new-draft')
   title = args.title
-  filename = "#{source_dir}/#{drafts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  filename = "#{source_dir}/#{drafts_dir}/#{title.to_url}.#{new_post_ext}"
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -106,6 +106,8 @@ task :new_draft, :title do |t, args|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    # the date property can be toggled on or off to control whether automatic date setting should be used
+    post.puts "#date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "comments: true"
     post.puts "published: false"
     post.puts "tags: "
