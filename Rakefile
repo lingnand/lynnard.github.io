@@ -106,7 +106,7 @@ task :new_draft, :title do |t, args|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-    # the date property can be toggled on or off to control whether automatic date setting should be used
+    post.puts "#uncomment the next line to use the creation date"
     post.puts "#date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "comments: true"
     post.puts "published: false"
@@ -131,7 +131,7 @@ task :new_draft_edit, :title do |t, args|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-    # the date property can be toggled on or off to control whether automatic date setting should be used
+    post.puts "#uncomment the next line to use the creation date"
     post.puts "#date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "comments: true"
     post.puts "published: false"
