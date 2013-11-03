@@ -55,4 +55,4 @@ published: true
 
 Since it's just a small file, I'm too lazy to put it up to any git repo. Instead I'm just going to show the whole source file here:
 
-{% include_code lang:bash octopress %}
+{% include_code octopress.sh %}
