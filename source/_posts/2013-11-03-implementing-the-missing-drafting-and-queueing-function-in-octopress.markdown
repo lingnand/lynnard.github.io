@@ -53,4 +53,4 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 
 Since it's just a small file, I'm too lazy to put it up to any git repo. Instead I'm just going to show the whole source file here:
 
-{% include_code octopress octopress.sh %}
+{% include_code octopress octopress %}
