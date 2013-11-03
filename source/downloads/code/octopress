@@ -1,6 +1,6 @@
 #! /bin/sh
 # providing two commands: rake / update
-OCTOPRESS_HOME="$HOME/Repos/[LN]/lynnard.github.com"
+OCTOPRESS_HOME="$HOME/DB/indie/lynnard.github.com"
 # some environment variables
 OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
 OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
