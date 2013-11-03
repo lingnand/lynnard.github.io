@@ -16,11 +16,9 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 1. Like in Dennis'es original post, two new folders called `_drafts` and `_queue` are added to the `source` directory to hold drafts and queued posts respectively.
 2. Again, just like in the original post, you can put any markdown files within the `_drafts` folder; as soon as there's the `published: true` property within the YAML front matters like this
 
-```
----
-published: true
----
-```
+        ---
+        published: true
+        ---
 
     Then the draft will be moved to the `_queue` folder
 3. All the files within the `_queue` folder will be checked for its `date` property in the YAML front matters; if it's before the current time, then the file will be moved to the `_posts` folder for publishing
