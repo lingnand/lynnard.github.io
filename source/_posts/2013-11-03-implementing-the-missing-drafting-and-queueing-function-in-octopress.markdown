@@ -16,11 +16,11 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 1. Like in Dennis'es original post, two new folders called `_drafts` and `_queue` are added to the `source` directory to hold drafts and queued posts respectively.
 2. Again, just like in the original post, you can put any markdown files within the `_drafts` folder; as soon as there's the `published: true` property within the YAML front matters like this
 
-    ```
-    ---
-    published: true
-    ---
-    ```
+```
+---
+published: true
+---
+```
 
     Then the draft will be moved to the `_queue` folder
 3. All the files within the `_queue` folder will be checked for its `date` property in the YAML front matters; if it's before the current time, then the file will be moved to the `_posts` folder for publishing
@@ -34,12 +34,12 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 
     What all these mean is that the minimal setup you'd need to have for a post is
 
-    #### Either
+    **Either**
 
     a. touch a new file in `_drafts` with its file name as the title
     b. when finished, add `published: true` to the top (don't forget the triple dashes)
 
-    #### OR
+    **OR**
 
     a. touch a new file anywhere with its file name as the title
     b. when finished, move it to `_queue`; the file will then be published during the next update
@@ -55,4 +55,4 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 
 Since it's just a small file, I'm too lazy to put it up to any git repo. Instead I'm just going to show the whole source file here:
 
-{% include_code octopress lang:bash downloads/code/octopress %}
+{% include_code octopress lang:bash octopress %}
