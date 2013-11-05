@@ -6,7 +6,7 @@ title: "Implementing the missing drafting and queueing function in Octopress"
 #date: 2013-09-21 10:40
 comments: true
 published: true
-categories: [octopress, sh, tech, english]
+categories: [octopress, sh, tech, en]
 ---
 
 It's been a while since I first started using Octopress. Its simple and elegant way of writing has now become my *de facto* standard of writing, but there are still things to be desired. For one thing, the workflow consisting of *writing, commiting, compiling and deploying* is still not *lazy* enough; ideally the only thing that should be required of the writer is *to write*. Inspired by Dennis Wegner in his [Synced and scheduled blogging with Octopress](http://instant-thinking.de/2012/08/03/synced-and-scheduled-blogging-with-octopress/), I worked on a bash script to allow for friction-free, painless deployment process that goes totally automatic underhood.

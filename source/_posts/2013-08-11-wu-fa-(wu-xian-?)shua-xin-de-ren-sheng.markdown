@@ -3,7 +3,7 @@ layout: post
 title: "无法（无限？）刷新的人生"
 date: 2013-08-11 13:36
 comments: true
-categories: [IT, thoughts, chinese]
+categories: [IT, thoughts, cn]
 ---
 
 <div>
