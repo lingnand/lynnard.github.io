@@ -264,7 +264,7 @@ Some interesting `Query Bool`s I've made:
 * `isInCurrentWorkspace`: matches windows in the current workspace
 * `currentGroupQuery`: returns the `Query Bool` of the task group for the currently focused window
 
-What all remains is to use list comprehension to generate all the possible key-chords for the actions. So for the above example we will probably generate `Mod-[ v` `Mod-] v` `Mod-d v` `Mod-[ b` `Mod-] b` `Mod-d b`, etc.
+What all remains is to use list comprehension to generate all the possible key-chords for the actions. So for the above example we will probably generate `Mod-[ b` `Mod-] b` `Mod-d b` `Mod-[ z` `Mod-] z` `Mod-d z`, etc.
 
 ## <a id="float_style"></a>Float styles
 
