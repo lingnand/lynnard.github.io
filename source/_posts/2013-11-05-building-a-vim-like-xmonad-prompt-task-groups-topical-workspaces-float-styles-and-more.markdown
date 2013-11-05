@@ -66,7 +66,7 @@ What I miss from the start
 
     [jump to discussion](#wallpaper)
 
-OK, enough said. I think I might have left out a few features but there are already too much to talk about. 
+OK, enough said. I think I might have left out a few features but there is already too much to talk about. 
 
 Implementing the missing features
 =================================
@@ -113,7 +113,7 @@ The information system consists of a calculator (`calc` underneath) and a bunch 
 
 When checking definitions for words one can press `~` to switch between different dictionaries e.g. WordNet, Thesaurus, etc.
 
-Pressing `<Return>` for the calculator will copy the result into the clipboard whereas for the dictionaries will pronouce the word using `espeak`.
+Pressing `<Return>` for the calculator will copy the result into the clipboard whereas for the dictionaries will pronounce the word using `espeak`.
 
 A screenshot of the calculator:
 
@@ -125,7 +125,7 @@ And an example of using Chinese dictionaries:
 
 ### Vimb prompt
 
-Vimb stores history and bookmarks in plain-text and that makes building a prompt for it (think about Omnibox for Firefox) a breeze. My implementation just repeatly greps the words on the prompt in Vimb's bookmark and history file and outputs the result in formatted columns; and when the input is empty shows the last 10 visited URLs.
+Vimb stores history and bookmarks in plain-text and that makes building a prompt for it (think about Omnibox for Firefox) a breeze. My implementation just repeatedly greps the words on the prompt in Vimb's bookmark and history file and outputs the result in formatted columns; and when the input is empty shows the last 10 visited URLs.
 
 ->![](images/xmonad/prompt_vimb.png)<-
 
