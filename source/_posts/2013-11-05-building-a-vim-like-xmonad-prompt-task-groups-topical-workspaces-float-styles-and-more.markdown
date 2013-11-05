@@ -6,7 +6,7 @@ title: "Building a Vim-like XMonad -- Prompt, Task Groups, Topical Workspaces, F
 #date: 2013-09-21 10:38
 comments: true
 published: true
-categories: 
+categories: [xmonad, vim, haskell]
 ---
 
 About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using - or rather stuck with - is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently. 
