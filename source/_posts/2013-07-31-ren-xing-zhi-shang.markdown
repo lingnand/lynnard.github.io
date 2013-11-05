@@ -3,7 +3,7 @@ layout: post
 title: "人性之熵"
 date: 2013-07-31 15:02
 comments: true
-categories: [ACG, thoughts]
+categories: [ACG, thoughts, chinese]
 ---
 
 

@@ -6,7 +6,7 @@ title: "Pinboard synchronization with Vimb/Vimprobable bookmarks"
 #date: 2013-09-21 10:39
 comments: true
 published: true
-categories: [pinboard, vimb, sh]
+categories: [pinboard, vimb, sh, tech, english]
 ---
 
 When it comes to workflow, I'm a screen-estate *fascist* who disapproves of any 'extra' GUI elements like buttons and menu-bars. That's why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that's also the reason that I switched to [Vimb](https://github.com/fanglingsu/vimb)/[Vimprobable](http://www.vimprobable.org) from Vimperator in the end - if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?

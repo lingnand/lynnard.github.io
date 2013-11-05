@@ -3,7 +3,7 @@ layout: post
 title: "Lynnard's very first nerdy rant about blogging"
 date: 2013-07-30 12:08
 comments: true
-categories: 
+categories: [octopress, tech, english]
 ---
 
 Finally opened my own blogspace. I've been dreaming about this day for a *long, long* time but never got time to set it up properly. For one thing, the *common* blogging scene is so crowded with web-interface-backed alternatives such as Wordpress - which at best is cumbersome and not *hacker-minded*. An easy dig around the net reveals to me the gem in the sea: **Octopress**. 
