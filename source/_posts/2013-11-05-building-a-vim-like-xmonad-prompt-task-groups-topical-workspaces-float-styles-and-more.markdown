@@ -18,12 +18,24 @@ As the title indicates, my starting point is with Vim in mind. For me Vim is suc
 What I miss from the start
 ==========================
 
-1. `Mod-o` and `Mod-i` to navigate through the window history [jump to discussion](#window_history)
-2. better splitter and buffer *(window)* integration; allow each split window to show multiple buffers *(windows)* [jump to discussion](#splitter)
-3. improved command line control through [XMonad.Prompt](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html); especially integrate frequently-used commands into the prompt to make a dynamic system like [Alfred](http://alfredapp.com) [jump to discussion](#prompt)
-4. topical workspaces with terminals starting inside with custom directories (there are implementations for this in Contrib but I don't think the approach is elegant enough) [jump to discussion](#topical_workspace)
-5. dynamic renaming, reorganization, removement of workspaces; but at the same time each workspace should still be linked to a shortcut i.e. `Mod-1` to `Mod-9`, `Mod--` and `Mod-=` [jump to discussion](#dynamic_workspace)
-6. `Mod-/` to search the windows; `Mod-m` and `Mod-'` to mark windows and jump to them [jump to discussion](#window_jumping)
+1. `Mod-o` and `Mod-i` to navigate through the window history 
+
+    [jump to discussion](#window_history)
+2. better splitter and buffer *(window)* integration; allow each split window to show multiple buffers *(windows)* 
+
+    [jump to discussion](#splitter)
+3. improved command line control through [XMonad.Prompt](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html); especially integrate frequently-used commands into the prompt to make a dynamic system like [Alfred](http://alfredapp.com) 
+
+    [jump to discussion](#prompt)
+4. topical workspaces with terminals starting inside with custom directories (there are implementations for this in Contrib but I don't think the approach is elegant enough) 
+
+    [jump to discussion](#topical_workspace)
+5. dynamic renaming, reorganization, removement of workspaces; but at the same time each workspace should still be linked to a shortcut i.e. `Mod-1` to `Mod-9`, `Mod--` and `Mod-=` 
+
+    [jump to discussion](#dynamic_workspace)
+6. `Mod-/` to search the windows; `Mod-m` and `Mod-'` to mark windows and jump to them 
+
+    [jump to discussion](#window_jumping)
 7. manage windows in groups according to their different roles/tasks; I call them *task groups*. More specifically
     * `Mod-] <specifier>` and `Mod-[ <specifier>` cycles through the particular group
     * `Mod-d <specifier>` quits all windows in that group
@@ -41,10 +53,18 @@ What I miss from the start
         t   --> idle xterms
         S-t --> all other xterms
 
-    Note that as a convenience a special specifier is designed for each action. For example, `Mod-] <specifier>` and `Mod-[ <specifier>` have specifiers `[` and `]` that will cycle through the *current group* (the group of the currently focused window); similarly pressing `Mod-d d` will delete windows in the current group. [jump to discussion](#task_group)
-8. expanding on the concept of task group in the previous point, each group has its particular *float styles* and pressing `Mod-t` and `Mod-S-t` shall cycle forward/backward through these styles. For example, I have defined for my `ranger` instances such that pressing `M-t` once will make it float and occupy the lower half of the screen; pressing it again makes it occupy the upper half of the screen; a third time sinks it back into the layout. [jump to discussion](#float_style)
-9. able to toggle a few windows on and off (floating). Think of it as the dock in the Mac OS system; sometimes you need it but sometimes you don't; and the best way to make it readily available without clustering the workspace is to have it hidden in the background and activated via a key. This is essentially [XMonad.Util.Scratchpad](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Util-Scratchpad.html) from Contrib; however, the original scratchpad does not provide workspace-specific scratchpads, so all workspaces have to share the same scratchpad. My extension will work around this limitation and allow a different scratchpad in each workspace, toggled with the same key sequence. [jump to discussion](#scratchpad)
-10. a wallpaper system that allows easy previewing and changing of the wallpaper. Press `M-x` to make all windows half-transparent to show the wallpaper (I call this *gallery mode*); press it again to go back to normal mode. Press `M-S-x` to switch to the next random wallpaper - if it's in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it's already in gallery mode, do nothing more. [jump to discussion](#wallpaper)
+    Note that as a convenience a special specifier is designed for each action. For example, `Mod-] <specifier>` and `Mod-[ <specifier>` have specifiers `[` and `]` that will cycle through the *current group* (the group of the currently focused window); similarly pressing `Mod-d d` will delete windows in the current group. 
+
+    [jump to discussion](#task_group)
+8. expanding on the concept of task group in the previous point, each group has its particular *float styles* and pressing `Mod-t` and `Mod-S-t` shall cycle forward/backward through these styles. For example, I have defined for my `ranger` instances such that pressing `M-t` once will make it float and occupy the lower half of the screen; pressing it again makes it occupy the upper half of the screen; a third time sinks it back into the layout. 
+
+    [jump to discussion](#float_style)
+9. able to toggle a few windows on and off (floating). Think of it as the dock in the Mac OS system; sometimes you need it but sometimes you don't; and the best way to make it readily available without clustering the workspace is to have it hidden in the background and activated via a key. This is essentially [XMonad.Util.Scratchpad](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Util-Scratchpad.html) from Contrib; however, the original scratchpad does not provide workspace-specific scratchpads, so all workspaces have to share the same scratchpad. My extension will work around this limitation and allow a different scratchpad in each workspace, toggled with the same key sequence. 
+
+    [jump to discussion](#scratchpad)
+10. a wallpaper system that allows easy previewing and changing of the wallpaper. Press `M-x` to make all windows half-transparent to show the wallpaper (I call this *gallery mode*); press it again to go back to normal mode. Press `M-S-x` to switch to the next random wallpaper - if it's in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it's already in gallery mode, do nothing more. 
+
+    [jump to discussion](#wallpaper)
 
 OK, enough said. I think I might have left out a few features but there are already too much to talk about. 
 
