@@ -105,13 +105,13 @@ This is precisely the reason why I've changed almost all my applications to thos
 
 Prompts are an interesting addition to XMonad as they allow manual tasks to be performed anywhere and anytime in an unintrusive manner. However, I'm not entirely satisfied by the line of prompt systems included in Contrib - most of them only allow input, and have neglected another important feature of prompt - showing real-time output of the query. This can be best illustrated by Spotlight from Mac OS X or better yet, Alfred. Both apps attempt to show the user search results from the query and allow the user to easily go to any result. I feel that XMonad's Prompt should do the same thing.
 
-Here I'll list a few prompt systems I've designed myself. Some are more complicated than others (might span a couple hundred of lines of code) and I won't indulge into the details. To better understand how a prompt system should be written it's better to consult the documentation directly at [XMonad.Prompt](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html). The main purpose here is more about showing what we can do rather than how it can be done.
+Here I'll list a few prompt systems I've designed myself. Some are more complicated than others (might span a couple hundred of lines of code) and I won't indulge into the details. To better understand how a prompt system should be written it's better to consult the documentation directly at [XMonad.Prompt](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html). The main purpose here is to show what we can do rather than how it can be done.
 
 ### Information system 
 
 The information system consists of a calculator (`calc` underneath) and a bunch of dictionaries (`sdcv` underneath). Press `Mod-c <character>` will activate the corresponding prompt i.e. `Mod-c <digit>` activates the calculator and puts that digit into the prompt whereas `Mod-c <letter>` activates the dictionaries and again puts that first letter into the prompt. In addition `Mod-c <Return>` will activate the prompt taking the words from the clipboard as the input.
 
-When checking definitions for words one can press `~` to switch between different dictionaries e.g. WordNet, Thesaurus, etc.
+When checking definitions for words one can press `` ` `` to switch between different dictionaries e.g. WordNet, Thesaurus, etc.
 
 Pressing `<Return>` for the calculator will copy the result into the clipboard whereas for the dictionaries will pronounce the word using `espeak`.
 
