@@ -88,7 +88,7 @@ To have *multiple buffers in the same splitter*, or in other words, *multiple wi
 
 *Note: the original tiled tab groups seem to have a few bugs to prevent consistent redrawing of the tablines. If you encounter any such problems you can contact me for a fix*
 
-A preview of the effect
+A preview of the effect:
 
 ->![](images/xmonad/splitter.png)<-
 
@@ -204,7 +204,7 @@ The searching of tags, again, is achieved via a prompt.
 
 There is already [XMonad.Actions.DynamicWorkspaces](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Actions-DynamicWorkspaces.html) but I feel like wanting a little more.
 
-What I've added upon it
+What I've added upon it:
 
 ### Assign each workspace to a symbol
 
@@ -259,7 +259,8 @@ Using `ifWindows` from [XMonad.Actions.WindowGo](http://hackage.haskell.org/pack
 
 To ensure mutual exclusion among groups I've also made it such that the task group of a window will be the first matched group in the definition list i.e. so in the above example, a vimb instance will never be considered a zathura instance.
 
-Some interesting `Query Bool`s I've made
+Some interesting `Query Bool`s I've made:
+
 * `isInCurrentWorkspace`: matches windows in the current workspace
 * `currentGroupQuery`: returns the `Query Bool` of the task group for the currently focused window
 
