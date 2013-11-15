@@ -16,7 +16,7 @@ For people who've used Vim extensively and exclusively, you've probably seen thi
 
 ->![](images/vim/swap_warning.png)<-
 
-For most cases this glaring warning is there just because you've forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I've been thinking of an addition to Vim that:
+For most cases this glaring warning is there just because you've forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I've been thinking of an extension to Vim that:
 
 1. whenever a file with an existing swap is asked to be opened, instead of showing the message, jump to that editing session of Vim and switch to the file in question
 2. when a file is asked to be opened check whether there is already some Vim instance lying around in the current workspace; if yes, then forward that request to the existing instance
@@ -28,21 +28,23 @@ One can argue that such features should come shipped with any modern editor - bu
 
 To start with, [wmctrl][wmctrl] is a little program that interacts with your window manager on the command line (yes that is possible). The most useful features include listing the workspaces, checking for window information, jumping to a specific window based on title or window ID.
 
-The other piece of the puzzle is Vim's own server-client feature, which I've somehow looked over in the past. It's actually very simple: to start a server-enabled Vim
+The other piece of the puzzle is Vim's own server-client feature, which I've somehow looked over in the past. It's actually very simple: 
 
-    vim --servername <name> ARG1 ARG2 ARG3
+* To start a server-enabled Vim
 
-To send command to a server-enabled Vim
+        vim --servername <name> ARG1 ARG2 ARG3
 
-    vim --servername <name> --remote FILE1 FILE2
+* To send command to a server-enabled Vim
 
-This will connect to the vim by the server name and make it edit the files given in the rest of the arguments.
+        vim --servername <name> --remote FILE1 FILE2
 
-To query information regarding the remote vim, you can use
+    This will connect to the vim by the server name and make it edit the files given in the rest of the arguments.
+
+* To query information regarding the remote vim, you can use
 
     vim --servername <name> --remote-expr {expr}
 
-This will connect to the vim server, evalute `{expr}` in it and print the result on stdout.
+    This will connect to the vim server, evalute `{expr}` in it and print the result on stdout.
 
 Another interesting discovery of mine is that Vim actually includes a plugin called `editexisting.vim` for the default installation. This will be the script we build upon.
 
