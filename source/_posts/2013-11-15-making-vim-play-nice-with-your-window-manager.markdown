@@ -16,7 +16,7 @@ For people who've used Vim extensively and exclusively, you've probably seen thi
 
 ->![](images/vim/swap_warning.png)<-
 
-For most cases this glaring warning is there just because you've forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I've been thinking of such addition to Vim:
+For most cases this glaring warning is there just because you've forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I've been thinking of an addition to Vim that:
 
 1. whenever a file with an existing swap is asked to be opened, instead of showing the message, jump to that editing session of Vim and switch to the file in question
 2. when a file is asked to be opened check whether there is already some Vim instance lying around in the current workspace; if yes, then forward that request to the existing instance
