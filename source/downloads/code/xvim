@@ -1,0 +1,45 @@
+#!/bin/sh
+dname="`wmctrl -d | awk '$2=="*"{print $1}'`"
+# get the pid of all available vim instances
+output="`wmctrl -lp`"
+vim --serverlist | (while read line; do
+    pid="`vim --servername "$line" --remote-expr 'getpid()'`"
+    # try to get the pid that works
+    while true; do
+        wtitle="`awk '$3=='"$pid"'{
+            if ($2=="'"$dname"'") {
+                for(i=5; i<NF; i++)
+                    printf "%s ", $i 
+                print $NF
+            } else
+                exit 1
+        }' <<< "$output"`"
+        #echo "wid found is $wid"
+        if [ "$?" == 0 ]; then
+            if [ -n "$wtitle" ]; then
+                # we should try to navigate to this window and ask the window to open the required files
+                wmctrl -a "$wtitle"
+                vim --servername "$line" --remote "$@"
+                exit
+            else
+                pid="`ps -o ppid= -p $pid`"
+                ! [ "$?" == 0 ] && break
+            fi
+        else
+            break
+        fi
+    done
+    srvnames+=(":$line:")
+done
+
+#echo "all servernames found: ${srvnames[@]}"
+
+c=0
+while true; do
+    srvname="VIM @$dname.$c"
+    ! [[ "${srvnames[@]}" = *:"$srvname":* ]] && break
+    c=$((c+1))
+done
+
+# start a new vim instance with a unique servername
+xterm -e loader vim --servername "$srvname" "$@" &)
