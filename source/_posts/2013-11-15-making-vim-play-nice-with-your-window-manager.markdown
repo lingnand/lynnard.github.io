@@ -68,7 +68,7 @@ This is best shown in code
 
 The above code will print the title of the window given a process id. To use it in the vimscript:
 
-```vimscript
+```vim
 let pid = remote_expr(servername, "getpid()")
 " execute the wmctrl command
 call system("wmctrl -a \"`wtitle " . pid . "`\"")
