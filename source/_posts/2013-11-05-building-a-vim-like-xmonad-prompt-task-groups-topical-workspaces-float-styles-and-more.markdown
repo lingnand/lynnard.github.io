@@ -90,7 +90,7 @@ To have *multiple buffers in the same splitter*, or in other words, *multiple wi
 
 A preview of the effect:
 
-->![](images/xmonad/splitter.png)<-
+->![](/images/xmonad/splitter.png)<-
 
 An implication of this change is that now *EVERY WINDOW* becomes a tab. Additionally, new windows won't change the outer layout in anyway - they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don't need [suckless tabbed](http://tools.suckless.org/tabbed/) for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can't be shared across in this way). Just a few reasons why this is so much better:
 
@@ -117,23 +117,23 @@ Pressing `<Return>` for the calculator will copy the result into the clipboard w
 
 A screenshot of the calculator:
 
-->![](images/xmonad/prompt_calc.png)<-
+->![](/images/xmonad/prompt_calc.png)<-
 
 And an example of using Chinese dictionaries:
 
-->![](images/xmonad/prompt_dict.png)<-
+->![](/images/xmonad/prompt_dict.png)<-
 
 ### Vimb prompt
 
 Vimb stores history and bookmarks in plain-text and that makes building a prompt for it (think about Omnibox for Firefox) a breeze. My implementation just repeatedly greps the words on the prompt in Vimb's bookmark and history file and outputs the result in formatted columns; and when the input is empty shows the last 10 visited URLs.
 
-->![](images/xmonad/prompt_vimb.png)<-
+->![](/images/xmonad/prompt_vimb.png)<-
 
 ### Taskwarrior prompt
 
 I was once attracted by [Taskwarrior](http://taskwarrior.org) and had since written a complete prompt system for it. Pressing `<tab>` and `<S-tab>` will autocomplete tasks and it also shows the real-time output for the filters used in the command. In addition, it autocompletes projects, due times, commands, etc. I've also integrated `taskopen` into the system such that pressing `<Return>` on any focused task automatically opens the notes file for it. 
 
-->![](images/xmonad/prompt_task.png)<-
+->![](/images/xmonad/prompt_task.png)<-
 
 ## <a id="topical_workspace"></a>Topical workspaces
 
@@ -198,7 +198,7 @@ Then the task of switching to a particular topic is as simple as searching in th
 
 The searching of tags, again, is achieved via a prompt.
 
-->![](images/xmonad/prompt_ws_view.png)<-
+->![](/images/xmonad/prompt_ws_view.png)<-
 
 ## <a id="dynamic_workspace"></a>Dynamic workspaces
 

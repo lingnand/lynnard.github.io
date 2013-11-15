@@ -14,7 +14,7 @@ Motivation
 
 For people who've used Vim extensively and exclusively, you've probably seen this dreaded message a dozen of times
 
-->![](images/vim/swap_warning.png)<-
+->![](/images/vim/swap_warning.png)<-
 
 For most cases this glaring warning is there just because you've forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I've been thinking of an extension to Vim that:
 
