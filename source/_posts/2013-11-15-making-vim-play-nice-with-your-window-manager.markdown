@@ -6,7 +6,7 @@ title: "Making Vim play nice with your Window Manager"
 #date: 2013-11-15 22:00
 comments: true
 published: true
-categories: 
+categories: [en, vim, xmonad]
 ---
 
 Motivation
