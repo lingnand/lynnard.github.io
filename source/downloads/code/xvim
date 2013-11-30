@@ -42,4 +42,4 @@ while true; do
 done
 
 # start a new vim instance with a unique servername
-xterm -name xvim -e loader vim --servername "$srvname" "$@" &)
+xterm -name vim -e loader vim --servername "$srvname" "$@" &)
