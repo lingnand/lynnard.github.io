@@ -42,7 +42,7 @@ The other piece of the puzzle is Vim's own server-client feature, which I've som
 
 * To query information regarding the remote vim, you can use
 
-    vim --servername <name> --remote-expr {expr}
+        vim --servername <name> --remote-expr {expr}
 
     This will connect to the vim server, evalute `{expr}` in it and print the result on stdout.
 
