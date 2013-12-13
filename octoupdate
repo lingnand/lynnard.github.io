@@ -1,0 +1,170 @@
+#! /bin/sh
+# providing two commands: rake / update
+OCTOPRESS_HOME="`dirname $0`"
+# some environment variables
+OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
+OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
+OCTOPRESS_POSTS_DIR="$OCTOPRESS_SOURCE_DIR/_posts"
+OCTOPRESS_DRAFTS_DIR="$OCTOPRESS_SOURCE_DIR/_drafts"
+
+# $1 the portion of the output to search the property for
+# $2 the name of the property to extract the value for
+# the function uses stdin as input
+function valueForProperty() {
+    local value="`echo "$1" | egrep -m 1 "^$2: " | cut -d: -f2`"
+    # delete the proceeding space if there's any
+    echo "${value# }"
+}
+
+# return the file extension including the dot. If the file does not have an extension then return empty string
+function extOfPost() {
+    [[ "$1" = *.* ]] && echo ".${1##*.}" || echo ""
+}
+
+# $1 the file to check for YAML matters
+# $2 an optional toggle to indicate whether the YAML matters should be automatically created if found absent
+function YAMLFrontMatterOfPost() {
+    # first get to the YAML front matter section
+    local output="`egrep -n -m 2 '^---$' "$1" | cut -d: -f1`"
+    local yamlstart="`echo "$output" | head -n 1`"
+    local yamlend="`echo "$output" | sed -n 2p`"
+    
+    if ! ( [ "$yamlstart" = 1 ] && [ -n "$yamlend" ] ); then
+        if ${2:-true}; then
+            # we shall assume that the YAML front matters does not exist properly
+            # we shouldn't use sed because it doesn't work on newly created files...||
+            echo -e '---\n---\n' | cat - "$1" > /tmp/octopress.prepend && mv /tmp/octopress.prepend "$1"
+            yamlstart=1
+            yamlend=2
+        else
+            # we should just exit by this time
+            exit 1
+        fi
+    fi
+
+    torso -n"$yamlstart" -N"$yamlend" "$1"
+}
+
+# gives back the correct post name according to the attributes in the post
+# the function also scans the file and adds the needed attributes if they are not present
+#   - that is, date: and title:
+function fullNameOfPost() {
+    # we should first obtain the last modified date for the file in case that would be used for the modified date of the file
+    local lastMDate="`date -r "$1" '+%Y-%m-%d %H:%M'`"
+    local ext="`extOfPost "$1"`"
+
+    # note: first try to get all the required properties
+    local output="`YAMLFrontMatterOfPost "$1"`"
+    local title="`valueForProperty "$output" 'title'`"
+    local date="`valueForProperty "$output" 'date'`"
+    local layout="`valueForProperty "$output" 'layout'`"
+
+    title="${title#title: }"
+    # if the file does not contain a title field then we should probably use the filename and then echo this output into the file
+    if [ -z "$title" ]; then 
+        title="${1##*/}"
+        # eliminate the file extension
+        title="${title%.*}"
+        # eliminate the date time etc if that's present
+        title="${title#[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9]-}"
+        # insert the title at the second line
+        sed -i "2ititle: \"$title\"" "$1"
+    # remove the quotes around them if there's any
+    elif [[ "$title" = \"*\" ]]; then
+        title="${title#\"}"
+        title="${title%\"}"
+    fi
+    # we'd better escape the title before passing it to ruby
+    title=${title//\\/}
+    title=${title//\'/\\\'}
+    local ruby_cmd='require "stringex";puts '"'$title'"'.to_url'
+    title="`ruby -e "$ruby_cmd"`"
+
+    # we need to then check for the date (it can be the case that there's no date)
+    if [ -z "$date" ]; then
+        # we should use the last modified date of the file as the date
+        date="$lastMDate"
+        # put this date into the file
+        # we're sure that the first two lines at least would be title and ---, so we can insert at line 3
+        sed -i "3idate: $date" "$1"
+    fi
+    # cut the date string to reflect the real date
+    date="${date% *}"
+
+    # check for layout: post
+    if [ -z "$layout" ]; then
+        sed -i "2ilayout: post" "$1"
+    fi
+
+    # now echo the file name with extension
+    echo "$date-$title$ext"
+}
+
+# lock the instance
+[ "${FLOCKER}" != "$0" ] && exec env FLOCKER="$0" flock -en "$0" "$0" "$@" || :
+
+OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# first move the files in the draft to queue if the draft property is set to true
+echo "######## Checking for finished drafts ########"
+# try to find all the markdown and md files
+find "$OCTOPRESS_DRAFTS_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read draft
+do
+    # get the published property; if no published property is found then default to false
+    if [ "`valueForProperty "$(YAMLFrontMatterOfPost "$draft" false)" 'published'`" = 'true' ]; then
+        new_post_name="`fullNameOfPost "$draft"`"
+        echo "$draft: Published is true, moving to queue folder (renaming to $new_post_name)..."
+        mv -n "$draft" "$OCTOPRESS_QUEUE_DIR/$new_post_name"
+    fi
+done
+# second move the files in the queue to the post directory if the date specified is in the past
+echo "######## Checking for publishable posts in the queue ########"
+find  "$OCTOPRESS_QUEUE_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read post
+do
+    currDate="`date '+%s'`"
+
+    # get the post name to ensure that date etc are properly initiated
+    new_post_name="`fullNameOfPost "$post"`"
+    dateString="`valueForProperty "$(YAMLFrontMatterOfPost "$post")" 'date'`"
+    dateString="${dateString% *}"
+
+    postDate="`date -d "$dateString" '+%s'`"
+
+    if ((postDate < currDate)); then
+        echo "$post: Post date is in the past, moving to post folder (renaming to $new_post_name)..."
+        mv -n "$post" "$OCTOPRESS_POSTS_DIR/$new_post_name"
+    fi
+done
+
+echo "######## Checking for changes in the source directory ########"
+cd "$OCTOPRESS_HOME"
+to_update=false
+# first check if there is any change in the source branch; if there's then commit and update
+# diff --quiet checks whether there's change in the tracked files; the second command checks whether there's untracked file
+# the draft and queue folders are UNTRACKED; so you can basically do anything you want for the drafts 
+if ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+    echo "Changes to the octopress directory detected."
+    to_update=true
+elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
+    echo "No last update status found." 
+    to_update=true
+elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
+    echo "Last update failed."
+    to_update=true
+fi
+
+echo "######## Beginning update ########"
+if $to_update; then
+    echo "Commiting changes in the source branch..." 
+    # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
+    git add -A 
+    git commit -m "Source updated" 
+    echo "Generating the website..." \
+    && rake generate \
+    && echo 0 > "$OCTOPRESS_STATUS_FILE" \
+    || echo 1 > "$OCTOPRESS_STATUS_FILE"
+else
+    echo "Nothing to update."
+fi

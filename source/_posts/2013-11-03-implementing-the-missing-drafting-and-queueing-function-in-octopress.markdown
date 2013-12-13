@@ -53,20 +53,13 @@ It's been a while since I first started using Octopress. Its simple and elegant 
 
 You can download the whole source file [here](downloads/code/octopress). Below shows a preview of the code:
 
-```bash
+```
 case $1 in
     rake) 
         cd "$OCTOPRESS_HOME"
         rake "${@:2}"
         ;;
     update)
-        # lock the instance
-        [ "OCTOUPDATE$PPID" = "$LOCKRUNPID" ] || exec lockrun -qna OCTOUPDATE /tmp/lockrun.octoupdate "$0" "$@" || exit 1
-
-        OCTOPRESS_STATUS_FILE="$HOME/.octopress_update"
-        export LC_ALL=en_US.UTF-8
-        export LANG=en_US.UTF-8
-
         # first move the files in the draft to queue if the draft property is set to true
         echo "######## Checking for finished drafts ########"
         # try to find all the markdown and md files
