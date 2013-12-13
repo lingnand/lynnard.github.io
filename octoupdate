@@ -1,5 +1,6 @@
 #! /bin/sh
-# providing two commands: rake / update
+# options: -f (force update)
+
 OCTOPRESS_HOME="`dirname $0`"
 # some environment variables
 OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
@@ -144,7 +145,9 @@ to_update=false
 # first check if there is any change in the source branch; if there's then commit and update
 # diff --quiet checks whether there's change in the tracked files; the second command checks whether there's untracked file
 # the draft and queue folders are UNTRACKED; so you can basically do anything you want for the drafts 
-if ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+if [ "$1" = '-f' ] || [ "$1" = '--force' ]; then
+    to_update=true
+elif ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
     echo "Changes to the octopress directory detected."
     to_update=true
 elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
