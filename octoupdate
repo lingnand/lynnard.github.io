@@ -7,6 +7,10 @@ OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
 OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
 OCTOPRESS_POSTS_DIR="$OCTOPRESS_SOURCE_DIR/_posts"
 OCTOPRESS_DRAFTS_DIR="$OCTOPRESS_SOURCE_DIR/_drafts"
+OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
+OCTOPRESS_SRC_OWNCLOUD_DIR='/home/lingnan/data/ownCloud/lynnard/files/lynnardpress-src'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # $1 the portion of the output to search the property for
 # $2 the name of the property to extract the value for
@@ -104,9 +108,11 @@ function fullNameOfPost() {
 # lock the instance
 [ "${FLOCKER}" != "$0" ] && exec env FLOCKER="$0" flock -en "$0" "$0" "$@" || :
 
-OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+
+# before doing update we need to use rsync to retrieve latest changes in the sources from owncloud
+echo "######## Checking for ownCloud changes ########"
+rsync -avru --delete-excluded "$OCTOPRESS_SRC_OWNCLOUD_DIR/" "$OCTOPRESS_SOURCE_DIR/"
+rsync -avru --delete-excluded "$OCTOPRESS_SOURCE_DIR/" "$OCTOPRESS_SRC_OWNCLOUD_DIR/"
 
 # first move the files in the draft to queue if the draft property is set to true
 echo "######## Checking for finished drafts ########"
