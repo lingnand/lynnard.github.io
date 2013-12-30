@@ -112,7 +112,6 @@ function fullNameOfPost() {
 # before doing update we need to use rsync to retrieve latest changes in the sources from owncloud
 echo "######## Checking for ownCloud changes ########"
 rsync -vru --size-only --delete-excluded "$OCTOPRESS_SRC_OWNCLOUD_DIR/" "$OCTOPRESS_SOURCE_DIR/"
-rsync -vru --size-only --delete-excluded "$OCTOPRESS_SOURCE_DIR/" "$OCTOPRESS_SRC_OWNCLOUD_DIR/"
 
 # first move the files in the draft to queue if the draft property is set to true
 echo "######## Checking for finished drafts ########"
@@ -177,3 +176,6 @@ if $to_update; then
 else
     echo "Nothing to update."
 fi
+
+echo "######## Merging changes back to ownCloud ########"
+rsync -vru --size-only --delete-excluded "$OCTOPRESS_SOURCE_DIR/" "$OCTOPRESS_SRC_OWNCLOUD_DIR/"
