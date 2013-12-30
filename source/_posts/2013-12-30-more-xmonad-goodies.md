@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "xmonad-update"
-date: 2013-12-30 23:05
 title: "More XMonad goodies: 3-dimensional Workspace, Window Sorting and Shelving"
+date: 2013-12-30 23:37
 categories: [xmonad, en]
 ---
 
