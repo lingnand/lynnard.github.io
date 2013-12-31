@@ -2,6 +2,7 @@
 layout: post
 title: "More XMonad goodies: 3-dimensional Workspace, Window Sorting and Shelving"
 date: 2013-12-30 23:37
+comments: true
 categories: [xmonad, en]
 ---
 
@@ -38,7 +39,7 @@ Luckily, during my mulling over this, I turned to [XMonad.Layout.Groups](http://
 
 As I played around with the **Groups** source code, it turns out that further nesting of groups is indeed possible, with only minor tweaks and limitations. Simply open the source file for `XMonad.Layout.Groups` and add this function
 
-```
+```haskell
 group3 l l2 l3 = Groups g l3 start (U 2 0)
     where g = group l l2
           start = fromJust $ singletonZ $ G (ID (U 2 1) g) emptyZ
@@ -46,7 +47,7 @@ group3 l l2 l3 = Groups g l3 start (U 2 0)
 
 Then in your `xmonad.hs` you can use a *3-dimensional layout* like this
 
-```
+```haskell
 rectTabs = G.group3 (addTabs shrinkText myTabsTheme Simplest) (Mirror (zoomRowWith GroupEQ) ||| Full) (zoomRowWith GroupEQ ||| Full)
 ```
 

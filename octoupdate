@@ -8,7 +8,6 @@ OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
 OCTOPRESS_POSTS_DIR="$OCTOPRESS_SOURCE_DIR/_posts"
 OCTOPRESS_DRAFTS_DIR="$OCTOPRESS_SOURCE_DIR/_drafts"
 OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
-OCTOPRESS_SRC_OWNCLOUD_DIR='/home/lingnan/data/ownCloud/lynnard/files/lynnardpress-src'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -62,6 +61,7 @@ function fullNameOfPost() {
     local output="`YAMLFrontMatterOfPost "$1"`"
     local title="`valueForProperty "$output" 'title'`"
     local date="`valueForProperty "$output" 'date'`"
+    local comments="`valueForProperty "$output" 'comments'`"
     local layout="`valueForProperty "$output" 'layout'`"
 
     title="${title#title: }"
@@ -96,6 +96,11 @@ function fullNameOfPost() {
     # cut the date string to reflect the real date
     date="${date% *}"
 
+    # check for comments: true
+    if [ -z "$comments" ]; then
+        sed -i "3icomments: true" "$1"
+    fi
+
     # check for layout: post
     if [ -z "$layout" ]; then
         sed -i "2ilayout: post" "$1"
@@ -107,11 +112,6 @@ function fullNameOfPost() {
 
 # lock the instance
 [ "${FLOCKER}" != "$0" ] && exec env FLOCKER="$0" flock -en "$0" "$0" "$@" || :
-
-
-# before doing update we need to use rsync to retrieve latest changes in the sources from owncloud
-echo "######## Checking for ownCloud changes ########"
-rsync -vru --size-only --delete-excluded "$OCTOPRESS_SRC_OWNCLOUD_DIR/" "$OCTOPRESS_SOURCE_DIR/"
 
 # first move the files in the draft to queue if the draft property is set to true
 echo "######## Checking for finished drafts ########"
@@ -176,6 +176,3 @@ if $to_update; then
 else
     echo "Nothing to update."
 fi
-
-echo "######## Merging changes back to ownCloud ########"
-rsync -vru --size-only --delete-excluded "$OCTOPRESS_SOURCE_DIR/" "$OCTOPRESS_SRC_OWNCLOUD_DIR/"
