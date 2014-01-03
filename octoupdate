@@ -172,7 +172,10 @@ if $to_update; then
     echo "Generating the website..." \
     && rake generate \
     && echo 0 > "$OCTOPRESS_STATUS_FILE" \
+    && exit 0 \
     || echo 1 > "$OCTOPRESS_STATUS_FILE"
 else
     echo "Nothing to update."
 fi
+
+exit 1
