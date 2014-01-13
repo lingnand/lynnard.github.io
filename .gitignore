@@ -17,3 +17,11 @@ node_modules
 
 source/_drafts
 source/_queue
+
+*.SyncID
+*.SyncIgnore
+*.SyncTrash/*
+*.SyncArchive/*
+*.!Sync
+*.SyncPart
+*.SyncTemp
