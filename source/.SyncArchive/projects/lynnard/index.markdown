@@ -17,10 +17,3 @@ Credit
 ------
 
 Many many big thanks to [小i机器人](www.xiaoi.com). To be honest the current Lynnard is just a cheap rip-off of this great invention. But be patient: I already have some (great) ideas in mind.
-
-Change Log
-----------
-
-### 0.0.1
-
-Inception. Nothing too great to be mentioned about really.
