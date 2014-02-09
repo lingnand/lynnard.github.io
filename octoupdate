@@ -46,7 +46,7 @@ function YAMLFrontMatterOfPost() {
         fi
     fi
 
-    torso -n"$yamlstart" -N"$yamlend" "$1"
+    /home/lingnan/bin/torso -n"$yamlstart" -N"$yamlend" "$1"
 }
 
 # gives back the correct post name according to the attributes in the post
