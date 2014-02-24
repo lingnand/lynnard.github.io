@@ -119,14 +119,14 @@ After this lengthy explanation, you might jump up and say: *gosh, that's complic
 
 If you are familiar with `ranger`, you'd know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt - if you've given a file argument on the prompt, press another `Space` would trigger the previewing of that file argument.
 
-->![previewing a source file](/images/xmonad/widget_preview_source.png)<-
+->![](/images/xmonad/widget_preview_source.png)<-
 
-->![previewing a pdf file](/images/xmonad/widget_preview_pdf.png)<-
+->![](/images/xmonad/widget_preview_pdf.png)<-
 
-->![previewing a zip file](/images/xmonad/widget_preview_zip.png)<-
+->![](/images/xmonad/widget_preview_zip.png)<-
 
 ### Other widgets
 
-->![top](/images/xmonad/widget_top.png)<-
+->![Top](/images/xmonad/widget_top.png)<-
 
 ->![git](/images/xmonad/widget_git.png)<-
