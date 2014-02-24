@@ -7,7 +7,7 @@ OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
 OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
 OCTOPRESS_POSTS_DIR="$OCTOPRESS_SOURCE_DIR/_posts"
 OCTOPRESS_DRAFTS_DIR="$OCTOPRESS_SOURCE_DIR/_drafts"
-OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
+# OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -155,12 +155,12 @@ if [ "$1" = '-f' ] || [ "$1" = '--force' ]; then
 elif ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
     echo "Changes to the octopress directory detected."
     to_update=true
-elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
-    echo "No last update status found." 
-    to_update=true
-elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
-    echo "Last update failed."
-    to_update=true
+# elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
+#     echo "No last update status found." 
+#     to_update=true
+# elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
+#     echo "Last update failed."
+#     to_update=true
 fi
 
 echo "######## Beginning update ########"
@@ -169,11 +169,9 @@ if $to_update; then
     # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
     git add -A 
     git commit -m "Source updated" 
-    echo "Generating the website..." \
-    && rake generate \
-    && echo 0 > "$OCTOPRESS_STATUS_FILE" \
-    && exit 0 \
-    || echo 1 > "$OCTOPRESS_STATUS_FILE"
+    echo "Generating the website..."
+    rake generate
+    exit 0
 else
     echo "Nothing to update."
 fi
