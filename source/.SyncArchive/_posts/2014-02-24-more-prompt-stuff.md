@@ -33,31 +33,31 @@ What you'd normally do is probably like this:
 
 ### Step 1
 
-```
+~~~
 $ pwd
 /home/lingnan/DB/indie/XMonad
 $ find * -name '*Prompt*'
 XMonadContrib/dist/build/XMonad/Prompt
 XMonadContrib/XMonad/Prompt
-```
+~~~
 
 Now you remember that the folder you are looking for is `XMonadContrib/XMonad/Prompt`.
 
 ### Step 2
 
-```
+~~~
 $ grep -R 'shell' XMonadContrib/XMonad/Prompt
 XMonadContrib/XMonad/Prompt/Shell.hs:A shell prompt for XMonad
 XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
-```
+~~~
 
 Now you've found the file! It's `XMonadContrib/XMonad/Prompt/Shell.hs`. 
 
 ### Step 3
 
-```
+~~~
 $ rm XMonadContrib/XMonad/Prompt/Shell.hs
-```
+~~~
 
 It's not terribly complicated, but it's certainly nowhere near convenient.
 
