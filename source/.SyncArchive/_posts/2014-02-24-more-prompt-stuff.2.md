@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "More prompt stuff: reverse completion, colored prompt, dynamic prompt/preview widget"
+title: "More prompt stuff: colored prompt, dynamic prompt/preview widget"
 comments: true
 date: 2014-02-24 17:00
 categories: [xmonad, en]
@@ -8,11 +8,6 @@ published: true
 ---
 
 It's been a long time since I last wrote something on XMonad. It's not that I don't have anything to share in the last couple of weeks, but rather, I felt it a little bit troublesome to explain some of my most recent tweaks. But enough with my laziness, I finally decided to spend some quality time to write on these nifty new things.
-
-Reverse completion
-==================
-
-I've always wondered why the default prompt does not support `Shift+Tab` to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a `Shift+Tab` is pressed it passes a *reversed* list of the completion items to the `completionFunction` - achieving what I want in most cases.
 
 Colored prompt
 ==============
