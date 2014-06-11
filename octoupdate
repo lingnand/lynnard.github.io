@@ -170,7 +170,7 @@ if $to_update; then
     git add -A 
     git commit -m "Source updated" 
     echo "Generating the website..."
-    rake generate
+    bundle exec rake generate
     exit 0
 else
     echo "Nothing to update."
