@@ -6,7 +6,7 @@ comments: false
 
 Here's a list of on-going projects that I've had the time and interest to invest myself in:
 
-## [VIMonad](http://vimonad.lynnard.tk)
+## [VIMonad](https://lynnard.github.io/VIMonad)
 
 bringing VIM philosophy into window management
 
