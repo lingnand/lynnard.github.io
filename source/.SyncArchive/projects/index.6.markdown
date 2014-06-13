@@ -11,7 +11,7 @@ Here's a list of on-going projects that I've had the time and interest to invest
 bringing VIM philosophy into window management
 
 
-## [FMC/FMD](http://fmd.lynnard.tk)
+## [FMC/FMD](https://github.com/lynnard/fmd)
 
 a command-line music streaming player built on top of services from *Douban.fm* and *Jing.fm*
 
