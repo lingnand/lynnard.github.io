@@ -3,5 +3,5 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)(.*?)/?$ $1/$4?$2=$3 [L,QSA]
-RewriteRule ^([^/]+)/$ $1.php [L]
+RewriteRule ^([^/]+)/args/([^/]+)/([^/]+)(.*?)/?$ $1/args/$4?$2=$3 [L,QSA]
+RewriteRule ^([^/]+)/args/$ $1.php [L]
