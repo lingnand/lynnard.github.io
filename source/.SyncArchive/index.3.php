@@ -3,7 +3,7 @@ layout: default
 ---
 
 <?php  
-if (!empty($_GET)) {
+if ($_GET) {
     print_r($_GET);
 } else {
 ?>
