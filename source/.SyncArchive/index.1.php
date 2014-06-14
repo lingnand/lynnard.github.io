@@ -2,11 +2,7 @@
 layout: default
 ---
 
-<?php  
-if ($_GET) {
-
-} else {
-?>
+<?php  ?>
 
 {% assign index = true %}
 {% for post in paginator.posts %}
@@ -22,5 +18,3 @@ if ($_GET) {
     {% endif %}
     <div class="center"><a href="{{ root_url }}/blog/archives">Blog Archives</a></div>
 </nav>
-
-<?php } ?>
