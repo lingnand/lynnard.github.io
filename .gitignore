@@ -20,8 +20,8 @@ source/_queue
 
 *.SyncID
 *.SyncIgnore
-*.SyncTrash/*
-*.SyncArchive/*
+source/.SyncTrash/*
+source/.SyncArchive/*
 *.!Sync
 *.SyncPart
 *.SyncTemp

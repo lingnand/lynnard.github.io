@@ -7,7 +7,7 @@ comments: false
 :) :P :/ :@
 -----------
 
-Lynnard is a robot. It's a well-humored robot in fact. It's designed for every-day usage purposes - it can console you when you feel lonely, point you to the nearest train station that you don't know about, read you the latest news and tell you the most popular jokes on the street... Now doesn't that sound like a perfect companion?
+**lynnard-bot** is a chatterbot. It's a well-humored chatterbot in fact. It's designed for every-day usage purposes - it can console you when you feel lonely, point you to the nearest train station that you don't know about, read you the latest news and tell you the most popular jokes on the street... Now doesn't that sound like a perfect companion?
 
 To speak to him, simply take out your phone and tap into *Wechat（微信）*. Add **lynnard-bot**. Or scan the QR code below.
 

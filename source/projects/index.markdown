@@ -1,25 +1,87 @@
 ---
 layout: page
-title: "Projects"
 comments: false
 ---
 
 Here's a list of on-going projects that I've had the time and interest to invest myself in:
 
+# Workflow
+
 ## [VIMonad](http://vimonad.lynnard.tk)
 
-bringing VIM philosophy into window management
+bringing VIM philosophy to window management
 
+## [rss-image-download](https://github.com/lynnard/rss-image-download)
 
-## [FMC/FMD](http://fmd.lynnard.tk)
+subscribe to RSS image feeds and download images automatically
 
-a command-line music streaming player built on top of services from *Douban.fm* and *Jing.fm*
+# Music
 
-## [LN2D](https://github.com/lynnard/LN2D)
+## [RPD](http://rpd.lynnard.tk)
 
-a gaming library for *Cocos2d*
+radio player daemon capable of streaming music from multiple services in the background
 
-## [Lynnard](/projects/lynnard)
+## [RPC](https://github.com/lynnard/RPC)
 
-a chatter-bot with a Wechat account
+command line RPD client that integrates tightly with scripting languages
+
+## [rpclrc](https://github.com/lynnard/rpclrc)
+
+command line lyrics display for RPD
+
+## [RPD-Alfred](https://github.com/lynnard/RPD-Alfred)
+
+[Alfred](http://www.alfredapp.com) extension for RPD control
+
+## [mutagen-CLI](http://mutagen.lynnard.tk)
+
+universal command line ID3 tagger/viewer
+
+# Web
+
+## [Octopress-CLI](http://octopress.lynnard.tk)
+
+CLI command set for managing and updating [Octopress](http://octopress.org)
+
+## [pinboard-sync](http://pinboard.lynnard.tk)
+
+pinboard bookmark synchronization with local cache
+
+# Vim-script
+
+## [pandoc-preview.vim](https://github.com/lynnard/pandoc-preview.vim)
+
+automatically recompile your pandoc article and preview it in your favorite pdf viewer 
+
+## [editexisting.vim](https://github.com/lynnard/editexisting.vim)
+
+automatically jump to the existing VIM instance editing the same file (instead of showing the warning)
+
+# Game
+
+## [LN2D](http://ln2d.lynnard.tk)
+
+a component-based gaming library for `Objective-C`
+
+## [ChineseCowboy](http://bitbucket.org/lynnard/chinesecowboy)
+
+an iOS platformer decorated with traditional Chinese ink painting
+
+## [FifteenPuzzle](https://github.com/lynnard/FifteenPuzzle)
+
+![Android fifteen puzzle](/images/games/fifteen.jpg)
+
+## [Breakout](https://github.com/lynnard/Breakout)
+
+![](/images/games/breakout.jpg)
+
+## [Hangman](https://github.com/lynnard/Hangman)
+
+![](/images/games/hangman.jpg)
+
+# Communication
+
+## [lynnard-bot](/projects/lynnard-bot)
+
+a chatter-bot with its own Wechat account
 

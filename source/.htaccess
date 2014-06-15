@@ -3,5 +3,9 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^(.+)/args/([^/]+)/([^/]+)(.*?)/?$ $1/args/$4?$2=$3 [L,QSA]
-RewriteRule ^([^/]+)/args/$ $1.php [L]
+RewriteRule ^(.+/|)args/([^/]+)/([^/]+)(.*?)/?$ $1args/$4?$2=$3 [L,QSA]
+RewriteRule ^(.+/|)args/$ $1index.html [L]
+
+# to parse php in all files
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .html .htm
