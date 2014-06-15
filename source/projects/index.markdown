@@ -57,6 +57,12 @@ automatically recompile your pandoc article and preview it in your favorite pdf 
 
 automatically jump to the existing VIM instance editing the same file (instead of showing the warning)
 
+# Communication
+
+## [lynnard-bot](/projects/lynnard-bot)
+
+a chatter-bot with its own Wechat account
+
 # Game
 
 ## [LN2D](http://ln2d.lynnard.tk)
@@ -69,19 +75,12 @@ an iOS platformer decorated with traditional Chinese ink painting
 
 ## [FifteenPuzzle](https://github.com/lynnard/FifteenPuzzle)
 
-![Android fifteen puzzle](/images/games/fifteen.jpg)
+![Android Fifteen Puzzle](/images/games/fifteen.jpg)
 
 ## [Breakout](https://github.com/lynnard/Breakout)
 
-![](/images/games/breakout.jpg)
+![Java Breakout](/images/games/breakout.jpg)
 
 ## [Hangman](https://github.com/lynnard/Hangman)
 
-![](/images/games/hangman.jpg)
-
-# Communication
-
-## [lynnard-bot](/projects/lynnard-bot)
-
-a chatter-bot with its own Wechat account
-
+![Java Hangman](/images/games/hangman.jpg)
