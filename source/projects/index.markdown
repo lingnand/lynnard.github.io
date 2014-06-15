@@ -63,6 +63,12 @@ automatically jump to the existing VIM instance editing the same file (instead o
 
 a chatter-bot with its own Wechat account
 
+# Robotics
+
+## [Visionary Pioneer](/projects/visionary-pioneer)
+
+{% video videos/VisionaryPioneer.mp4 %}
+
 # Game
 
 ## [LN2D](http://ln2d.lynnard.tk)
