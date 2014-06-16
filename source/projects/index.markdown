@@ -67,7 +67,7 @@ a chatter-bot with its own Wechat account
 
 ## [Visionary Pioneer](/projects/visionary-pioneer)
 
-{% video videos/VisionaryPioneer.mp4 640 480 images/visionary-pioneer/visionary-pioneer.png %}
+{% video /videos/VisionaryPioneer.mp4 640 480 /images/visionary-pioneer/visionary-pioneer.png %}
 
 # Game
 
