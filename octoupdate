@@ -7,6 +7,8 @@ OCTOPRESS_SOURCE_DIR="$OCTOPRESS_HOME/source"
 OCTOPRESS_QUEUE_DIR="$OCTOPRESS_SOURCE_DIR/_queue"
 OCTOPRESS_POSTS_DIR="$OCTOPRESS_SOURCE_DIR/_posts"
 OCTOPRESS_DRAFTS_DIR="$OCTOPRESS_SOURCE_DIR/_drafts"
+BIN_DIR="$HOME/bin"
+RUBY_BIN_DIR="$HOME/.gem/ruby/2.1.0/bin"
 # OCTOPRESS_STATUS_FILE="$OCTOPRESS_HOME/.octopress_update"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -46,7 +48,7 @@ function YAMLFrontMatterOfPost() {
         fi
     fi
 
-    /home/lingnan/bin/torso -n"$yamlstart" -N"$yamlend" "$1"
+    "$BIN_DIR/torso" -n"$yamlstart" -N"$yamlend" "$1"
 }
 
 # gives back the correct post name according to the attributes in the post
@@ -170,7 +172,7 @@ if $to_update; then
     git add -A 
     git commit -m "Source updated" 
     echo "Generating the website..."
-    /home/lingnan/.gem/ruby/2.1.0/bin/bundle exec rake generate
+    "$RUBY_BIN_DIR/bundle" exec rake generate
     exit 0
 else
     echo "Nothing to update."
