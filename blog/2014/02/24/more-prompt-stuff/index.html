@@ -1,0 +1,326 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>More prompt stuff: reverse completion, colored prompt, dynamic prompt/preview widget - .hack/lynnard</title>
+	<meta name="author" content="Lynnard">
+
+	
+	<meta name="description" content="It&rsquo;s been a long time since I last wrote something on XMonad. It&rsquo;s not that I don&rsquo;t have anything to share in the last couple of &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title=".hack/lynnard" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+<?php if (!empty($_GET["visitor"])) { ?>
+<link rel="stylesheet" href="/stylesheets/messi.min.css" />
+<script src="/javascripts/messi.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+    new Messi('View my projects <a href="/projects">here</a>, or close this dialog to read my blogs', {title: 'Hi <?php echo $_GET["visitor"]?>, thanks for visiting my site! :)'});
+});
+</script>
+<?php } ?>
+
+
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">.hack/lynnard</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/blog/categories/cn">中文</a></li>
+	<li><a href="/blog/categories/en">English</a></li>
+	<li><a href="/blog/archives">All Blog</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/blog/categories/cn">中文</a></li>
+	<li><a href="/blog/categories/en">English</a></li>
+	<li><a href="/blog/archives">All Blog</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:lynnard.tk">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/LynnardDai" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/lynnard" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:lynnard.tk">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">More Prompt Stuff: Reverse Completion, Colored Prompt, Dynamic Prompt/preview Widget</h2>
+	<div class="entry-content"><p>It&rsquo;s been a long time since I last wrote something on XMonad. It&rsquo;s not that I don&rsquo;t have anything to share in the last couple of weeks, but rather, I felt it a little bit troublesome to explain some of my most recent tweaks. But enough with my laziness, I finally decided to spend some quality time to write on these nifty new things.</p>
+
+<h1>Reverse completion</h1>
+
+<p>I&rsquo;ve always wondered why the default prompt does not support <code>Shift+Tab</code> to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a <code>Shift+Tab</code> is pressed it passes a <em>reversed</em> list of the completion items to the <code>completionFunction</code> &ndash; achieving what I want in most cases.</p>
+
+<h1>Colored prompt</h1>
+
+<p>Ever thought about having a colorful prompt system within XMonad? Now it is possible. I first got this idea when I was working on the taskwarrior prompt system &ndash; the taskwarrior program supports outputting ANSI colors, but apparently the stock XMonad.Prompt wouldn&rsquo;t do anything for that extra information.</p>
+
+<p>The functions behind these color renderings aren&rsquo;t terribly complicated &ndash; it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/colored_prompt.png" alt="" /></p>
+
+<p>However, here&rsquo;s the catch: if you are going with the color, make sure you know something about color encoding and have the time and effort to tweak it to make it look nice. Unfortunately I have neither of those and that&rsquo;s why I ended up not using any color after all.</p>
+
+<h1>More on Dynamic Prompt</h1>
+
+<p>The concept of dynamic prompt was first introduced in one of my earlier <a href="/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/">post</a>.</p>
+
+<p>One major gripe I&rsquo;ve always had regarding standard unix tools is that it&rsquo;s not that straightforward to perform certain tasks chained together in a visual and direct way.</p>
+
+<p>For example, say you want to remove a file. You know it&rsquo;s located in a folder with <code>Prompt</code> in its name. You also know that the file has the keyword <code>shell</code> inside.</p>
+
+<p>What you&rsquo;d normally do is probably like this:</p>
+
+<h3>Step 1</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
+</span><span class='line'>/home/lingnan/DB/indie/XMonad
+</span><span class='line'>$ find * -name '*Prompt*'
+</span><span class='line'>XMonadContrib/dist/build/XMonad/Prompt
+</span><span class='line'>XMonadContrib/XMonad/Prompt</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you remember that the folder you are looking for is <code>XMonadContrib/XMonad/Prompt</code>.</p>
+
+<h3>Step 2</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ grep -R 'shell' XMonadContrib/XMonad/Prompt
+</span><span class='line'>XMonadContrib/XMonad/Prompt/Shell.hs:A shell prompt for XMonad
+</span><span class='line'>XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you&rsquo;ve found the file! It&rsquo;s <code>XMonadContrib/XMonad/Prompt/Shell.hs</code>.</p>
+
+<h3>Step 3</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rm XMonadContrib/XMonad/Prompt/Shell.hs</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s not terribly complicated, but it&rsquo;s certainly nowhere near convenient.</p>
+
+<p>That&rsquo;s where my <strong>dynamic prompt widget</strong> comes in. Basically each of these widgets defines a <em>keyword</em> and as long as one such keyword is detected on the prompt line, anything after that <em>keyword</em> is passed to the relevant widget, which will then display the appropriate autocompletions for the user to complete against.</p>
+
+<h2>Search Widget</h2>
+
+<p>Currently there are 8 search widgets</p>
+
+<ul>
+<li><code>f</code>: search for recent files using <code>fasd</code></li>
+<li><code>a</code>: search for recent files or directories using <code>fasd</code></li>
+<li><code>d</code>: search for recent directories using <code>fasd</code></li>
+<li><code>z</code>: search for recent directoties using <code>fasd</code>; on completion substitute the prompt line command such that it&rsquo;s suitable for changing directory from the prompt</li>
+<li><code>l</code> (locate): search for files recursively in a given directory (or the current one, if not specified) using <code>find</code></li>
+<li><code>t</code> (tag): search for a directory in my tag database using <code>find</code></li>
+<li><code>g</code> (grep): list all files containing the given words</li>
+<li><code>gp</code> (pdfgrep): list all pdf files containing the given words</li>
+</ul>
+
+
+<p>So for the same problem we discussed before, it can be done with my dynamic prompt system in the following way:</p>
+
+<h3>Step 1</h3>
+
+<p>Invoke the prompt. Since you want to remove a file, just type in <code>rm</code>.</p>
+
+<h3>Step 2</h3>
+
+<p>Now you realize that you don&rsquo;t know the exact location of the file. You remember that the file contains the word <code>shell</code>. That means we should use <code>g</code> widget to grep for <code>shell</code>. So you type in another <code>g</code>. The prompt line is now <code>rm g</code>.</p>
+
+<h3>Step 3</h3>
+
+<p>You want to narrow down to a directory having <code>Prompt</code> in its name instead of greping blindly in the current directory which might contain 1000 files. That means we need to use <code>l</code> widget to locate that directory and pass it back to the <code>g</code> widget as its argument. So type in <code>l Prompt</code>. Now you&rsquo;ll get some screen like this:</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget1.png" alt="" /></p>
+
+<p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically &ndash; <code>l</code> in this case.</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget2.png" alt="" /></p>
+
+<h3>Step 4</h3>
+
+<p>Now you&rsquo;ve got the directory to grep in. Finish typing by adding the word to grep against.</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget3.png" alt="" /></p>
+
+<p>Like before, tab through to the right file to make the final prompt line look like this:</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget4.png" alt="" /></p>
+
+<h3>Step 5</h3>
+
+<p>Press <em>Return</em> to execute the command.</p>
+
+<p>After this lengthy explanation, you might jump up and say: <em>gosh, that&rsquo;s complicated!</em> The fact that there seem to be more steps with my system than with the standard unix tools is because I&rsquo;m trying to explain all the details as clearly as possible. In practice my system is designed to be as close to your thinking process as possible &ndash; type the action you want to achieve directly, and when you want to get hold to some file as the argument to the action you are trying to complete, just use one of the widgets to help you out.</p>
+
+<h3>Preview widget</h3>
+
+<p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt &ndash; if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget_preview_source.png" alt="previewing a source file" /></p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget_preview_pdf.png" alt="previewing a pdf file" /></p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget_preview_zip.png" alt="previewing a zip file" /></p>
+
+<h3>Other widgets</h3>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget_top.png" alt="top" /></p>
+
+<p style="text-align:center;"><img src="/images/xmonad/widget_git.png" alt="git" /></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-24T17:00:00+00:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/xmonad/'>xmonad</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Lynnard
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'hacklynnard';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lynnard.tk/blog/2014/02/24/more-prompt-stuff/';
+        var disqus_url = 'http://lynnard.tk/blog/2014/02/24/more-prompt-stuff/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42839434-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

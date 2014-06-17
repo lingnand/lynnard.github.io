@@ -1,0 +1,591 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Pinboard synchronization with Vimb/Vimprobable bookmarks - .hack/lynnard</title>
+	<meta name="author" content="Lynnard">
+
+	
+	<meta name="description" content="When it comes to workflow, I&rsquo;m a screen-estate fascist who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title=".hack/lynnard" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+<?php if (!empty($_GET["visitor"])) { ?>
+<link rel="stylesheet" href="/stylesheets/messi.min.css" />
+<script src="/javascripts/messi.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+    new Messi('View my projects <a href="/projects">here</a>, or close this dialog to read my blogs', {title: 'Hi <?php echo $_GET["visitor"]?>, thanks for visiting my site! :)'});
+});
+</script>
+<?php } ?>
+
+
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">.hack/lynnard</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/blog/categories/cn">中文</a></li>
+	<li><a href="/blog/categories/en">English</a></li>
+	<li><a href="/blog/archives">All Blog</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/blog/categories/cn">中文</a></li>
+	<li><a href="/blog/categories/en">English</a></li>
+	<li><a href="/blog/archives">All Blog</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:lynnard.tk">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/LynnardDai" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/lynnard" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:lynnard.tk">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Pinboard Synchronization With Vimb/Vimprobable Bookmarks</h2>
+	<div class="entry-content"><p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end &ndash; if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
+
+<p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs &ndash; usually you can just achieve what you want by a little bit of tinkering.</p>
+
+<p>To start with, the social bookmark service I&rsquo;m using is <a href="http://pinboard.in">Pinboard</a> and they offer an easy-to-understand, comprehensive api <a href="http://pinboard.in/api">here</a>. On the other hand, Vimb is even more straightforward on the treatment of bookmarks &ndash; it simply stores them in plain-text under its config directory.</p>
+
+<p>With knowledge above we can easily build a synchronizer from scratch. The problem of synchronization is really about two smaller sub-problems:</p>
+
+<ol>
+<li>When the local storage (Vimb bookmark file) changes, reflect the change on the cloud</li>
+<li>When the cloud storage (Pinboard) changes, translate the change to local</li>
+</ol>
+
+
+<p>For point 1 we can keep a backup of the bookmark file and use <code>diff</code> on it with the current file each time before the update. This gives us the changes, if any, done to the bookmark file since the last update and all remains is just doing the same thing on the cloud.</p>
+
+<p>For point 2 Pinboard has offered a convenient query method <code>/posts/update</code>, which essentially returns the timestamp of the latest change. By retrieving this timestamp before each update cycle we can be sure that we won&rsquo;t miss any updates on the cloud.</p>
+
+<p>Of course this leaves out details such as which should be performed before which, how we should avoid unnecessary pulling from the cloud given that some of the changes on the cloud are done by the script itself; but the main idea is still the same.</p>
+
+<p>For completeness the whole script is <a href="downloads/code/pinboard">here</a> for download. The main abstract of the code is shown below</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># $1 is the method to query upon, $2 is the file to direct the output, while all the subsequent arguments</span>
+</span><span class='line'><span class="c"># in the format &#39;name=value&#39; are appended as data arguments to</span>
+</span><span class='line'><span class="c"># the query</span>
+</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
+</span><span class='line'><span class="k">function </span>pinboard_api<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="nb">local </span><span class="nv">datastring</span><span class="o">=</span> <span class="nv">data</span><span class="o">=</span>
+</span><span class='line'>    <span class="k">for </span>data in <span class="s2">&quot;${@:3}&quot;</span>
+</span><span class='line'>    <span class="k">do</span>
+</span><span class='line'>        <span class="c"># we need to escape the single quote..merr...</span>
+</span><span class='line'>        <span class="nv">datastring</span><span class="o">=</span><span class="s2">&quot;$datastring --data-urlencode \$&#39;${data//\&#39;/\&#39;}&#39;&quot;</span>
+</span><span class='line'>    <span class="k">done</span>
+</span><span class='line'><span class="k">    </span><span class="nb">eval</span> <span class="nv">$CURL_CMD$datastring</span> <span class="nv">$HTTPS_PREFIX$1$AUTH_TOKEN</span> &gt; <span class="nv">$2</span>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">CURL_EXIT_CODE</span><span class="o">=</span><span class="s2">&quot;$?&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$CURL_EXIT_CODE</span> !<span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span> ; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>error <span class="s2">&quot;Curl failed with exit code $CURL_EXIT_CODE&quot;</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
+</span><span class='line'><span class="k">function </span>verify_config<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$PINBOARD_CFG&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>error <span class="s2">&quot;Could not find $PINBOARD_CFG file! \nIt should contain two lines. Line 1 the username. Line 2 the API token. \nYou can create it manually, or use the \&quot;login\&quot; command.&quot;</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">  </span><span class="nv">USER_NAME</span><span class="o">=</span><span class="sb">`</span>head -n1 <span class="nv">$PINBOARD_CFG</span><span class="sb">`</span>
+</span><span class='line'>  <span class="nv">API_TOKEN</span><span class="o">=</span><span class="sb">`</span>tail -n1 <span class="nv">$PINBOARD_CFG</span><span class="sb">`</span>
+</span><span class='line'>  <span class="nv">AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;?auth_token=$USER_NAME:$API_TOKEN&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># This will compare the current update with the last update and</span>
+</span><span class='line'><span class="c"># return true if there&#39;s new update</span>
+</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
+</span><span class='line'><span class="k">function </span>pinboard_has_update<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c"># See if we need to do an update at all</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Retrieving current pinboard update time...&quot;</span>
+</span><span class='line'>  pinboard_api <span class="s2">&quot;/posts/update&quot;</span> <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$LAST_UPDATE_FILE&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$LAST_UPDATE_FILE does not exist...&quot;</span>
+</span><span class='line'>      <span class="k">return </span>0
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="c"># Compare current update with last update</span>
+</span><span class='line'>      <span class="nb">echo</span> <span class="s2">&quot;Comparing last update with current update...&quot;</span>
+</span><span class='line'>      diff <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span> <span class="s2">&quot;$LAST_UPDATE_FILE&quot;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">[[</span> ! <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span>; <span class="k">then </span>
+</span><span class='line'><span class="k">          return </span>0
+</span><span class='line'>      <span class="k">fi</span> ;
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">    return </span>1
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
+</span><span class='line'><span class="k">function </span>synchronize_cmd<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="nb">local </span><span class="nv">to_update_pinboard</span><span class="o">=</span><span class="nb">false </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">false</span>
+</span><span class='line'><span class="nb">    echo</span> <span class="s2">&quot;######## Checking changes on the server ########&quot;</span>
+</span><span class='line'>    verify_config
+</span><span class='line'>    pinboard_has_update <span class="o">&amp;&amp;</span> <span class="nv">to_update_pinboard</span><span class="o">=</span><span class="nb">true</span>
+</span><span class='line'><span class="nb">    echo</span> <span class="s2">&quot;######## Starting local-to-cloud synchronization ########&quot;</span>
+</span><span class='line'>    <span class="c"># first compare the two bookmarks file to see if there are any changes</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">[[</span> -e <span class="s2">&quot;$BOOKMARK_BACKUP_FILE&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Detecting changes to the bookmark file...&quot;</span>
+</span><span class='line'>        <span class="nb">local </span><span class="nv">changes</span><span class="o">=</span><span class="s2">&quot;`diff &quot;</span><span class="nv">$BOOKMARK_BACKUP_FILE</span><span class="s2">&quot; &quot;</span><span class="nv">$BOOKMARK_FILE</span><span class="s2">&quot;`&quot;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;$changes&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">            </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">true</span>
+</span><span class='line'>            <span class="c"># we need to grep for all deletions </span>
+</span><span class='line'>            <span class="nb">echo</span> <span class="s2">&quot;$changes&quot;</span> | grep <span class="s1">&#39;^&lt;&#39;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
+</span><span class='line'><span class="k">                </span>delete_pinboard_bookmark_from_vimb_format <span class="s2">&quot;${line#&lt; }&quot;</span>
+</span><span class='line'>            <span class="k">done</span>
+</span><span class='line'>            <span class="c"># have to exit the script if error occurred</span>
+</span><span class='line'>            <span class="o">((</span> <span class="nv">$?</span> !<span class="o">=</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="s2">&quot;$?&quot;</span>
+</span><span class='line'>            <span class="nb">echo</span> <span class="s2">&quot;$changes&quot;</span> | grep <span class="s1">&#39;^&gt;&#39;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
+</span><span class='line'><span class="k">                </span>insert_pinboard_bookmark_from_vimb_format <span class="s2">&quot;${line#&gt; }&quot;</span>
+</span><span class='line'>            <span class="k">done</span>
+</span><span class='line'>            <span class="o">((</span> <span class="nv">$?</span> !<span class="o">=</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="s2">&quot;$?&quot;</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'><span class="k">            </span><span class="nb">echo</span> <span class="s2">&quot;No local-to-cloud synchronization required. Local bookmark storage is in sync with pinboard account.&quot;</span>
+</span><span class='line'>        <span class="k">fi</span>
+</span><span class='line'><span class="k">    else</span>
+</span><span class='line'><span class="k">        </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">true</span>
+</span><span class='line'><span class="nb">        echo</span> <span class="s2">&quot;Bookmark file has not been backed up before. Trying to insert all entries...&quot;</span>
+</span><span class='line'>        <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
+</span><span class='line'><span class="k">            </span>insert_pinboard_bookmark_from_vimb_format <span class="s2">&quot;$line&quot;</span>
+</span><span class='line'>        <span class="k">done</span> &lt; <span class="s2">&quot;$BOOKMARK_FILE&quot;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">    if</span> <span class="nv">$to_update_local</span>; <span class="k">then</span>
+</span><span class='line'>        <span class="c"># we have updated the server so we should refresh the update time</span>
+</span><span class='line'>        <span class="nb">echo</span> <span class="s2">&quot;Refreshing the last update time...&quot;</span>
+</span><span class='line'>        pinboard_api <span class="s2">&quot;/posts/update&quot;</span> <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;######## Starting cloud-to-local synchronization ########&quot;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="nv">$to_update_pinboard</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Retrieving bookmarks...&quot;</span>
+</span><span class='line'>        pinboard_api <span class="s2">&quot;/posts/all&quot;</span> <span class="s2">&quot;$CURL_TMP&quot;</span>
+</span><span class='line'>        <span class="c"># we need to convert the format into vimb&#39;s format</span>
+</span><span class='line'>        xml sel -t -m <span class="s1">&#39;/posts/post&#39;</span> -c <span class="s1">&#39;.&#39;</span> -n <span class="s2">&quot;$CURL_TMP&quot;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
+</span><span class='line'>            <span class="c"># retrieve the attributes</span>
+</span><span class='line'>            <span class="nb">local </span><span class="nv">href</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@href&#39;`&quot;</span>
+</span><span class='line'>            <span class="nb">local </span><span class="nv">desc</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@description&#39;`&quot;</span>
+</span><span class='line'>            <span class="nb">local </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@tag&#39;`&quot;</span>
+</span><span class='line'>            <span class="c"># just adding the bookmark to tmp file</span>
+</span><span class='line'>            insert_vimb_bookmark <span class="s2">&quot;$href&quot;</span> <span class="s2">&quot;$desc&quot;</span> <span class="s2">&quot;$tag&quot;</span>
+</span><span class='line'>        <span class="k">done</span>
+</span><span class='line'>        <span class="c"># move the tmp file to overwrite the old bookmark file</span>
+</span><span class='line'>        <span class="c"># this might be dangerous if there&#39;re unsynced changes in the bookmark file </span>
+</span><span class='line'>        <span class="c"># but for the time being we&#39;d assume that the bookmark file is already in sync with</span>
+</span><span class='line'>        <span class="c"># the cloud</span>
+</span><span class='line'>        <span class="nb">echo</span> <span class="s2">&quot;Overwriting the old bookmark file...&quot;</span>
+</span><span class='line'>        mv -f <span class="s2">&quot;$BOOKMARK_TMP&quot;</span> <span class="s2">&quot;$BOOKMARK_FILE&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;No cloud-to-local synchronization required. $BOOKMARK_FILE is current.&quot;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c"># back up the bookmark file</span>
+</span><span class='line'>    <span class="k">if</span> <span class="nv">$to_update_local</span> <span class="o">||</span> <span class="nv">$to_update_pinboard</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Backing up the current bookmark file...&quot;</span>
+</span><span class='line'>        cp -f <span class="s2">&quot;$BOOKMARK_FILE&quot;</span> <span class="s2">&quot;$BOOKMARK_BACKUP_FILE&quot;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;Moving current update time to last update time...&quot;</span>
+</span><span class='line'>    mv -f <span class="nv">$CUR_UPDATE_FILE</span> <span class="nv">$LAST_UPDATE_FILE</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="s2">&quot;Done.&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
+</span><span class='line'><span class="k">function </span>login_cmd<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -d <span class="s2">&quot;$PINBOARD_DIR&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>mkdir <span class="s2">&quot;$PINBOARD_DIR&quot;</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">  if</span> <span class="o">[[</span> ! -d <span class="s2">&quot;$PINBOARD_DIR&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$PINBOARD_DIR could not be made.&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;We will attempt to log into pinboard now.&quot;</span>
+</span><span class='line'>  <span class="sb">`</span>which <span class="nb">echo</span><span class="sb">`</span> -n <span class="s2">&quot;Please enter pinboard username: &quot;</span>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">USER_NAME</span><span class="o">=</span><span class="sb">`</span>head -n 1<span class="sb">`</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="nv">$USER_NAME</span> &gt; <span class="s2">&quot;$PINBOARD_CFG&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">$CURL_CMD</span> -u <span class="nv">$USER_NAME</span> <span class="s2">&quot;$HTTPS_PREFIX/user/api_token&quot;</span> | tail -n 1 | sed <span class="s1">&#39;s/&lt;[^&gt;]*&gt;//g&#39;</span> &gt;&gt; <span class="nv">$PINBOARD_CFG</span>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">CURL_EXIT_CODE</span><span class="o">=</span><span class="s2">&quot;$?&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$CURL_EXIT_CODE</span> !<span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Curl failed with exit code $CURL_EXIT_CODE&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">  if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$PINBOARD_CFG&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$PINBOARD_CFG could not be made.&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">else </span>
+</span><span class='line'><span class="k">      </span>chmod og-rw <span class="s2">&quot;$PINBOARD_CFG&quot;</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Created $PINBOARD_CFG.&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Logged in!&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#***</span>
+</span><span class='line'><span class="c"># &quot;Main&quot;</span>
+</span><span class='line'><span class="c">#***</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[[</span> <span class="nv">$# </span>-lt 1 <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">    </span>error <span class="s2">&quot;Expected a command for the second argument. \nTry \&quot;help\&quot;.&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#***</span>
+</span><span class='line'><span class="c"># Process the second commands</span>
+</span><span class='line'><span class="c">#***</span>
+</span><span class='line'><span class="k">case</span> <span class="s2">&quot;$1&quot;</span> in
+</span><span class='line'>    synchronize<span class="o">)</span>
+</span><span class='line'>        <span class="o">[</span> <span class="s2">&quot;PINBOARD$PPID&quot;</span> <span class="o">=</span> <span class="s2">&quot;$LOCKRUNPID&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="nb">exec </span>lockrun -qna PINBOARD /tmp/lockrun.pinboard <span class="s2">&quot;$0&quot;</span> <span class="s2">&quot;$@&quot;</span> <span class="o">||</span> <span class="nb">exit </span>1
+</span><span class='line'>        synchronize_cmd
+</span><span class='line'>        ;;
+</span><span class='line'>    login<span class="o">)</span>
+</span><span class='line'>        login_cmd
+</span><span class='line'>        ;;
+</span><span class='line'>    <span class="nb">help</span><span class="o">)</span>
+</span><span class='line'>        help_cmd
+</span><span class='line'>        ;;
+</span><span class='line'>    *<span class="o">)</span>
+</span><span class='line'>        error <span class="s2">&quot;Unknown command $1. Try \&quot;help\&quot;.&quot;</span> 2
+</span><span class='line'><span class="k">esac</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># exiting without any errors</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-03T02:25:00+00:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/pinboard/'>pinboard</a>, <a class='category' href='/blog/categories/sh/'>sh</a>, <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/vimb/'>vimb</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Lynnard
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'hacklynnard';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/';
+        var disqus_url = 'http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42839434-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

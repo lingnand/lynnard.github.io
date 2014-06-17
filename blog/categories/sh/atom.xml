@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sh | .hack/lynnard]]></title>
+  <link href="http://lynnard.tk/blog/categories/sh/atom.xml" rel="self"/>
+  <link href="http://lynnard.tk/"/>
+  <updated>2014-06-18T00:10:39+01:00</updated>
+  <id>http://lynnard.tk/</id>
+  <author>
+    <name><![CDATA[Lynnard]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pinboard synchronization with Vimb/Vimprobable bookmarks]]></title>
+    <link href="http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
+    <updated>2013-11-03T02:25:00+00:00</updated>
+    <id>http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
+    <content type="html"><![CDATA[<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end &ndash; if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
+
+<p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs &ndash; usually you can just achieve what you want by a little bit of tinkering.</p>
+
+<p>To start with, the social bookmark service I&rsquo;m using is <a href="http://pinboard.in">Pinboard</a> and they offer an easy-to-understand, comprehensive api <a href="http://pinboard.in/api">here</a>. On the other hand, Vimb is even more straightforward on the treatment of bookmarks &ndash; it simply stores them in plain-text under its config directory.</p>
+
+<p>With knowledge above we can easily build a synchronizer from scratch. The problem of synchronization is really about two smaller sub-problems:</p>
+
+<ol>
+<li>When the local storage (Vimb bookmark file) changes, reflect the change on the cloud</li>
+<li>When the cloud storage (Pinboard) changes, translate the change to local</li>
+</ol>
+
+
+<p>For point 1 we can keep a backup of the bookmark file and use <code>diff</code> on it with the current file each time before the update. This gives us the changes, if any, done to the bookmark file since the last update and all remains is just doing the same thing on the cloud.</p>
+
+<p>For point 2 Pinboard has offered a convenient query method <code>/posts/update</code>, which essentially returns the timestamp of the latest change. By retrieving this timestamp before each update cycle we can be sure that we won&rsquo;t miss any updates on the cloud.</p>
+
+<p>Of course this leaves out details such as which should be performed before which, how we should avoid unnecessary pulling from the cloud given that some of the changes on the cloud are done by the script itself; but the main idea is still the same.</p>
+
+<p>For completeness the whole script is <a href="downloads/code/pinboard">here</a> for download. The main abstract of the code is shown below</p>
+
+<p>```sh</p>
+
+<h1>$1 is the method to query upon, $2 is the file to direct the output, while all the subsequent arguments</h1>
+
+<h1>in the format &lsquo;name=value&rsquo; are appended as data arguments to</h1>
+
+<h1>the query</h1>
+
+<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
+
+<p>function pinboard_api() {</p>
+
+<pre><code>local datastring= data=
+for data in "${@:3}"
+do
+    # we need to escape the single quote..merr...
+    datastring="$datastring --data-urlencode \$'${data//\'/\'}'"
+done
+eval $CURL_CMD$datastring $HTTPS_PREFIX$1$AUTH_TOKEN &gt; $2
+local CURL_EXIT_CODE="$?"
+if [[ $CURL_EXIT_CODE != "0" ]] ; then
+    error "Curl failed with exit code $CURL_EXIT_CODE"
+fi
+</code></pre>
+
+<p>}</p>
+
+<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
+
+<p>function verify_config() {</p>
+
+<pre><code>if [[ ! -e "$PINBOARD_CFG" ]]; then
+    error "Could not find $PINBOARD_CFG file! \nIt should contain two lines. Line 1 the username. Line 2 the API token. \nYou can create it manually, or use the \"login\" command."
+fi
+
+USER_NAME=`head -n1 $PINBOARD_CFG`
+API_TOKEN=`tail -n1 $PINBOARD_CFG`
+AUTH_TOKEN="?auth_token=$USER_NAME:$API_TOKEN"
+</code></pre>
+
+<p>}</p>
+
+<h1>This will compare the current update with the last update and</h1>
+
+<h1>return true if there&rsquo;s new update</h1>
+
+<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
+
+<p>function pinboard_has_update() {</p>
+
+<pre><code># See if we need to do an update at all
+echo "Retrieving current pinboard update time..."
+pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
+if [[ ! -e "$LAST_UPDATE_FILE" ]]; then
+    echo "$LAST_UPDATE_FILE does not exist..."
+    return 0
+else
+    # Compare current update with last update
+    echo "Comparing last update with current update..."
+    diff "$CUR_UPDATE_FILE" "$LAST_UPDATE_FILE"
+    if [[ ! "$?" == "0" ]]; then 
+        return 0
+    fi ;
+fi
+return 1
+</code></pre>
+
+<p>}</p>
+
+<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
+
+<p>function synchronize_cmd() {</p>
+
+<pre><code>local to_update_pinboard=false to_update_local=false
+echo "######## Checking changes on the server ########"
+verify_config
+pinboard_has_update &amp;&amp; to_update_pinboard=true
+echo "######## Starting local-to-cloud synchronization ########"
+# first compare the two bookmarks file to see if there are any changes
+if [[ -e "$BOOKMARK_BACKUP_FILE" ]]; then
+    echo "Detecting changes to the bookmark file..."
+    local changes="`diff "$BOOKMARK_BACKUP_FILE" "$BOOKMARK_FILE"`" 
+    if [ -n "$changes" ]; then
+        to_update_local=true
+        # we need to grep for all deletions 
+        echo "$changes" | grep '^&lt;' | while read line; do
+            delete_pinboard_bookmark_from_vimb_format "${line#&lt; }" 
+        done
+        # have to exit the script if error occurred
+        (( $? != 0 )) &amp;&amp; exit "$?"
+        echo "$changes" | grep '^&gt;' | while read line; do
+            insert_pinboard_bookmark_from_vimb_format "${line#&gt; }" 
+        done
+        (( $? != 0 )) &amp;&amp; exit "$?"
+    else
+        echo "No local-to-cloud synchronization required. Local bookmark storage is in sync with pinboard account."
+    fi
+else
+    to_update_local=true
+    echo "Bookmark file has not been backed up before. Trying to insert all entries..."
+    while read line; do
+        insert_pinboard_bookmark_from_vimb_format "$line"
+    done &lt; "$BOOKMARK_FILE"
+fi
+
+if $to_update_local; then
+    # we have updated the server so we should refresh the update time
+    echo "Refreshing the last update time..."
+    pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
+fi
+
+echo "######## Starting cloud-to-local synchronization ########"
+if $to_update_pinboard; then
+    echo "Retrieving bookmarks..."
+    pinboard_api "/posts/all" "$CURL_TMP"
+    # we need to convert the format into vimb's format
+    xml sel -t -m '/posts/post' -c '.' -n "$CURL_TMP" | while read line; do
+        # retrieve the attributes
+        local href="`echo "$line" | xml sel -t -v '/post/@href'`"
+        local desc="`echo "$line" | xml sel -t -v '/post/@description'`"
+        local tag="`echo "$line" | xml sel -t -v '/post/@tag'`"
+        # just adding the bookmark to tmp file
+        insert_vimb_bookmark "$href" "$desc" "$tag"
+    done
+    # move the tmp file to overwrite the old bookmark file
+    # this might be dangerous if there're unsynced changes in the bookmark file 
+    # but for the time being we'd assume that the bookmark file is already in sync with
+    # the cloud
+    echo "Overwriting the old bookmark file..."
+    mv -f "$BOOKMARK_TMP" "$BOOKMARK_FILE"
+else
+    echo "No cloud-to-local synchronization required. $BOOKMARK_FILE is current."
+fi
+
+# back up the bookmark file
+if $to_update_local || $to_update_pinboard; then
+    echo "Backing up the current bookmark file..."
+    cp -f "$BOOKMARK_FILE" "$BOOKMARK_BACKUP_FILE"
+fi
+
+echo "Moving current update time to last update time..."
+mv -f $CUR_UPDATE_FILE $LAST_UPDATE_FILE
+echo "Done."  
+</code></pre>
+
+<p>}</p>
+
+<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
+
+<p>function login_cmd() {</p>
+
+<pre><code>if [[ ! -d "$PINBOARD_DIR" ]]; then
+    mkdir "$PINBOARD_DIR"
+fi
+
+if [[ ! -d "$PINBOARD_DIR" ]]; then
+    echo "$PINBOARD_DIR could not be made."
+    exit 1
+fi
+
+echo "We will attempt to log into pinboard now."
+`which echo` -n "Please enter pinboard username: "
+local USER_NAME=`head -n 1`
+echo $USER_NAME &gt; "$PINBOARD_CFG"
+
+$CURL_CMD -u $USER_NAME "$HTTPS_PREFIX/user/api_token" | tail -n 1 | sed 's/&lt;[^&gt;]*&gt;//g' &gt;&gt; $PINBOARD_CFG
+local CURL_EXIT_CODE="$?"
+if [[ $CURL_EXIT_CODE != "0" ]]; then
+    echo "Curl failed with exit code $CURL_EXIT_CODE"
+    exit 1
+fi
+
+if [[ ! -e "$PINBOARD_CFG" ]]; then
+    echo "$PINBOARD_CFG could not be made."
+    exit 1
+else 
+    chmod og-rw "$PINBOARD_CFG"
+fi
+
+echo "Created $PINBOARD_CFG."
+echo "Logged in!"
+</code></pre>
+
+<p>}</p>
+
+<h1>***</h1>
+
+<h1>&ldquo;Main&rdquo;</h1>
+
+<h1>***</h1>
+
+<p>if [[ $# -lt 1 ]]; then</p>
+
+<pre><code>error "Expected a command for the second argument. \nTry \"help\"."
+</code></pre>
+
+<p>fi</p>
+
+<h1>***</h1>
+
+<h1>Process the second commands</h1>
+
+<h1>***</h1>
+
+<p>case &ldquo;$1&rdquo; in</p>
+
+<pre><code>synchronize) 
+    [ "PINBOARD$PPID" = "$LOCKRUNPID" ] || exec lockrun -qna PINBOARD /tmp/lockrun.pinboard "$0" "$@" || exit 1
+    synchronize_cmd
+    ;;
+login) 
+    login_cmd
+    ;;
+help) 
+    help_cmd 
+    ;;
+*)
+    error "Unknown command $1. Try \"help\"." 2
+</code></pre>
+
+<p>esac</p>
+
+<h1>exiting without any errors</h1>
+
+<p>exit 0
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Implementing the missing drafting and queueing function in Octopress]]></title>
+    <link href="http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/"/>
+    <updated>2013-11-03T00:37:00+00:00</updated>
+    <id>http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a while since I first started using Octopress. Its simple and elegant way of writing has now become my <em>de facto</em> standard of writing, but there are still things to be desired. For one thing, the workflow consisting of <em>writing, commiting, compiling and deploying</em> is still not <em>lazy</em> enough; ideally the only thing that should be required of the writer is <em>to write</em>. Inspired by Dennis Wegner in his <a href="http://instant-thinking.de/2012/08/03/synced-and-scheduled-blogging-with-octopress/">Synced and scheduled blogging with Octopress</a>, I worked on a bash script to allow for friction-free, painless deployment process that goes totally automatic underhood.</p>
+
+<h3>A short summary of the tinkering</h3>
+
+<ol>
+<li>Like in Dennis'es original post, two new folders called <code>_drafts</code> and <code>_queue</code> are added to the <code>source</code> directory to hold drafts and queued posts respectively.</li>
+<li><p>Again, just like in the original post, you can put any markdown files within the <code>_drafts</code> folder; as soon as there&rsquo;s the <code>published: true</code> property within the YAML front matters like this</p>
+
+<pre><code> ---
+ published: true
+ ---
+</code></pre>
+
+<p> Then the draft will be moved to the <code>_queue</code> folder</p></li>
+<li>All the files within the <code>_queue</code> folder will be checked for its <code>date</code> property in the YAML front matters; if it&rsquo;s before the current time, then the file will be moved to the <code>_posts</code> folder for publishing</li>
+</ol>
+
+
+<h3>So what&rsquo;s added / improved?</h3>
+
+<ol>
+<li>The script automatically checks for the validity of the YAML front matters during each move of any post; among other things, it will add the following properties if absent:
+
+<ul>
+<li>date: the last modified date of the file is used; this is useful if you don&rsquo;t want to take the creation date for the draft as the date published on your website (which is the weird default behavior of Octopress) &mdash; in that case just leave this field blank and it will be added automatically when the draft gets moved to the queue (or when you put a file yourself into the queue)</li>
+<li>layout: <code>post</code> is assumed as the default layout, which should be sensible enough</li>
+<li>title: the file name of the post (subtracting the date prefix, if any) is used</li>
+</ul>
+
+
+<p> What all these mean is that the minimal setup you&rsquo;d need to have for a post is</p>
+
+<p> <strong>Either</strong></p>
+
+<ol type="a">
+<li>touch a new file in <code>_drafts</code> with its file name as the title</li>
+<li>when finished, add <code>published: true</code> to the top (don&rsquo;t forget the triple dashes)</li>
+</ol>
+
+
+<p> <strong>OR</strong></p>
+
+<ol type="a">
+<li>touch a new file anywhere with its file name as the title</li>
+<li>when finished, move it to <code>_queue</code>; the file will then be published during the next update</li>
+</ol>
+
+
+<p> <em>The second approach eliminates the need to have the YAML front matters entirely</em></p></li>
+<li><p>The script checks for <strong>all changes</strong> within the <code>octopress</code> directory using <code>git diff</code> and <code>git ls-files</code>. This means compared to the approach in the <a href="http://instant-thinking.de/2012/08/03/synced-and-scheduled-blogging-with-octopress/">original post</a>, now the website will be rebuilt even when files like <code>_config.yaml</code> is changed</p>
+
+<p> Note that this might not be optimal if you&rsquo;ve had <code>_queue</code> and <code>_drafts</code> tracked by git. In that case whenever a draft is changed or something gets moved into the queue then the source will be commited, changes pushed to the remote, website rebuilt and all. I myself have excluded these two directories from git because I don&rsquo;t like the idea of having my drafts posting up to the cloud (I&rsquo;m using GitHub as my host and I&rsquo;m <em>a little</em> against having my unpolished thoughts shown in public) and I&rsquo;ve had Dropbox versioning control these posts in the first place.</p>
+
+<p> However, if you&rsquo;re pointing your source to a private remote, then it might be a good idea for versioning control your drafts. In that case I&rsquo;d recommend you change the script to auto-commit the changes in <code>_drafts</code> and <code>_queue</code> but exclude website re-compiling in such cases by greping the output of <code>git diff</code> and <code>git ls-files</code> to see if all changes happen in these directories.</p></li>
+</ol>
+
+
+<h3>Where to download?</h3>
+
+<p>You can download the whole source file <a href="downloads/code/octopress">here</a>. Below shows a preview of the code:</p>
+
+<p>```
+case $1 in</p>
+
+<pre><code>rake) 
+    cd "$OCTOPRESS_HOME"
+    rake "${@:2}"
+    ;;
+update)
+    # first move the files in the draft to queue if the draft property is set to true
+    echo "######## Checking for finished drafts ########"
+    # try to find all the markdown and md files
+    find "$OCTOPRESS_DRAFTS_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read draft
+    do
+        # get the published property; if no published property is found then default to false
+        if [ "`valueForProperty "$(YAMLFrontMatterOfPost "$draft" false)" 'published'`" = 'true' ]; then
+            new_post_name="`fullNameOfPost "$draft"`"
+            echo "$draft: Published is true, moving to queue folder (renaming to $new_post_name)..."
+            mv -n "$draft" "$OCTOPRESS_QUEUE_DIR/$new_post_name"
+        fi
+    done
+    # second move the files in the queue to the post directory if the date specified is in the past
+    echo "######## Checking for publishable posts in the queue ########"
+    find  "$OCTOPRESS_QUEUE_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read post
+    do
+        currDate="`date '+%s'`"
+
+        # get the post name to ensure that date etc are properly initiated
+        new_post_name="`fullNameOfPost "$post"`"
+        dateString="`valueForProperty "$(YAMLFrontMatterOfPost "$post")" 'date'`"
+        dateString="${dateString% *}"
+
+        postDate="`date -d "$dateString" '+%s'`"
+
+        if ((postDate &lt; currDate)); then
+            echo "$post: Post date is in the past, moving to post folder (renaming to $new_post_name)..."
+            mv -n "$post" "$OCTOPRESS_POSTS_DIR/$new_post_name"
+        fi
+    done
+
+    echo "######## Checking for changes in the source directory ########"
+    cd "$OCTOPRESS_HOME"
+    to_update=false
+    # first check if there is any change in the source branch; if there's then commit and update
+    # diff --quiet checks whether there's change in the tracked files; the second command checks whether there's untracked file
+    # the draft and queue folders are UNTRACKED; so you can basically do anything you want for the drafts 
+    if ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        echo "Changes to the octopress directory detected."
+        to_update=true
+    elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
+        echo "No last update status found." 
+        to_update=true
+    elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
+        echo "Last update failed."
+        to_update=true
+    fi
+
+    echo "######## Beginning update ########"
+    if $to_update; then
+        echo "Commiting changes in the source branch..." 
+        # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
+        git add -A 
+        git commit -m "Source updated" 
+        echo "Pushing changes to remote..." \
+        &amp;&amp; git push origin source \
+        &amp;&amp; echo "Generating and deploying the website..." \
+        &amp;&amp; rake gen_deploy \
+        &amp;&amp; echo 0 &gt; "$OCTOPRESS_STATUS_FILE" \
+        || echo 1 &gt; "$OCTOPRESS_STATUS_FILE"
+    else
+        echo "Nothing to update."
+    fi
+    ;;
+*)
+    usage
+    ;;
+</code></pre>
+
+<p>esac
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
