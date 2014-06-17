@@ -172,7 +172,7 @@ if $to_update; then
     git add -A 
     git commit -m "Source updated" 
     echo "Generating the website..."
-    "$RUBY_BIN_DIR/bundle" exec rake generate
+    "$RUBY_BIN_DIR/bundle" exec rake gen_deploy
     exit 0
 else
     echo "Nothing to update."
