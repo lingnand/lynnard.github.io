@@ -2,13 +2,8 @@
 layout: default
 ---
 
-<script type="text/javascript">
-$(document).ready(function() {
-    new Messi('View my projects <a href="/projects">here</a>, or close this dialog to read my blogs', {title: 'Hi, thanks for visiting my site! :)'});
-});
-</script>
-
 {% assign index = true %}
+{% assign visit = true %}
 {% for post in paginator.posts %}
 {% assign content = post.content %}
     <article class="post">{% include article.html %}</article>
