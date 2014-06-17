@@ -7,7 +7,7 @@
 	<meta name="author" content="Lynnard">
 
 	
-	<meta name="description" content="$(document).ready(function() { new Messi('View my projects here, or close this dialog to read my blogs', {title: 'Hi , thanks for visiting my site &hellip;">
+	<meta name="description" content=" Blog Archives ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -18,7 +18,8 @@
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	
+	<script src="/javascripts/messi.min.js" type="text/javascript"></script>
+
 </head>
 
 
@@ -82,12 +83,7 @@
 	
 		
 	
-	<div id="content" class="inner"><script type="text/javascript">
-$(document).ready(function() {
-    new Messi('View my projects <a href="/projects">here</a>, or close this dialog to read my blogs', {title: 'Hi <?php echo $_GET["visitor"]?>, thanks for visiting my site! :)'});
-});
-</script>
-
+	<div id="content" class="inner">
 
 
 <nav id="pagenavi">
@@ -136,6 +132,7 @@ $(document).ready(function() {
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
+
 
 
 
