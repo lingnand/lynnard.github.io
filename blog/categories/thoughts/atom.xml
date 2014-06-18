@@ -4,7 +4,7 @@
   <title><![CDATA[Category: thoughts | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/thoughts/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-18T01:03:44+01:00</updated>
+  <updated>2014-06-18T01:08:48+01:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -42,13 +42,13 @@
 
 <p>不知从什么时候开始对下列图标产生一种莫名的恐惧感</p>
 
-<p style="text-align:center;"><img class="icon" src="/images/refresh/refresh_icon_ios1.png" width="20" height="20">
-<img class="icon" src="/images/refresh/refresh_icon_ios2.gif" width="20" height="20">
-<img class="icon" src="/images/refresh/refresh_icon_android.png" width="20" height="20"></p>
+<p style="text-align:center;">{% img icon /images/refresh/refresh_icon_ios1.png 20 20 %}
+{% img icon /images/refresh/refresh_icon_ios2.gif 20 20 %}
+{% img icon /images/refresh/refresh_icon_android.png 20 20 %}</p>
 
 <p>回想起来，最早对这类图标的认识来源于浏览器&mdash;对于大部分网页来说，refresh的意思更接近于reset，作用是快速地回到那个初始的、你所熟悉的状态。然而现在这类图标被广泛地使用于各类信息类应用：比如社交类的人人、微博、facebook，新闻类的flipboard、新浪，etc。在这些应用中，刷新意味着更新，而每次更新都意味着看到这样的画面</p>
 
-<p style="text-align:center;"><img class="center" src="/images/refresh/refresh_weibo_new.png" width="360"></p>
+<p style="text-align:center;">{% img center /images/refresh/refresh_weibo_new.png 360 %}</p>
 
 <p>我本人是无法理解能不停刷人人、微博的人的大脑构造的&mdash;在我看来，不管我怎么快地刷新都会有新的消息，而我看的速度永远追不上它刷新的速度。在这个信息时代也许这就是成王败寇的关键&mdash;如果你能驾驭这个信息的潮流（ride the tide of information），你就能时刻站在时代的最前线，抓住最新的机会；而如果你跟我一样，是一个难以追上时代的人，你就会成为一个被时代所遗忘的old-timer；而且跟时代的差距很可能会越拉越大。</p>
 
