@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-18T01:09:53+01:00</updated>
+  <updated>2014-06-18T01:10:09+01:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -85,7 +85,44 @@
 
 <p>This is best shown in code</p>
 
-<p>{% include_code sh wtitle %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sh (wtitle)</span> <a href='/downloads/code/wtitle'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="c">#! /bin/sh</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># this script aims to find the window id of a given process </span>
+</span><span class='line'><span class="c"># it does this by repeatedly getting the (parent) process id until a match is found in the window list</span>
+</span><span class='line'><span class="nv">output</span><span class="o">=</span><span class="s2">&quot;`wmctrl -lp`&quot;</span>
+</span><span class='line'><span class="nv">pid</span><span class="o">=</span><span class="s2">&quot;${1:-$$}&quot;</span>
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+</span><span class='line'>    <span class="c">#echo &quot;pid is $pid&quot;</span>
+</span><span class='line'>    <span class="nv">wid</span><span class="o">=</span><span class="s2">&quot;`awk &#39;$3==&#39;&quot;</span><span class="nv">$pid</span><span class="s2">&quot;&#39;{for(i=5; i&lt;NF; i++){printf &quot;</span>%s <span class="s2">&quot;, $i}; print $NF}&#39; &lt;&lt;&lt; &quot;</span><span class="nv">$output</span><span class="s2">&quot;`&quot;</span>
+</span><span class='line'>    <span class="c">#echo &quot;wid found is $wid&quot;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;$wid&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;$wid&quot;</span>
+</span><span class='line'>        <span class="nb">break</span>
+</span><span class='line'><span class="nb">    </span><span class="k">else</span>
+</span><span class='line'><span class="k">        </span><span class="nv">pid</span><span class="o">=</span><span class="s2">&quot;`ps -o ppid= -p $pid`&quot;</span>
+</span><span class='line'>        ! <span class="o">[</span> <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit </span>1
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'><span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The above code will print the title of the window given a process id. To use it in the vimscript:</p>
 
@@ -108,7 +145,98 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 
 <p>All this can be wrapped up in this tiny script</p>
 
-<p>{% include_code sh xvim %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sh (xvim)</span> <a href='/downloads/code/xvim'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="nv">dname</span><span class="o">=</span><span class="s2">&quot;`wmctrl -d | awk &#39;$2==&quot;</span>*<span class="s2">&quot;{print $1}&#39;`&quot;</span>
+</span><span class='line'><span class="c"># get the pid of all available vim instances</span>
+</span><span class='line'><span class="nv">output</span><span class="o">=</span><span class="s2">&quot;`wmctrl -lp`&quot;</span>
+</span><span class='line'>vim --serverlist | <span class="o">(</span><span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
+</span><span class='line'><span class="k">    </span><span class="nv">pid</span><span class="o">=</span><span class="s2">&quot;`vim --servername &quot;</span><span class="nv">$line</span><span class="s2">&quot; --remote-expr &#39;getpid()&#39;`&quot;</span>
+</span><span class='line'>    <span class="c"># try to get the pid that works</span>
+</span><span class='line'>    <span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+</span><span class='line'><span class="k">        </span><span class="nv">wtitle</span><span class="o">=</span><span class="s2">&quot;`awk &#39;$3==&#39;&quot;</span><span class="nv">$pid</span><span class="s2">&quot;&#39;{</span>
+</span><span class='line'><span class="s2">            if ($2==&quot;</span><span class="s1">&#39;&quot;$dname&quot;&#39;</span><span class="s2">&quot;) {</span>
+</span><span class='line'><span class="s2">                for(i=5; i&lt;NF; i++)</span>
+</span><span class='line'><span class="s2">                    printf &quot;</span>%s <span class="s2">&quot;, $i </span>
+</span><span class='line'><span class="s2">                print $NF</span>
+</span><span class='line'><span class="s2">            } else</span>
+</span><span class='line'><span class="s2">                exit 1</span>
+</span><span class='line'><span class="s2">        }&#39; &lt;&lt;&lt; &quot;</span><span class="nv">$output</span><span class="s2">&quot;`&quot;</span>
+</span><span class='line'>        <span class="c">#echo &quot;wid found is $wid&quot;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> 0 <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">            if</span> <span class="o">[</span> -n <span class="s2">&quot;$wtitle&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'>                <span class="c"># we should try to navigate to this window and ask the window to open the required files</span>
+</span><span class='line'>                wmctrl -a <span class="s2">&quot;$wtitle&quot;</span>
+</span><span class='line'>                vim --servername <span class="s2">&quot;$line&quot;</span> --remote <span class="s2">&quot;$@&quot;</span>
+</span><span class='line'>                <span class="nb">exit</span>
+</span><span class='line'><span class="nb">            </span><span class="k">else</span>
+</span><span class='line'><span class="k">                </span><span class="nv">pid</span><span class="o">=</span><span class="s2">&quot;`ps -o ppid= -p $pid`&quot;</span>
+</span><span class='line'>                ! <span class="o">[</span> <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">break</span>
+</span><span class='line'><span class="nb">            </span><span class="k">fi</span>
+</span><span class='line'><span class="k">        else</span>
+</span><span class='line'><span class="k">            </span><span class="nb">break</span>
+</span><span class='line'><span class="nb">        </span><span class="k">fi</span>
+</span><span class='line'><span class="k">    done</span>
+</span><span class='line'><span class="k">    </span>srvnames+<span class="o">=(</span><span class="s2">&quot;:$line:&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="k">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#echo &quot;all servernames found: ${srvnames[@]}&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">c</span><span class="o">=</span>0
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+</span><span class='line'><span class="k">    </span><span class="nv">srvname</span><span class="o">=</span><span class="s2">&quot;VIM @$dname.$c&quot;</span>
+</span><span class='line'>    ! <span class="o">[[</span> <span class="s2">&quot;${srvnames[@]}&quot;</span> <span class="o">=</span> *:<span class="s2">&quot;$srvname&quot;</span>:* <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">break</span>
+</span><span class='line'><span class="nb">    </span><span class="nv">c</span><span class="o">=</span><span class="k">$((</span>c+1<span class="k">))</span>
+</span><span class='line'><span class="k">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># start a new vim instance with a unique servername</span>
+</span><span class='line'>xterm -name vim -e loader vim --servername <span class="s2">&quot;$srvname&quot;</span> <span class="s2">&quot;$@&quot;</span> &amp;<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
