@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-18T01:11:22+01:00</updated>
+  <updated>2014-06-24T22:45:33+01:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -18,7 +18,9 @@
     <link href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/"/>
     <updated>2013-11-05T16:45:00+00:00</updated>
     <id>http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more</id>
-    <content type="html"><![CDATA[<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using &ndash; or rather stuck with &ndash; is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
+    <content type="html"><![CDATA[<p><strong>Update:</strong> I&rsquo;ve formally made a package called <em>VIMonad</em> with all the features discussed here (as well as other more interesting ones) at <a href="http://vimonad.lynnard.tk">here</a>.</p>
+
+<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using &ndash; or rather stuck with &ndash; is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
 
 <p>Now one year later I&rsquo;ve had enough experience (I can&rsquo;t say I&rsquo;m a Haskell master though) and it&rsquo;s a good time to review my customizations and share my tips.</p>
 
