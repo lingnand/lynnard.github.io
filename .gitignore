@@ -14,14 +14,15 @@ source/_stash
 source/stylesheets/screen.css
 vendor
 node_modules
+Gemfile.lock
 
 source/_drafts
 source/_queue
 
-*.SyncID
-*.SyncIgnore
-source/.SyncTrash/*
-source/.SyncArchive/*
-*.!Sync
-*.SyncPart
-*.SyncTemp
+# *.SyncID
+# *.SyncIgnore
+# source/.SyncTrash/*
+# source/.SyncArchive/*
+# *.!Sync
+# *.SyncPart
+# *.SyncTemp
