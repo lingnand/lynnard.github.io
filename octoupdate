@@ -171,6 +171,7 @@ if $to_update; then
     # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
     git add -A 
     git commit -m "Source updated" 
+    git push origin source
     echo "Generating the website..."
     "$RUBY_BIN_DIR/bundle" exec rake gen_deploy
     exit 0

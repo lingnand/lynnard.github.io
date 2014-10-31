@@ -15,4 +15,4 @@ Fortunately I'm having more and more time to do things I like - by that I mean d
 
 The hustle-bustle meant most of my projects, just-starting or on-going, had to be put on shelf. Now over two months later I can barely recognize any of them under the thick dust that's been covering up.
 
-Well, nothing is too late - or at least I hope so. I've been itching to give my newborn freedom a try and any of these projects seems to be a perfect starting point. So stay tuned and expect great
+Well, nothing is too late - or at least I hope so. I've been itching to give my newborn freedom a try and any of these projects seems to be a perfect starting point. So stay tuned and expect great things.
