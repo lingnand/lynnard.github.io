@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-24T22:46:50+01:00</updated>
+  <updated>2014-10-31T20:18:13+00:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -23,7 +23,7 @@
 <h3>A short summary of the tinkering</h3>
 
 <ol>
-<li>Like in Dennis'es original post, two new folders called <code>_drafts</code> and <code>_queue</code> are added to the <code>source</code> directory to hold drafts and queued posts respectively.</li>
+<li>Like in Dennis&#8217;es original post, two new folders called <code>_drafts</code> and <code>_queue</code> are added to the <code>source</code> directory to hold drafts and queued posts respectively.</li>
 <li><p>Again, just like in the original post, you can put any markdown files within the <code>_drafts</code> folder; as soon as there&rsquo;s the <code>published: true</code> property within the YAML front matters like this</p>
 
 <pre><code> ---
@@ -42,7 +42,7 @@
 <li>The script automatically checks for the validity of the YAML front matters during each move of any post; among other things, it will add the following properties if absent:
 
 <ul>
-<li>date: the last modified date of the file is used; this is useful if you don&rsquo;t want to take the creation date for the draft as the date published on your website (which is the weird default behavior of Octopress) &mdash; in that case just leave this field blank and it will be added automatically when the draft gets moved to the queue (or when you put a file yourself into the queue)</li>
+<li>date: the last modified date of the file is used; this is useful if you don&rsquo;t want to take the creation date for the draft as the date published on your website (which is the weird default behavior of Octopress) &ndash; in that case just leave this field blank and it will be added automatically when the draft gets moved to the queue (or when you put a file yourself into the queue)</li>
 <li>layout: <code>post</code> is assumed as the default layout, which should be sensible enough</li>
 <li>title: the file name of the post (subtracting the date prefix, if any) is used</li>
 </ul>
@@ -79,85 +79,81 @@
 
 <p>You can download the whole source file <a href="downloads/code/octopress">here</a>. Below shows a preview of the code:</p>
 
-<p>```
-case $1 in</p>
+<pre><code>case $1 in
+    rake) 
+        cd "$OCTOPRESS_HOME"
+        rake "${@:2}"
+        ;;
+    update)
+        # first move the files in the draft to queue if the draft property is set to true
+        echo "######## Checking for finished drafts ########"
+        # try to find all the markdown and md files
+        find "$OCTOPRESS_DRAFTS_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read draft
+        do
+            # get the published property; if no published property is found then default to false
+            if [ "`valueForProperty "$(YAMLFrontMatterOfPost "$draft" false)" 'published'`" = 'true' ]; then
+                new_post_name="`fullNameOfPost "$draft"`"
+                echo "$draft: Published is true, moving to queue folder (renaming to $new_post_name)..."
+                mv -n "$draft" "$OCTOPRESS_QUEUE_DIR/$new_post_name"
+            fi
+        done
+        # second move the files in the queue to the post directory if the date specified is in the past
+        echo "######## Checking for publishable posts in the queue ########"
+        find  "$OCTOPRESS_QUEUE_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read post
+        do
+            currDate="`date '+%s'`"
 
-<pre><code>rake) 
-    cd "$OCTOPRESS_HOME"
-    rake "${@:2}"
-    ;;
-update)
-    # first move the files in the draft to queue if the draft property is set to true
-    echo "######## Checking for finished drafts ########"
-    # try to find all the markdown and md files
-    find "$OCTOPRESS_DRAFTS_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read draft
-    do
-        # get the published property; if no published property is found then default to false
-        if [ "`valueForProperty "$(YAMLFrontMatterOfPost "$draft" false)" 'published'`" = 'true' ]; then
-            new_post_name="`fullNameOfPost "$draft"`"
-            echo "$draft: Published is true, moving to queue folder (renaming to $new_post_name)..."
-            mv -n "$draft" "$OCTOPRESS_QUEUE_DIR/$new_post_name"
+            # get the post name to ensure that date etc are properly initiated
+            new_post_name="`fullNameOfPost "$post"`"
+            dateString="`valueForProperty "$(YAMLFrontMatterOfPost "$post")" 'date'`"
+            dateString="${dateString% *}"
+
+            postDate="`date -d "$dateString" '+%s'`"
+
+            if ((postDate &lt; currDate)); then
+                echo "$post: Post date is in the past, moving to post folder (renaming to $new_post_name)..."
+                mv -n "$post" "$OCTOPRESS_POSTS_DIR/$new_post_name"
+            fi
+        done
+
+        echo "######## Checking for changes in the source directory ########"
+        cd "$OCTOPRESS_HOME"
+        to_update=false
+        # first check if there is any change in the source branch; if there's then commit and update
+        # diff --quiet checks whether there's change in the tracked files; the second command checks whether there's untracked file
+        # the draft and queue folders are UNTRACKED; so you can basically do anything you want for the drafts 
+        if ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "Changes to the octopress directory detected."
+            to_update=true
+        elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
+            echo "No last update status found." 
+            to_update=true
+        elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
+            echo "Last update failed."
+            to_update=true
         fi
-    done
-    # second move the files in the queue to the post directory if the date specified is in the past
-    echo "######## Checking for publishable posts in the queue ########"
-    find  "$OCTOPRESS_QUEUE_DIR" -type f \( -name '*.markdown' -o -name '*.md' \) | while read post
-    do
-        currDate="`date '+%s'`"
 
-        # get the post name to ensure that date etc are properly initiated
-        new_post_name="`fullNameOfPost "$post"`"
-        dateString="`valueForProperty "$(YAMLFrontMatterOfPost "$post")" 'date'`"
-        dateString="${dateString% *}"
-
-        postDate="`date -d "$dateString" '+%s'`"
-
-        if ((postDate &lt; currDate)); then
-            echo "$post: Post date is in the past, moving to post folder (renaming to $new_post_name)..."
-            mv -n "$post" "$OCTOPRESS_POSTS_DIR/$new_post_name"
+        echo "######## Beginning update ########"
+        if $to_update; then
+            echo "Commiting changes in the source branch..." 
+            # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
+            git add -A 
+            git commit -m "Source updated" 
+            echo "Pushing changes to remote..." \
+            &amp;&amp; git push origin source \
+            &amp;&amp; echo "Generating and deploying the website..." \
+            &amp;&amp; rake gen_deploy \
+            &amp;&amp; echo 0 &gt; "$OCTOPRESS_STATUS_FILE" \
+            || echo 1 &gt; "$OCTOPRESS_STATUS_FILE"
+        else
+            echo "Nothing to update."
         fi
-    done
-
-    echo "######## Checking for changes in the source directory ########"
-    cd "$OCTOPRESS_HOME"
-    to_update=false
-    # first check if there is any change in the source branch; if there's then commit and update
-    # diff --quiet checks whether there's change in the tracked files; the second command checks whether there's untracked file
-    # the draft and queue folders are UNTRACKED; so you can basically do anything you want for the drafts 
-    if ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclude-standard)" ]; then
-        echo "Changes to the octopress directory detected."
-        to_update=true
-    elif ! [ -e "$OCTOPRESS_STATUS_FILE" ]; then
-        echo "No last update status found." 
-        to_update=true
-    elif [ "`cat "$OCTOPRESS_STATUS_FILE"`" = 1 ]; then
-        echo "Last update failed."
-        to_update=true
-    fi
-
-    echo "######## Beginning update ########"
-    if $to_update; then
-        echo "Commiting changes in the source branch..." 
-        # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
-        git add -A 
-        git commit -m "Source updated" 
-        echo "Pushing changes to remote..." \
-        &amp;&amp; git push origin source \
-        &amp;&amp; echo "Generating and deploying the website..." \
-        &amp;&amp; rake gen_deploy \
-        &amp;&amp; echo 0 &gt; "$OCTOPRESS_STATUS_FILE" \
-        || echo 1 &gt; "$OCTOPRESS_STATUS_FILE"
-    else
-        echo "Nothing to update."
-    fi
-    ;;
-*)
-    usage
-    ;;
+        ;;
+    *)
+        usage
+        ;;
+esac
 </code></pre>
-
-<p>esac
-```</p>
 ]]></content>
   </entry>
   
@@ -166,7 +162,7 @@ update)
     <link href="http://lynnard.tk/blog/2013/07/30/the-very-first-blog-post/"/>
     <updated>2013-07-30T12:08:00+01:00</updated>
     <id>http://lynnard.tk/blog/2013/07/30/the-very-first-blog-post</id>
-    <content type="html"><![CDATA[<p>Finally opened my own blogspace. I&rsquo;ve been dreaming about this day for a <em>long, long</em> time but never got time to set it up properly. For one thing, the <em>common</em> blogging scene is so crowded with web-interface-backed alternatives such as Wordpress &ndash; which at best is cumbersome and not <em>hacker-minded</em>. An easy dig around the net reveals to me the gem in the sea: <strong>Octopress</strong>.</p>
+    <content type="html"><![CDATA[<p>Finally opened my own blogspace. I&rsquo;ve been dreaming about this day for a <em>long, long</em> time but never got time to set it up properly. For one thing, the <em>common</em> blogging scene is so crowded with web-interface-backed alternatives such as Wordpress - which at best is cumbersome and not <em>hacker-minded</em>. An easy dig around the net reveals to me the gem in the sea: <strong>Octopress</strong>.</p>
 
 <h2>What is Octopress?</h2>
 
@@ -176,10 +172,9 @@ update)
 </ul>
 
 
-<p><code>
-$ rake new_post["I like to write blog in CLI"]
+<pre><code>$ rake new_post["I like to write blog in CLI"]
 $ rake preview
-</code></p>
+</code></pre>
 
 <ul>
 <li>Version control your blog like any code in Github</li>
@@ -188,9 +183,8 @@ $ rake preview
 
 <h2>Gotcha</h2>
 
-<p><del>
-As a <code>Pandoc</code> loyalist, Octopress&rsquo;s choice of using <code>rdiscount</code> as its default <code>Markdown</code> compiler without a doubt unnerves me. Therefore the first thing to do is to integrate Pandoc into Octopress. Fortunately a little <a href="http://drz.ac/2013/01/03/blogging-with-math/">post</a> helped me.
-</del></p>
+<pre><code>As a `Pandoc` loyalist, Octopress's choice of using `rdiscount` as its default `Markdown` compiler without a doubt unnerves me. Therefore the first thing to do is to integrate Pandoc into Octopress. Fortunately a little [post](http://drz.ac/2013/01/03/blogging-with-math/) helped me.
+</code></pre>
 
 <p>Unfortunately the Pandoc solution is <strong>NOT</strong> working for me. For the time being I&rsquo;ll be settling with Octopress&rsquo;s own codeblock feature or its github code fencing filter.</p>
 
@@ -200,7 +194,7 @@ As a <code>Pandoc</code> loyalist, Octopress&rsquo;s choice of using <code>rdisc
 
 <h2>What about working on the go?</h2>
 
-<p>This, however, is a big problem. The un*xy set of utilities sported by Octopress on CLI affords great flexibility and extensibility when working on a computer, but when you are left with only an iPhone or an Android then all becomes a giant <strong>PITA</strong>. I do wonder from time to time why no phone manufacturer has ever introduced a phone with a proper Terminal interface &ndash; which would definitely thrill up a huge crowd of nerds &ndash; but apparently nerds (read 屌丝) are just out of consideration for any manager.</p>
+<p>This, however, is a big problem. The un*xy set of utilities sported by Octopress on CLI affords great flexibility and extensibility when working on a computer, but when you are left with only an iPhone or an Android then all becomes a giant <strong>PITA</strong>. I do wonder from time to time why no phone manufacturer has ever introduced a phone with a proper Terminal interface - which would definitely thrill up a huge crowd of nerds - but apparently nerds (read 屌丝) are just out of consideration for any manager.</p>
 
 <p>I&rsquo;m to have a Blackberry Q10 in October so ideally there can be some solution for this great phone with its great QWERTY keyboard. One thing I can think of is to have a server running 24hr that monitors my Dropbox directory and recompiles my website whenever a change is made; at the same time use some text editor to edit the posts on my phone; or better yet, just use a SSH client and &hellip;</p>
 

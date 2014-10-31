@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-24T22:46:50+01:00</updated>
+  <updated>2014-10-31T20:18:13+00:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -24,7 +24,7 @@
 
 <p style="text-align:center;"><img src="/images/vim/swap_warning.png" alt="" /></p>
 
-<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance &ndash; and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
+<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
 
 <ol>
 <li>whenever a file with an existing swap is asked to be opened, instead of showing the message, jump to that editing session of Vim and switch to the file in question</li>
@@ -34,7 +34,7 @@
 
 <h1>Collecting the pieces</h1>
 
-<p>One can argue that such features should come shipped with any modern editor &ndash; but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
+<p>One can argue that such features should come shipped with any modern editor - but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
 
 <p>To start with, <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> is a little program that interacts with your window manager on the command line (yes that is possible). The most useful features include listing the workspaces, checking for window information, jumping to a specific window based on title or window ID.</p>
 
@@ -85,7 +85,7 @@
 
 <p>This is best shown in code</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sh (wtitle)</span> <a href='/downloads/code/wtitle'>download</a></figcaption>
+<p><figure class='code'><figcaption><span>sh (wtitle)</span> <a href='/downloads/code/wtitle'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -122,15 +122,14 @@
 </span><span class='line'>        ! <span class="o">[</span> <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exit </span>1
 </span><span class='line'>    <span class="k">fi</span>
 </span><span class='line'><span class="k">done</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>The above code will print the title of the window given a process id. To use it in the vimscript:</p>
 
-<p><code>vim
-let pid = remote_expr(servername, "getpid()")
+<pre><code class="vim">let pid = remote_expr(servername, "getpid()")
 " execute the wmctrl command
 call system("wmctrl -a \"`wtitle " . pid . "`\"")
-</code></p>
+</code></pre>
 
 <p>Now the second task I mentioned is to forward all file opening requests to the same vim instance within the workspace. This is a little more complicated than the previous task, but there&rsquo;s nothing especially tricky</p>
 
@@ -145,7 +144,7 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 
 <p>All this can be wrapped up in this tiny script</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sh (xvim)</span> <a href='/downloads/code/xvim'>download</a></figcaption>
+<p><figure class='code'><figcaption><span>sh (xvim)</span> <a href='/downloads/code/xvim'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -236,7 +235,7 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 </span><span class='line'>
 </span><span class='line'><span class="c"># start a new vim instance with a unique servername</span>
 </span><span class='line'>xterm -name vim -e loader vim --servername <span class="s2">&quot;$srvname&quot;</span> <span class="s2">&quot;$@&quot;</span> &amp;<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
@@ -247,7 +246,7 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
     <id>http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more</id>
     <content type="html"><![CDATA[<p><strong>Update: I&rsquo;ve formally made a package called <em>VIMonad</em> with all the features discussed here (as well as other more interesting ones) <a href="http://vimonad.lynnard.tk">here</a>.</strong></p>
 
-<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using &ndash; or rather stuck with &ndash; is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
+<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using - or rather stuck with - is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
 
 <p>Now one year later I&rsquo;ve had enough experience (I can&rsquo;t say I&rsquo;m a Haskell master though) and it&rsquo;s a good time to review my customizations and share my tips.</p>
 
@@ -305,7 +304,7 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 <li><p>able to toggle a few windows on and off (floating). Think of it as the dock in the Mac OS system; sometimes you need it but sometimes you don&rsquo;t; and the best way to make it readily available without clustering the workspace is to have it hidden in the background and activated via a key. This is essentially <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Util-Scratchpad.html">XMonad.Util.Scratchpad</a> from Contrib; however, the original scratchpad does not provide workspace-specific scratchpads, so all workspaces have to share the same scratchpad. My extension will work around this limitation and allow a different scratchpad in each workspace, toggled with the same key sequence.</p>
 
 <p> <a href="#scratchpad">jump to discussion</a></p></li>
-<li><p>a wallpaper system that allows easy previewing and changing of the wallpaper. Press <code>M-x</code> to make all windows half-transparent to show the wallpaper (I call this <em>gallery mode</em>); press it again to go back to normal mode. Press <code>M-S-x</code> to switch to the next random wallpaper &ndash; if it&rsquo;s in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it&rsquo;s already in gallery mode, do nothing more.</p>
+<li><p>a wallpaper system that allows easy previewing and changing of the wallpaper. Press <code>M-x</code> to make all windows half-transparent to show the wallpaper (I call this <em>gallery mode</em>); press it again to go back to normal mode. Press <code>M-S-x</code> to switch to the next random wallpaper - if it&rsquo;s in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it&rsquo;s already in gallery mode, do nothing more.</p>
 
 <p><a href="#wallpaper">jump to discussion</a></p></li>
 </ol>
@@ -339,21 +338,21 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 
 <p style="text-align:center;"><img src="/images/xmonad/splitter.png" alt="" /></p>
 
-<p>An implication of this change is that now <em>EVERY WINDOW</em> becomes a tab. Additionally, new windows won&rsquo;t change the outer layout in anyway &ndash; they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don&rsquo;t need <a href="http://tools.suckless.org/tabbed/">suckless tabbed</a> for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can&rsquo;t be shared across in this way). Just a few reasons why this is so much better:</p>
+<p>An implication of this change is that now <em>EVERY WINDOW</em> becomes a tab. Additionally, new windows won&rsquo;t change the outer layout in anyway - they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don&rsquo;t need <a href="http://tools.suckless.org/tabbed/">suckless tabbed</a> for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can&rsquo;t be shared across in this way). Just a few reasons why this is so much better:</p>
 
 <ul>
-<li>one single keystroke to move the current tab to another group, in an entirely visual way. Still remember the &lsquo;groups&rsquo; from Firefox? You have to click the zoom button, drag the tab to the desired group and all. Also, now you can mix all sorts of &lsquo;tabs&rsquo; together &ndash; you can put a xterm tab with a browser tab &ndash; anyway you want.</li>
-<li>shifting tabs with ease &ndash; again, single strokes to move the tab left/right in the group</li>
-<li>create new groups with ease &ndash; move any tab out of the current group to form a new group</li>
+<li>one single keystroke to move the current tab to another group, in an entirely visual way. Still remember the &lsquo;groups&rsquo; from Firefox? You have to click the zoom button, drag the tab to the desired group and all. Also, now you can mix all sorts of &lsquo;tabs&rsquo; together - you can put a xterm tab with a browser tab - anyway you want.</li>
+<li>shifting tabs with ease - again, single strokes to move the tab left/right in the group</li>
+<li>create new groups with ease - move any tab out of the current group to form a new group</li>
 <li>unified look and keyboard shortcuts</li>
 </ul>
 
 
-<p>This is precisely the reason why I&rsquo;ve changed almost all my applications to those without window tabbing e.g. Vimb for browsing. This makes everything so much simpler &ndash; every window can be treated in the same manner as if it&rsquo;s just a buffer in Vim.</p>
+<p>This is precisely the reason why I&rsquo;ve changed almost all my applications to those without window tabbing e.g. Vimb for browsing. This makes everything so much simpler - every window can be treated in the same manner as if it&rsquo;s just a buffer in Vim.</p>
 
 <h2><a id="prompt"></a>All the glories about prompts</h2>
 
-<p>Prompts are an interesting addition to XMonad as they allow manual tasks to be performed anywhere and anytime in an unintrusive manner. However, I&rsquo;m not entirely satisfied by the line of prompt systems included in Contrib &ndash; most of them only allow input, and have neglected another important feature of prompt &ndash; showing real-time output of the query. This can be best illustrated by Spotlight from Mac OS X or better yet, Alfred. Both apps attempt to show the user search results from the query and allow the user to easily go to any result. I feel that XMonad&rsquo;s Prompt should do the same thing.</p>
+<p>Prompts are an interesting addition to XMonad as they allow manual tasks to be performed anywhere and anytime in an unintrusive manner. However, I&rsquo;m not entirely satisfied by the line of prompt systems included in Contrib - most of them only allow input, and have neglected another important feature of prompt - showing real-time output of the query. This can be best illustrated by Spotlight from Mac OS X or better yet, Alfred. Both apps attempt to show the user search results from the query and allow the user to easily go to any result. I feel that XMonad&rsquo;s Prompt should do the same thing.</p>
 
 <p>Here I&rsquo;ll list a few prompt systems I&rsquo;ve designed myself. Some are more complicated than others (might span a couple hundred of lines of code) and I won&rsquo;t indulge into the details. To better understand how a prompt system should be written it&rsquo;s better to consult the documentation directly at <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html">XMonad.Prompt</a>. The main purpose here is to show what we can do rather than how it can be done.</p>
 
@@ -387,14 +386,13 @@ call system("wmctrl -a \"`wtitle " . pid . "`\"")
 
 <h2><a id="topical_workspace"></a>Topical workspaces</h2>
 
-<p>The implementations in Contrib on topical workspaces demand the user to put all the configurations into <code>xmonad.hs</code>. I found this too rigid and static &ndash; what if I just have created a new directory (a context) and want to start the workspace inside?</p>
+<p>The implementations in Contrib on topical workspaces demand the user to put all the configurations into <code>xmonad.hs</code>. I found this too rigid and static - what if I just have created a new directory (a context) and want to start the workspace inside?</p>
 
-<p>As a solution to my quagmire, I&rsquo;ve conjured up an entirely different approach &ndash; managing topics by tags. Every tag is represented by a directory, and a file/directory with multiple tags will be hard-linked in all those respective directories.</p>
+<p>As a solution to my quagmire, I&rsquo;ve conjured up an entirely different approach - managing topics by tags. Every tag is represented by a directory, and a file/directory with multiple tags will be hard-linked in all those respective directories.</p>
 
 <p>An example tag structure:</p>
 
-<p>```
-$ tree -d ./dev
+<pre><code>$ tree -d ./dev
 ./dev
 ├── algorithm
 │   └── web_crawler
@@ -436,16 +434,13 @@ $ tree -d ./dev
 │       ├── sort
 │       ├── string
 │       └── xargs
-└── web</p>
-
-<pre><code>├── ip
-├── js
-├── php
-├── xml_rpc
-└── zend
+└── web
+    ├── ip
+    ├── js
+    ├── php
+    ├── xml_rpc
+    └── zend
 </code></pre>
-
-<p>```</p>
 
 <p>Then the task of switching to a particular topic is as simple as searching in the tag database for the tag, creating a new workspace, and storing the path of that tag directory for this workspace. After that load the path for any newly spawned xterms, etc.</p>
 
@@ -461,12 +456,12 @@ $ tree -d ./dev
 
 <h3>Assign each workspace to a symbol</h3>
 
-<p>This is achieved via a customly defined <em>symbol stream</em>. It is similar to the Enum stream of <code>Char</code> in Haskell but slightly different &ndash; the order of the symbols is adjusted to maximize keyboard efficiency. For example, I&rsquo;ve defined the symbol stream for my workspaces as follow</p>
+<p>This is achieved via a customly defined <em>symbol stream</em>. It is similar to the Enum stream of <code>Char</code> in Haskell but slightly different - the order of the symbols is adjusted to maximize keyboard efficiency. For example, I&rsquo;ve defined the symbol stream for my workspaces as follow</p>
 
 <pre><code>`123457890-=...
 </code></pre>
 
-<p>The <code>...</code> refers to any other symbols e.g. obtained from <code>enumFrom '='</code>. You might notice that <code>6</code> is left out of the symbol stream and that&rsquo;s right &ndash; I&rsquo;ve specifically assigned <code>Mod-6</code> to toggling between last visited workspaces, as a tribute to <code>&lt;Ctrl-6&gt;</code> in Vim. The first symbol, <code>`</code> denotes the temporary workspace and cannot be removed.</p>
+<p>The <code>...</code> refers to any other symbols e.g. obtained from <code>enumFrom '='</code>. You might notice that <code>6</code> is left out of the symbol stream and that&rsquo;s right - I&rsquo;ve specifically assigned <code>Mod-6</code> to toggling between last visited workspaces, as a tribute to <code>&lt;Ctrl-6&gt;</code> in Vim. The first symbol, <code>`</code> denotes the temporary workspace and cannot be removed.</p>
 
 <p>Why is binding each workspace to a symbol useful? Because then one can perform many tasks with these symbols efficiently.</p>
 
@@ -483,7 +478,7 @@ $ tree -d ./dev
 
 <h3>Bind renaming/adding workspaces to the topic selection prompt I explained in the previous section</h3>
 
-<p>The original DynamicWorkspaces implementation simply allows you to type any string as the name of the current/new workspace. What I&rsquo;ve done is to replace this prompt with my prompt for topic selection &ndash; so renaming/adding workspace would at the same time switch the workspace to the given tag/context (and create the new tag directory if necessary).</p>
+<p>The original DynamicWorkspaces implementation simply allows you to type any string as the name of the current/new workspace. What I&rsquo;ve done is to replace this prompt with my prompt for topic selection - so renaming/adding workspace would at the same time switch the workspace to the given tag/context (and create the new tag directory if necessary).</p>
 
 <h2><a id="window_jumping"></a>Window jumping</h2>
 
@@ -497,23 +492,19 @@ $ tree -d ./dev
 
 <p>Example:</p>
 
-<p>```haskell
-windowGroups = siftedWindowGroups</p>
-
-<pre><code>[ -- vimb instances
-  def { filterKey = "b"
-      , filterPredicate = className =? "Vimb"
-      , onAbsence = vbPrompt
-      }
-  -- zathura instances
-, def { filterKey = "z"
-      , filterPredicate = className =? "Zathura"
-      , onAbsence = spawn "zathura"
-      }
-]
+<pre><code class="haskell">windowGroups = siftedWindowGroups
+    [ -- vimb instances
+      def { filterKey = "b"
+          , filterPredicate = className =? "Vimb"
+          , onAbsence = vbPrompt
+          }
+      -- zathura instances
+    , def { filterKey = "z"
+          , filterPredicate = className =? "Zathura"
+          , onAbsence = spawn "zathura"
+          }
+    ]
 </code></pre>
-
-<p>```</p>
 
 <p>Using <code>ifWindows</code> from <a href="http://hackage.haskell.org/package/xmonad-contrib-0.11.2/docs/XMonad-Actions-WindowGo.html">XMonad.Actions.WindowGo</a> you can select the windows using the <code>Query Bool</code>; after that, you can pretty much imagine how to extend from it.</p>
 
@@ -537,17 +528,13 @@ windowGroups = siftedWindowGroups</p>
 
 <p>The main technique for getting a per workspace scratchpad is through exploiting the original <code>namedScratchpadAction</code> function from <a href="http://hackage.haskell.org/package/xmonad-contrib-0.11.2/docs/XMonad-Util-NamedScratchpad.html">XMonad.Util.NamedScratchpad</a> like this</p>
 
-<p>```haskell
-mkPerWSScratchpad cmd = do</p>
-
-<pre><code>curr &lt;- gets (W.currentTag . windowset)
-con &lt;- perWSScratchpadContext curr
-dir &lt;- getCurrentWorkspaceDirectory
-let csterm = UniqueTerm con cmd "" in
-    namedScratchpadAction [ NS "cs" (uniqueTermFullCmd dir csterm) (isUniqueTerm csterm) idHook ] "cs"
+<pre><code class="haskell">mkPerWSScratchpad cmd = do
+    curr &lt;- gets (W.currentTag . windowset)
+    con &lt;- perWSScratchpadContext curr
+    dir &lt;- getCurrentWorkspaceDirectory
+    let csterm = UniqueTerm con cmd "" in
+        namedScratchpadAction [ NS "cs" (uniqueTermFullCmd dir csterm) (isUniqueTerm csterm) idHook ] "cs"
 </code></pre>
-
-<p>```</p>
 
 <p>So that each time the function is triggered the <code>Query Bool</code> associated for selecting the scratchpad changes according to the workspace. The code above might be a little abstruse to understand, but basically</p>
 
@@ -558,7 +545,7 @@ let csterm = UniqueTerm con cmd "" in
 </ol>
 
 
-<p>There are more subtle details to consider &ndash; for example, what happens when a workspace&rsquo;s name changes? that will change the context obtained from 1 and subsequently lose the scratchpad associated with the old name. To solve this problem we have to introduce another level of indirection: create a map that associates each workspace with a unique handle, and use that handle to generate the context string. When the workspace&rsquo;s name changes it should still be made to point at the same handle so the old scratchpad is still valid for use.</p>
+<p>There are more subtle details to consider - for example, what happens when a workspace&rsquo;s name changes? that will change the context obtained from 1 and subsequently lose the scratchpad associated with the old name. To solve this problem we have to introduce another level of indirection: create a map that associates each workspace with a unique handle, and use that handle to generate the context string. When the workspace&rsquo;s name changes it should still be made to point at the same handle so the old scratchpad is still valid for use.</p>
 
 <h2><a id="wallpaper"></a>Dynamic wallpaper system</h2>
 
@@ -572,7 +559,7 @@ let csterm = UniqueTerm con cmd "" in
 
 <h1>Conclusion</h1>
 
-<p>I have imagined that this would be a very long post and indeed it is. During writing I myself had to pause for a few times to try to remember what I was doing with <em>that</em> particular part of the code and what I was trying to achieve. To be honest I haven&rsquo;t talked much about the implementation details in most cases. This post is more about summarizing my current understanding and imagery of a modern <em>&ndash; or rather, geeky &ndash;</em> window manager and what I have done to approach my ideals. Maybe in the future my ideals will change again and then I should redo/rewrite everything. But as always, <em>joy lies in endless tinkering / 折腾就是快乐</em>.</p>
+<p>I have imagined that this would be a very long post and indeed it is. During writing I myself had to pause for a few times to try to remember what I was doing with <em>that</em> particular part of the code and what I was trying to achieve. To be honest I haven&rsquo;t talked much about the implementation details in most cases. This post is more about summarizing my current understanding and imagery of a modern <em>- or rather, geeky -</em> window manager and what I have done to approach my ideals. Maybe in the future my ideals will change again and then I should redo/rewrite everything. But as always, <em>joy lies in endless tinkering / 折腾就是快乐</em>.</p>
 ]]></content>
   </entry>
   

@@ -16,7 +16,7 @@
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>&#8211;>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 </head>
@@ -88,13 +88,13 @@
 
 <h1>Reverse completion</h1>
 
-<p>I&rsquo;ve always wondered why the default prompt does not support <code>Shift+Tab</code> to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a <code>Shift+Tab</code> is pressed it passes a <em>reversed</em> list of the completion items to the <code>completionFunction</code> &ndash; achieving what I want in most cases.</p>
+<p>I&rsquo;ve always wondered why the default prompt does not support <code>Shift+Tab</code> to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a <code>Shift+Tab</code> is pressed it passes a <em>reversed</em> list of the completion items to the <code>completionFunction</code> - achieving what I want in most cases.</p>
 
 <h1>Colored prompt</h1>
 
-<p>Ever thought about having a colorful prompt system within XMonad? Now it is possible. I first got this idea when I was working on the taskwarrior prompt system &ndash; the taskwarrior program supports outputting ANSI colors, but apparently the stock XMonad.Prompt wouldn&rsquo;t do anything for that extra information.</p>
+<p>Ever thought about having a colorful prompt system within XMonad? Now it is possible. I first got this idea when I was working on the taskwarrior prompt system - the taskwarrior program supports outputting ANSI colors, but apparently the stock XMonad.Prompt wouldn&rsquo;t do anything for that extra information.</p>
 
-<p>The functions behind these color renderings aren&rsquo;t terribly complicated &ndash; it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
+<p>The functions behind these color renderings aren&rsquo;t terribly complicated - it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/colored_prompt.png" alt="" /></p>
 
@@ -180,7 +180,7 @@
 
 <p style="text-align:center;"><img src="/images/xmonad/widget1.png" alt="" /></p>
 
-<p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically &ndash; <code>l</code> in this case.</p>
+<p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically - <code>l</code> in this case.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/widget2.png" alt="" /></p>
 
@@ -198,11 +198,11 @@
 
 <p>Press <em>Return</em> to execute the command.</p>
 
-<p>After this lengthy explanation, you might jump up and say: <em>gosh, that&rsquo;s complicated!</em> The fact that there seem to be more steps with my system than with the standard unix tools is because I&rsquo;m trying to explain all the details as clearly as possible. In practice my system is designed to be as close to your thinking process as possible &ndash; type the action you want to achieve directly, and when you want to get hold to some file as the argument to the action you are trying to complete, just use one of the widgets to help you out.</p>
+<p>After this lengthy explanation, you might jump up and say: <em>gosh, that&rsquo;s complicated!</em> The fact that there seem to be more steps with my system than with the standard unix tools is because I&rsquo;m trying to explain all the details as clearly as possible. In practice my system is designed to be as close to your thinking process as possible - type the action you want to achieve directly, and when you want to get hold to some file as the argument to the action you are trying to complete, just use one of the widgets to help you out.</p>
 
 <h3>Preview widget</h3>
 
-<p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt &ndash; if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
+<p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt - if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/widget_preview_source.png" alt="previewing a source file" /></p>
 
@@ -231,7 +231,7 @@
   
 
 
-<time datetime="2014-02-24T17:00:00+00:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time></div>
+<time datetime="2014-02-24T17:00:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 

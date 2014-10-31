@@ -7,7 +7,7 @@
 	<meta name="author" content="Lynnard">
 
 	
-	<meta name="description" content="I&rsquo;ve finally got the time to clean up my XMonad configurations, split them into modules, and formally made a fork at VIMonad. You can find all &hellip;">
+	<meta name="description" content="Haven&rsquo;t updated my website for ages. A lot has happened - graduated from university, got a job, found a home in one of the busiest cities in &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -16,7 +16,7 @@
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>&#8211;>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 </head>
@@ -88,6 +88,55 @@
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/10/31/coming-back/">
+		
+			Coming Back</a>
+	</h2>
+	<div class="entry-content">
+		<p>Haven&rsquo;t updated my website for ages.</p>
+
+<p><em>A lot has happened</em> - graduated from university, got a job, found a home in one of the busiest cities in the world, laptop broken, laptop fixed, laptop broken again, laptop fixed again.</p>
+
+<p>Fortunately I&rsquo;m having more and more time to do things I like - by that I mean developing programs, as a developer - and paid for that as well.</p>
+
+<p>The hustle-bustle meant most of my projects, just-starting or on-going, had to be put on shelf. Now over two months later I can barely recognize any of them under the thick dust that&rsquo;s been covering up.</p>
+
+<p>Well, nothing is too late - or at least I hope so. I&rsquo;ve been itching to give my newborn freedom a try and any of these projects seems to be a perfect starting point. So stay tuned and expect great</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-31T19:48:00+00:00" pubdate data-updated="true"></time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/life/'>life</a>
+
+
+</div>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/06/11/vimonad/">
 		
 			VIMonad- Transforming XMonad to Vim With Motion Keys, Register, Visual Mode, Macros, &#8230;</a>
@@ -115,7 +164,7 @@
   
 
 
-<time datetime="2014-06-11T16:19:00+01:00" pubdate data-updated="true">Jun 11<span>th</span>, 2014</time></div>
+<time datetime="2014-06-11T16:19:00+01:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -162,7 +211,7 @@
   
 
 
-<time datetime="2014-03-31T15:44:00+01:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time></div>
+<time datetime="2014-03-31T15:44:00+01:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -187,13 +236,13 @@
 
 <h1>Reverse completion</h1>
 
-<p>I&rsquo;ve always wondered why the default prompt does not support <code>Shift+Tab</code> to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a <code>Shift+Tab</code> is pressed it passes a <em>reversed</em> list of the completion items to the <code>completionFunction</code> &ndash; achieving what I want in most cases.</p>
+<p>I&rsquo;ve always wondered why the default prompt does not support <code>Shift+Tab</code> to move the focus up the completion menu. So I basically added another branch in the main loop of the prompt system such that whenever a <code>Shift+Tab</code> is pressed it passes a <em>reversed</em> list of the completion items to the <code>completionFunction</code> - achieving what I want in most cases.</p>
 
 <h1>Colored prompt</h1>
 
-<p>Ever thought about having a colorful prompt system within XMonad? Now it is possible. I first got this idea when I was working on the taskwarrior prompt system &ndash; the taskwarrior program supports outputting ANSI colors, but apparently the stock XMonad.Prompt wouldn&rsquo;t do anything for that extra information.</p>
+<p>Ever thought about having a colorful prompt system within XMonad? Now it is possible. I first got this idea when I was working on the taskwarrior prompt system - the taskwarrior program supports outputting ANSI colors, but apparently the stock XMonad.Prompt wouldn&rsquo;t do anything for that extra information.</p>
 
-<p>The functions behind these color renderings aren&rsquo;t terribly complicated &ndash; it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
+<p>The functions behind these color renderings aren&rsquo;t terribly complicated - it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/colored_prompt.png" alt="" /></p>
 
@@ -279,7 +328,7 @@
 
 <p style="text-align:center;"><img src="/images/xmonad/widget1.png" alt="" /></p>
 
-<p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically &ndash; <code>l</code> in this case.</p>
+<p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically - <code>l</code> in this case.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/widget2.png" alt="" /></p>
 
@@ -297,11 +346,11 @@
 
 <p>Press <em>Return</em> to execute the command.</p>
 
-<p>After this lengthy explanation, you might jump up and say: <em>gosh, that&rsquo;s complicated!</em> The fact that there seem to be more steps with my system than with the standard unix tools is because I&rsquo;m trying to explain all the details as clearly as possible. In practice my system is designed to be as close to your thinking process as possible &ndash; type the action you want to achieve directly, and when you want to get hold to some file as the argument to the action you are trying to complete, just use one of the widgets to help you out.</p>
+<p>After this lengthy explanation, you might jump up and say: <em>gosh, that&rsquo;s complicated!</em> The fact that there seem to be more steps with my system than with the standard unix tools is because I&rsquo;m trying to explain all the details as clearly as possible. In practice my system is designed to be as close to your thinking process as possible - type the action you want to achieve directly, and when you want to get hold to some file as the argument to the action you are trying to complete, just use one of the widgets to help you out.</p>
 
 <h3>Preview widget</h3>
 
-<p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt &ndash; if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
+<p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt - if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
 
 <p style="text-align:center;"><img src="/images/xmonad/widget_preview_source.png" alt="previewing a source file" /></p>
 
@@ -333,7 +382,7 @@
   
 
 
-<time datetime="2014-02-24T17:00:00+00:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time></div>
+<time datetime="2014-02-24T17:00:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -384,7 +433,7 @@
   
 
 
-<time datetime="2014-02-09T14:47:00+00:00" pubdate data-updated="true">Feb 9<span>th</span>, 2014</time></div>
+<time datetime="2014-02-09T14:47:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -474,7 +523,7 @@
   
 
 
-<time datetime="2014-01-06T17:57:00+00:00" pubdate data-updated="true">Jan 6<span>th</span>, 2014</time></div>
+<time datetime="2014-01-06T17:57:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -497,7 +546,7 @@
 	<div class="entry-content">
 		<p>I&rsquo;ve been using zsh and its wonderful <em>vi-mode</em> line editing keybindings for a long time, but one thing that has always troubled me is the lack of visual clues to the current <em>mode</em>.</p>
 
-<p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough &ndash; we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
+<p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough - we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
 
 <p>Luckily you can do just that with the powerful zsh shell.</p>
 
@@ -558,7 +607,7 @@
   
 
 
-<time datetime="2014-01-05T18:36:00+00:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time></div>
+<time datetime="2014-01-05T18:36:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -594,9 +643,9 @@
 <p>After I wrote that article, I&rsquo;ve taken some more serious moments at pondering about this and have gotten a few more insights:</p>
 
 <ol>
-<li>For the inner-most layout, <strong>Tabbed</strong> is still by far the most efficient available. The functional equivalent in vim is a <em>split view</em>. The rationale here is that you want to divide the whole screen into some non-overlapping rectangles, but at the same time you want to allow some windows to be <em>viewed</em> from the same rectangle. For example, imagine you have two rectangles &ndash; one for <em>research</em>, and the other for taking <em>notes</em> &ndash; you might want to open multiple browser windows in the <em>research</em> rectangle and switch between them while keeping the same <em>notes</em> rectangle on the other side.</li>
-<li>What&rsquo;s the best layout for managing these <em>rectangles</em>, you ask? For me, I used the stock <strong>Tall</strong> layout for a <em>long, long</em> time but I had to admit it&rsquo;s not very efficient. For one thing, although you have all the rectangles tiled, their position and width are not really controllable &ndash; the only thing you can do is shrinking and expanding the master view. On the other hand, the rectangles are essentially tiled in a one-dimensional manner &ndash; you navigate through these rectangles using <em>up&rsquo;s</em> and <em>down&rsquo;s</em> and at each point of time you only have access to this one axis.</li>
-<li>Again we turn to vim for inspiration &ndash; in vim, you can split each <em>view</em>, or <em>rectangle</em>, <em>vertically or horizontally</em>. You can navigate between these views <em>vertically or horizontally</em>. You can also shrink or expand each view <em>vertically or horizontally</em>. More importantly, when you perform these actions, other views aren&rsquo;t affected in major ways, and that&rsquo;s a really nice advantage which many people might overlook &ndash; a serious drawback of dynamic tiling (which XMonad is based on) is that each new window can disrupt the positions and sizes of existing windows, and that can be very frustrating for the person sitting before the screen trying to remember all of them &ndash; <em>YOU</em>.</li>
+<li>For the inner-most layout, <strong>Tabbed</strong> is still by far the most efficient available. The functional equivalent in vim is a <em>split view</em>. The rationale here is that you want to divide the whole screen into some non-overlapping rectangles, but at the same time you want to allow some windows to be <em>viewed</em> from the same rectangle. For example, imagine you have two rectangles - one for <em>research</em>, and the other for taking <em>notes</em> - you might want to open multiple browser windows in the <em>research</em> rectangle and switch between them while keeping the same <em>notes</em> rectangle on the other side.</li>
+<li>What&rsquo;s the best layout for managing these <em>rectangles</em>, you ask? For me, I used the stock <strong>Tall</strong> layout for a <em>long, long</em> time but I had to admit it&rsquo;s not very efficient. For one thing, although you have all the rectangles tiled, their position and width are not really controllable - the only thing you can do is shrinking and expanding the master view. On the other hand, the rectangles are essentially tiled in a one-dimensional manner - you navigate through these rectangles using <em>up&rsquo;s</em> and <em>down&rsquo;s</em> and at each point of time you only have access to this one axis.</li>
+<li>Again we turn to vim for inspiration - in vim, you can split each <em>view</em>, or <em>rectangle</em>, <em>vertically or horizontally</em>. You can navigate between these views <em>vertically or horizontally</em>. You can also shrink or expand each view <em>vertically or horizontally</em>. More importantly, when you perform these actions, other views aren&rsquo;t affected in major ways, and that&rsquo;s a really nice advantage which many people might overlook - a serious drawback of dynamic tiling (which XMonad is based on) is that each new window can disrupt the positions and sizes of existing windows, and that can be very frustrating for the person sitting before the screen trying to remember all of them - <em>YOU</em>.</li>
 </ol>
 
 
@@ -606,7 +655,7 @@
 
 <p><em>What should we do then?</em></p>
 
-<p>Luckily, during my mulling over this, I turned to <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups.html">XMonad.Layout.Groups</a> and <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups-Examples.html">XMonad.Layout.Groups.Examples</a> again. The <strong>Rows of columns</strong>, or as it is called in the examples, seems to be the exact answer to my need. Essentially a combination of <strong>ZoomRows</strong>, it allows one to divide a workspace into multiple columns, which each then holds several rows. The size of each <em>rectangle</em> within can be adjusted in both dimensions. However, by using this layout we have to forgo <strong>Tabbed</strong> for each rectangle &ndash; the <strong>Rows of columns</strong> is already taking advantage of the <strong>Groups</strong> combinator and we have no way to insert another level of group nesting below it.</p>
+<p>Luckily, during my mulling over this, I turned to <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups.html">XMonad.Layout.Groups</a> and <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups-Examples.html">XMonad.Layout.Groups.Examples</a> again. The <strong>Rows of columns</strong>, or as it is called in the examples, seems to be the exact answer to my need. Essentially a combination of <strong>ZoomRows</strong>, it allows one to divide a workspace into multiple columns, which each then holds several rows. The size of each <em>rectangle</em> within can be adjusted in both dimensions. However, by using this layout we have to forgo <strong>Tabbed</strong> for each rectangle - the <strong>Rows of columns</strong> is already taking advantage of the <strong>Groups</strong> combinator and we have no way to insert another level of group nesting below it.</p>
 
 <p><em>Or do we?</em></p>
 
@@ -638,9 +687,9 @@
 
 <p>  Note how similar this concept is to the <code>taskGroup</code> concept that I spent a lot of words explaining in my previous blog. Later in this blog you&rsquo;ll see how I combine these two concepts together and make <em>window sorting</em> possible.</p>
 
-<p>  <em>Also, just a slight digression:</em> I saw a lot of tutorials or videos online teaching people how to put all browser windows into one workspace and all text-editors into another &ndash; in my opinion such approaches miss the entire point of window tiling: if you can&rsquo;t compare an editor and a browser window side by side then there&rsquo;s no difference from just using tabbed editor and tabbed browser in a normal window manager &ndash; if you don&rsquo;t <em>need to</em> compare two windows, why bother <em>tiling them</em> in the first place? In that case a tabbed layout would be the most efficient one that makes full use of all screen estate.</p>
+<p>  <em>Also, just a slight digression:</em> I saw a lot of tutorials or videos online teaching people how to put all browser windows into one workspace and all text-editors into another - in my opinion such approaches miss the entire point of window tiling: if you can&rsquo;t compare an editor and a browser window side by side then there&rsquo;s no difference from just using tabbed editor and tabbed browser in a normal window manager - if you don&rsquo;t <em>need to</em> compare two windows, why bother <em>tiling them</em> in the first place? In that case a tabbed layout would be the most efficient one that makes full use of all screen estate.</p>
 
-<p>  My previous setup &ndash; that is, <strong>Tabbed</strong> groups embedded in a <strong>Tall</strong> layout &ndash; does not allow much functional separation among windows, assuming I&rsquo;m using a topical assortment of workspaces. This problem is now fully solved: the column dimension, as I explained at the beginning of this bullet point, serves to separate windows by functions. If I switch the layout at the column level to <strong>Full</strong>, then I essentially have <code>research</code> and <code>code</code> workspaces inside a bigger workspace called <code>xmonad</code> (if you&rsquo;d like to visualize it in that way), and I can switch back to columns and compare these functional groups if I need to.</p></li>
+<p>  My previous setup - that is, <strong>Tabbed</strong> groups embedded in a <strong>Tall</strong> layout - does not allow much functional separation among windows, assuming I&rsquo;m using a topical assortment of workspaces. This problem is now fully solved: the column dimension, as I explained at the beginning of this bullet point, serves to separate windows by functions. If I switch the layout at the column level to <strong>Full</strong>, then I essentially have <code>research</code> and <code>code</code> workspaces inside a bigger workspace called <code>xmonad</code> (if you&rsquo;d like to visualize it in that way), and I can switch back to columns and compare these functional groups if I need to.</p></li>
 <li>group windows in each functional group, or column, into rows (visually, it&rsquo;s probably more straightforward to call them rectangles or cells) e.g. inside the column <code>code</code>, you can have a <code>editor</code> rectangle holding vim instances and another <code>debugger</code> rectangle positioned below it holding xterms</li>
 <li>lastly for windows that do not need to be compared against each other, group them into tabs and fit them into each rectangle e.g. in the <code>debugger</code> rectangle you can have <code>xterm 1</code>, <code>xterm 2</code>, etc.</li>
 </ul>
@@ -665,7 +714,7 @@
 </ul>
 
 
-<p>The main part relevant to our 3-dimensional layout is the part labelled <code>columns</code> and <code>rows</code> &ndash; each column is also referenced by a number (just like workspaces); and each row is contained in a pair of square brackets for clarity.</p>
+<p>The main part relevant to our 3-dimensional layout is the part labelled <code>columns</code> and <code>rows</code> - each column is also referenced by a number (just like workspaces); and each row is contained in a pair of square brackets for clarity.</p>
 
 <p>It took me quite a while to hack the original <strong>Groups</strong> layout to enable proper logging of the full window structure. Those interested can scroll down to the bottom and go to my github link directly to see the source.</p>
 
@@ -696,15 +745,15 @@
 
 <h1>Window Sorting</h1>
 
-<p>Like I mentioned in the last section, the new dimension &ndash; <code>column</code> &ndash; allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
+<p>Like I mentioned in the last section, the new dimension - <code>column</code> - allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
 
 <p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
 
 <h2>Manual Window Sorting</h2>
 
-<p>I&rsquo;ve assigned <code>M-s</code> for this useful function. As soon as I press down this key combination, my XMonad loops through all the windows inside the current workspace and put them into columns, according to my task group definition. For example, if I have two <code>vimb</code> windows, one <code>vim</code> window and another <code>zathura</code> window all jumbled together in a single rectangle inside a workspace, pressing <code>M-s</code> gives me back three columns &ndash; one holding the two <code>vimb</code> windows, another holding the <code>vim</code>, and the last one holding the <code>zathura</code>. My function also tries to be as smart as possible: it will keep the focus on the same window after sorting; and it also tries to maintain the position of the current rectangle in the final assortment.</p>
+<p>I&rsquo;ve assigned <code>M-s</code> for this useful function. As soon as I press down this key combination, my XMonad loops through all the windows inside the current workspace and put them into columns, according to my task group definition. For example, if I have two <code>vimb</code> windows, one <code>vim</code> window and another <code>zathura</code> window all jumbled together in a single rectangle inside a workspace, pressing <code>M-s</code> gives me back three columns - one holding the two <code>vimb</code> windows, another holding the <code>vim</code>, and the last one holding the <code>zathura</code>. My function also tries to be as smart as possible: it will keep the focus on the same window after sorting; and it also tries to maintain the position of the current rectangle in the final assortment.</p>
 
-<p>On the implementation side, I don&rsquo;t feel there&rsquo;s too much <em>magic</em> to talk about. Sorting is just like filtering, which also makes use of <code>Query Bool</code>s. If you are familiar with them then that&rsquo;s good &ndash; you can do a hell lot of stuff with these predicate functions.</p>
+<p>On the implementation side, I don&rsquo;t feel there&rsquo;s too much <em>magic</em> to talk about. Sorting is just like filtering, which also makes use of <code>Query Bool</code>s. If you are familiar with them then that&rsquo;s good - you can do a hell lot of stuff with these predicate functions.</p>
 
 <h2><a id="auto_sort"></a>Automatic Window Sorting</h2>
 
@@ -712,7 +761,7 @@
 
 <ol>
 <li>imagine you are in a workspace and you&rsquo;ve spawned a <code>vim</code> window to write some code in</li>
-<li>now you want to search for something, so you press <code>M-[ b</code> &ndash; this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
+<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
 <li>since this is the first <code>vimb</code> window and there are no columns found in the workspace to contain a window with the matching task group, the <code>vimb</code> window is put into a new column and the focus automatically transfers to it</li>
 <li>all subsequent new <code>vimb</code> windows shall be inserted in that new column just created, given that you don&rsquo;t do any manual arrangement</li>
 </ol>
@@ -762,7 +811,7 @@
   
 
 
-<time datetime="2013-12-30T23:37:00+00:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time></div>
+<time datetime="2013-12-30T23:37:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -789,7 +838,7 @@
 
 <p style="text-align:center;"><img src="/images/vim/swap_warning.png" alt="" /></p>
 
-<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance &ndash; and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
+<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
 
 <ol>
 <li>whenever a file with an existing swap is asked to be opened, instead of showing the message, jump to that editing session of Vim and switch to the file in question</li>
@@ -799,7 +848,7 @@
 
 <h1>Collecting the pieces</h1>
 
-<p>One can argue that such features should come shipped with any modern editor &ndash; but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
+<p>One can argue that such features should come shipped with any modern editor - but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
 
 <p>To start with, <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> is a little program that interacts with your window manager on the command line (yes that is possible). The most useful features include listing the workspaces, checking for window information, jumping to a specific window based on title or window ID.</p>
 
@@ -1028,7 +1077,7 @@
   
 
 
-<time datetime="2013-11-15T23:41:00+00:00" pubdate data-updated="true">Nov 15<span>th</span>, 2013</time></div>
+<time datetime="2013-11-15T23:41:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -1051,7 +1100,7 @@
 	<div class="entry-content">
 		<p><strong>Update: I&rsquo;ve formally made a package called <em>VIMonad</em> with all the features discussed here (as well as other more interesting ones) <a href="http://vimonad.lynnard.tk">here</a>.</strong></p>
 
-<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using &ndash; or rather stuck with &ndash; is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
+<p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using - or rather stuck with - is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
 
 <p>Now one year later I&rsquo;ve had enough experience (I can&rsquo;t say I&rsquo;m a Haskell master though) and it&rsquo;s a good time to review my customizations and share my tips.</p>
 
@@ -1109,7 +1158,7 @@
 <li><p>able to toggle a few windows on and off (floating). Think of it as the dock in the Mac OS system; sometimes you need it but sometimes you don&rsquo;t; and the best way to make it readily available without clustering the workspace is to have it hidden in the background and activated via a key. This is essentially <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Util-Scratchpad.html">XMonad.Util.Scratchpad</a> from Contrib; however, the original scratchpad does not provide workspace-specific scratchpads, so all workspaces have to share the same scratchpad. My extension will work around this limitation and allow a different scratchpad in each workspace, toggled with the same key sequence.</p>
 
 <p> <a href="#scratchpad">jump to discussion</a></p></li>
-<li><p>a wallpaper system that allows easy previewing and changing of the wallpaper. Press <code>M-x</code> to make all windows half-transparent to show the wallpaper (I call this <em>gallery mode</em>); press it again to go back to normal mode. Press <code>M-S-x</code> to switch to the next random wallpaper &ndash; if it&rsquo;s in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it&rsquo;s already in gallery mode, do nothing more.</p>
+<li><p>a wallpaper system that allows easy previewing and changing of the wallpaper. Press <code>M-x</code> to make all windows half-transparent to show the wallpaper (I call this <em>gallery mode</em>); press it again to go back to normal mode. Press <code>M-S-x</code> to switch to the next random wallpaper - if it&rsquo;s in normal mode, turn on the gallery mode for a few seconds (to show the newly changed wallpaper) and go back to normal; if it&rsquo;s already in gallery mode, do nothing more.</p>
 
 <p><a href="#wallpaper">jump to discussion</a></p></li>
 </ol>
@@ -1143,21 +1192,21 @@
 
 <p style="text-align:center;"><img src="/images/xmonad/splitter.png" alt="" /></p>
 
-<p>An implication of this change is that now <em>EVERY WINDOW</em> becomes a tab. Additionally, new windows won&rsquo;t change the outer layout in anyway &ndash; they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don&rsquo;t need <a href="http://tools.suckless.org/tabbed/">suckless tabbed</a> for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can&rsquo;t be shared across in this way). Just a few reasons why this is so much better:</p>
+<p>An implication of this change is that now <em>EVERY WINDOW</em> becomes a tab. Additionally, new windows won&rsquo;t change the outer layout in anyway - they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don&rsquo;t need <a href="http://tools.suckless.org/tabbed/">suckless tabbed</a> for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can&rsquo;t be shared across in this way). Just a few reasons why this is so much better:</p>
 
 <ul>
-<li>one single keystroke to move the current tab to another group, in an entirely visual way. Still remember the &lsquo;groups&rsquo; from Firefox? You have to click the zoom button, drag the tab to the desired group and all. Also, now you can mix all sorts of &lsquo;tabs&rsquo; together &ndash; you can put a xterm tab with a browser tab &ndash; anyway you want.</li>
-<li>shifting tabs with ease &ndash; again, single strokes to move the tab left/right in the group</li>
-<li>create new groups with ease &ndash; move any tab out of the current group to form a new group</li>
+<li>one single keystroke to move the current tab to another group, in an entirely visual way. Still remember the &lsquo;groups&rsquo; from Firefox? You have to click the zoom button, drag the tab to the desired group and all. Also, now you can mix all sorts of &lsquo;tabs&rsquo; together - you can put a xterm tab with a browser tab - anyway you want.</li>
+<li>shifting tabs with ease - again, single strokes to move the tab left/right in the group</li>
+<li>create new groups with ease - move any tab out of the current group to form a new group</li>
 <li>unified look and keyboard shortcuts</li>
 </ul>
 
 
-<p>This is precisely the reason why I&rsquo;ve changed almost all my applications to those without window tabbing e.g. Vimb for browsing. This makes everything so much simpler &ndash; every window can be treated in the same manner as if it&rsquo;s just a buffer in Vim.</p>
+<p>This is precisely the reason why I&rsquo;ve changed almost all my applications to those without window tabbing e.g. Vimb for browsing. This makes everything so much simpler - every window can be treated in the same manner as if it&rsquo;s just a buffer in Vim.</p>
 
 <h2><a id="prompt"></a>All the glories about prompts</h2>
 
-<p>Prompts are an interesting addition to XMonad as they allow manual tasks to be performed anywhere and anytime in an unintrusive manner. However, I&rsquo;m not entirely satisfied by the line of prompt systems included in Contrib &ndash; most of them only allow input, and have neglected another important feature of prompt &ndash; showing real-time output of the query. This can be best illustrated by Spotlight from Mac OS X or better yet, Alfred. Both apps attempt to show the user search results from the query and allow the user to easily go to any result. I feel that XMonad&rsquo;s Prompt should do the same thing.</p>
+<p>Prompts are an interesting addition to XMonad as they allow manual tasks to be performed anywhere and anytime in an unintrusive manner. However, I&rsquo;m not entirely satisfied by the line of prompt systems included in Contrib - most of them only allow input, and have neglected another important feature of prompt - showing real-time output of the query. This can be best illustrated by Spotlight from Mac OS X or better yet, Alfred. Both apps attempt to show the user search results from the query and allow the user to easily go to any result. I feel that XMonad&rsquo;s Prompt should do the same thing.</p>
 
 <p>Here I&rsquo;ll list a few prompt systems I&rsquo;ve designed myself. Some are more complicated than others (might span a couple hundred of lines of code) and I won&rsquo;t indulge into the details. To better understand how a prompt system should be written it&rsquo;s better to consult the documentation directly at <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Prompt.html">XMonad.Prompt</a>. The main purpose here is to show what we can do rather than how it can be done.</p>
 
@@ -1191,9 +1240,9 @@
 
 <h2><a id="topical_workspace"></a>Topical workspaces</h2>
 
-<p>The implementations in Contrib on topical workspaces demand the user to put all the configurations into <code>xmonad.hs</code>. I found this too rigid and static &ndash; what if I just have created a new directory (a context) and want to start the workspace inside?</p>
+<p>The implementations in Contrib on topical workspaces demand the user to put all the configurations into <code>xmonad.hs</code>. I found this too rigid and static - what if I just have created a new directory (a context) and want to start the workspace inside?</p>
 
-<p>As a solution to my quagmire, I&rsquo;ve conjured up an entirely different approach &ndash; managing topics by tags. Every tag is represented by a directory, and a file/directory with multiple tags will be hard-linked in all those respective directories.</p>
+<p>As a solution to my quagmire, I&rsquo;ve conjured up an entirely different approach - managing topics by tags. Every tag is represented by a directory, and a file/directory with multiple tags will be hard-linked in all those respective directories.</p>
 
 <p>An example tag structure:</p>
 
@@ -1309,12 +1358,12 @@
 
 <h3>Assign each workspace to a symbol</h3>
 
-<p>This is achieved via a customly defined <em>symbol stream</em>. It is similar to the Enum stream of <code>Char</code> in Haskell but slightly different &ndash; the order of the symbols is adjusted to maximize keyboard efficiency. For example, I&rsquo;ve defined the symbol stream for my workspaces as follow</p>
+<p>This is achieved via a customly defined <em>symbol stream</em>. It is similar to the Enum stream of <code>Char</code> in Haskell but slightly different - the order of the symbols is adjusted to maximize keyboard efficiency. For example, I&rsquo;ve defined the symbol stream for my workspaces as follow</p>
 
 <pre><code>`123457890-=...
 </code></pre>
 
-<p>The <code>...</code> refers to any other symbols e.g. obtained from <code>enumFrom '='</code>. You might notice that <code>6</code> is left out of the symbol stream and that&rsquo;s right &ndash; I&rsquo;ve specifically assigned <code>Mod-6</code> to toggling between last visited workspaces, as a tribute to <code>&lt;Ctrl-6&gt;</code> in Vim. The first symbol, <code>`</code> denotes the temporary workspace and cannot be removed.</p>
+<p>The <code>...</code> refers to any other symbols e.g. obtained from <code>enumFrom '='</code>. You might notice that <code>6</code> is left out of the symbol stream and that&rsquo;s right - I&rsquo;ve specifically assigned <code>Mod-6</code> to toggling between last visited workspaces, as a tribute to <code>&lt;Ctrl-6&gt;</code> in Vim. The first symbol, <code>`</code> denotes the temporary workspace and cannot be removed.</p>
 
 <p>Why is binding each workspace to a symbol useful? Because then one can perform many tasks with these symbols efficiently.</p>
 
@@ -1331,7 +1380,7 @@
 
 <h3>Bind renaming/adding workspaces to the topic selection prompt I explained in the previous section</h3>
 
-<p>The original DynamicWorkspaces implementation simply allows you to type any string as the name of the current/new workspace. What I&rsquo;ve done is to replace this prompt with my prompt for topic selection &ndash; so renaming/adding workspace would at the same time switch the workspace to the given tag/context (and create the new tag directory if necessary).</p>
+<p>The original DynamicWorkspaces implementation simply allows you to type any string as the name of the current/new workspace. What I&rsquo;ve done is to replace this prompt with my prompt for topic selection - so renaming/adding workspace would at the same time switch the workspace to the given tag/context (and create the new tag directory if necessary).</p>
 
 <h2><a id="window_jumping"></a>Window jumping</h2>
 
@@ -1418,7 +1467,7 @@
 </ol>
 
 
-<p>There are more subtle details to consider &ndash; for example, what happens when a workspace&rsquo;s name changes? that will change the context obtained from 1 and subsequently lose the scratchpad associated with the old name. To solve this problem we have to introduce another level of indirection: create a map that associates each workspace with a unique handle, and use that handle to generate the context string. When the workspace&rsquo;s name changes it should still be made to point at the same handle so the old scratchpad is still valid for use.</p>
+<p>There are more subtle details to consider - for example, what happens when a workspace&rsquo;s name changes? that will change the context obtained from 1 and subsequently lose the scratchpad associated with the old name. To solve this problem we have to introduce another level of indirection: create a map that associates each workspace with a unique handle, and use that handle to generate the context string. When the workspace&rsquo;s name changes it should still be made to point at the same handle so the old scratchpad is still valid for use.</p>
 
 <h2><a id="wallpaper"></a>Dynamic wallpaper system</h2>
 
@@ -1432,7 +1481,7 @@
 
 <h1>Conclusion</h1>
 
-<p>I have imagined that this would be a very long post and indeed it is. During writing I myself had to pause for a few times to try to remember what I was doing with <em>that</em> particular part of the code and what I was trying to achieve. To be honest I haven&rsquo;t talked much about the implementation details in most cases. This post is more about summarizing my current understanding and imagery of a modern <em>&ndash; or rather, geeky &ndash;</em> window manager and what I have done to approach my ideals. Maybe in the future my ideals will change again and then I should redo/rewrite everything. But as always, <em>joy lies in endless tinkering / 折腾就是快乐</em>.</p>
+<p>I have imagined that this would be a very long post and indeed it is. During writing I myself had to pause for a few times to try to remember what I was doing with <em>that</em> particular part of the code and what I was trying to achieve. To be honest I haven&rsquo;t talked much about the implementation details in most cases. This post is more about summarizing my current understanding and imagery of a modern <em>- or rather, geeky -</em> window manager and what I have done to approach my ideals. Maybe in the future my ideals will change again and then I should redo/rewrite everything. But as always, <em>joy lies in endless tinkering / 折腾就是快乐</em>.</p>
 
 		
 		
@@ -1452,7 +1501,7 @@
   
 
 
-<time datetime="2013-11-05T16:45:00+00:00" pubdate data-updated="true">Nov 5<span>th</span>, 2013</time></div>
+<time datetime="2013-11-05T16:45:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 
@@ -1464,446 +1513,10 @@
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/">
-		
-			Pinboard Synchronization With Vimb/Vimprobable Bookmarks</a>
-	</h2>
-	<div class="entry-content">
-		<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end &ndash; if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
-
-<p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs &ndash; usually you can just achieve what you want by a little bit of tinkering.</p>
-
-<p>To start with, the social bookmark service I&rsquo;m using is <a href="http://pinboard.in">Pinboard</a> and they offer an easy-to-understand, comprehensive api <a href="http://pinboard.in/api">here</a>. On the other hand, Vimb is even more straightforward on the treatment of bookmarks &ndash; it simply stores them in plain-text under its config directory.</p>
-
-<p>With knowledge above we can easily build a synchronizer from scratch. The problem of synchronization is really about two smaller sub-problems:</p>
-
-<ol>
-<li>When the local storage (Vimb bookmark file) changes, reflect the change on the cloud</li>
-<li>When the cloud storage (Pinboard) changes, translate the change to local</li>
-</ol>
-
-
-<p>For point 1 we can keep a backup of the bookmark file and use <code>diff</code> on it with the current file each time before the update. This gives us the changes, if any, done to the bookmark file since the last update and all remains is just doing the same thing on the cloud.</p>
-
-<p>For point 2 Pinboard has offered a convenient query method <code>/posts/update</code>, which essentially returns the timestamp of the latest change. By retrieving this timestamp before each update cycle we can be sure that we won&rsquo;t miss any updates on the cloud.</p>
-
-<p>Of course this leaves out details such as which should be performed before which, how we should avoid unnecessary pulling from the cloud given that some of the changes on the cloud are done by the script itself; but the main idea is still the same.</p>
-
-<p>For completeness the whole script is <a href="downloads/code/pinboard">here</a> for download. The main abstract of the code is shown below</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-<span class='line-number'>182</span>
-<span class='line-number'>183</span>
-<span class='line-number'>184</span>
-<span class='line-number'>185</span>
-<span class='line-number'>186</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># $1 is the method to query upon, $2 is the file to direct the output, while all the subsequent arguments</span>
-</span><span class='line'><span class="c"># in the format &#39;name=value&#39; are appended as data arguments to</span>
-</span><span class='line'><span class="c"># the query</span>
-</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
-</span><span class='line'><span class="k">function </span>pinboard_api<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="nb">local </span><span class="nv">datastring</span><span class="o">=</span> <span class="nv">data</span><span class="o">=</span>
-</span><span class='line'>    <span class="k">for </span>data in <span class="s2">&quot;${@:3}&quot;</span>
-</span><span class='line'>    <span class="k">do</span>
-</span><span class='line'>        <span class="c"># we need to escape the single quote..merr...</span>
-</span><span class='line'>        <span class="nv">datastring</span><span class="o">=</span><span class="s2">&quot;$datastring --data-urlencode \$&#39;${data//\&#39;/\&#39;}&#39;&quot;</span>
-</span><span class='line'>    <span class="k">done</span>
-</span><span class='line'><span class="k">    </span><span class="nb">eval</span> <span class="nv">$CURL_CMD$datastring</span> <span class="nv">$HTTPS_PREFIX$1$AUTH_TOKEN</span> &gt; <span class="nv">$2</span>
-</span><span class='line'>  <span class="nb">local </span><span class="nv">CURL_EXIT_CODE</span><span class="o">=</span><span class="s2">&quot;$?&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$CURL_EXIT_CODE</span> !<span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span> ; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>error <span class="s2">&quot;Curl failed with exit code $CURL_EXIT_CODE&quot;</span>
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
-</span><span class='line'><span class="k">function </span>verify_config<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$PINBOARD_CFG&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>error <span class="s2">&quot;Could not find $PINBOARD_CFG file! \nIt should contain two lines. Line 1 the username. Line 2 the API token. \nYou can create it manually, or use the \&quot;login\&quot; command.&quot;</span>
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">  </span><span class="nv">USER_NAME</span><span class="o">=</span><span class="sb">`</span>head -n1 <span class="nv">$PINBOARD_CFG</span><span class="sb">`</span>
-</span><span class='line'>  <span class="nv">API_TOKEN</span><span class="o">=</span><span class="sb">`</span>tail -n1 <span class="nv">$PINBOARD_CFG</span><span class="sb">`</span>
-</span><span class='line'>  <span class="nv">AUTH_TOKEN</span><span class="o">=</span><span class="s2">&quot;?auth_token=$USER_NAME:$API_TOKEN&quot;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># This will compare the current update with the last update and</span>
-</span><span class='line'><span class="c"># return true if there&#39;s new update</span>
-</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
-</span><span class='line'><span class="k">function </span>pinboard_has_update<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="c"># See if we need to do an update at all</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Retrieving current pinboard update time...&quot;</span>
-</span><span class='line'>  pinboard_api <span class="s2">&quot;/posts/update&quot;</span> <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$LAST_UPDATE_FILE&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$LAST_UPDATE_FILE does not exist...&quot;</span>
-</span><span class='line'>      <span class="k">return </span>0
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>      <span class="c"># Compare current update with last update</span>
-</span><span class='line'>      <span class="nb">echo</span> <span class="s2">&quot;Comparing last update with current update...&quot;</span>
-</span><span class='line'>      diff <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span> <span class="s2">&quot;$LAST_UPDATE_FILE&quot;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="o">[[</span> ! <span class="s2">&quot;$?&quot;</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span>; <span class="k">then </span>
-</span><span class='line'><span class="k">          return </span>0
-</span><span class='line'>      <span class="k">fi</span> ;
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'><span class="k">    return </span>1
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
-</span><span class='line'><span class="k">function </span>synchronize_cmd<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="nb">local </span><span class="nv">to_update_pinboard</span><span class="o">=</span><span class="nb">false </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">false</span>
-</span><span class='line'><span class="nb">    echo</span> <span class="s2">&quot;######## Checking changes on the server ########&quot;</span>
-</span><span class='line'>    verify_config
-</span><span class='line'>    pinboard_has_update <span class="o">&amp;&amp;</span> <span class="nv">to_update_pinboard</span><span class="o">=</span><span class="nb">true</span>
-</span><span class='line'><span class="nb">    echo</span> <span class="s2">&quot;######## Starting local-to-cloud synchronization ########&quot;</span>
-</span><span class='line'>    <span class="c"># first compare the two bookmarks file to see if there are any changes</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">[[</span> -e <span class="s2">&quot;$BOOKMARK_BACKUP_FILE&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Detecting changes to the bookmark file...&quot;</span>
-</span><span class='line'>        <span class="nb">local </span><span class="nv">changes</span><span class="o">=</span><span class="s2">&quot;`diff &quot;</span><span class="nv">$BOOKMARK_BACKUP_FILE</span><span class="s2">&quot; &quot;</span><span class="nv">$BOOKMARK_FILE</span><span class="s2">&quot;`&quot;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;$changes&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">            </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">true</span>
-</span><span class='line'>            <span class="c"># we need to grep for all deletions </span>
-</span><span class='line'>            <span class="nb">echo</span> <span class="s2">&quot;$changes&quot;</span> | grep <span class="s1">&#39;^&lt;&#39;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
-</span><span class='line'><span class="k">                </span>delete_pinboard_bookmark_from_vimb_format <span class="s2">&quot;${line#&lt; }&quot;</span>
-</span><span class='line'>            <span class="k">done</span>
-</span><span class='line'>            <span class="c"># have to exit the script if error occurred</span>
-</span><span class='line'>            <span class="o">((</span> <span class="nv">$?</span> !<span class="o">=</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="s2">&quot;$?&quot;</span>
-</span><span class='line'>            <span class="nb">echo</span> <span class="s2">&quot;$changes&quot;</span> | grep <span class="s1">&#39;^&gt;&#39;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
-</span><span class='line'><span class="k">                </span>insert_pinboard_bookmark_from_vimb_format <span class="s2">&quot;${line#&gt; }&quot;</span>
-</span><span class='line'>            <span class="k">done</span>
-</span><span class='line'>            <span class="o">((</span> <span class="nv">$?</span> !<span class="o">=</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="s2">&quot;$?&quot;</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'><span class="k">            </span><span class="nb">echo</span> <span class="s2">&quot;No local-to-cloud synchronization required. Local bookmark storage is in sync with pinboard account.&quot;</span>
-</span><span class='line'>        <span class="k">fi</span>
-</span><span class='line'><span class="k">    else</span>
-</span><span class='line'><span class="k">        </span><span class="nv">to_update_local</span><span class="o">=</span><span class="nb">true</span>
-</span><span class='line'><span class="nb">        echo</span> <span class="s2">&quot;Bookmark file has not been backed up before. Trying to insert all entries...&quot;</span>
-</span><span class='line'>        <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
-</span><span class='line'><span class="k">            </span>insert_pinboard_bookmark_from_vimb_format <span class="s2">&quot;$line&quot;</span>
-</span><span class='line'>        <span class="k">done</span> &lt; <span class="s2">&quot;$BOOKMARK_FILE&quot;</span>
-</span><span class='line'>    <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">    if</span> <span class="nv">$to_update_local</span>; <span class="k">then</span>
-</span><span class='line'>        <span class="c"># we have updated the server so we should refresh the update time</span>
-</span><span class='line'>        <span class="nb">echo</span> <span class="s2">&quot;Refreshing the last update time...&quot;</span>
-</span><span class='line'>        pinboard_api <span class="s2">&quot;/posts/update&quot;</span> <span class="s2">&quot;$CUR_UPDATE_FILE&quot;</span>
-</span><span class='line'>    <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;######## Starting cloud-to-local synchronization ########&quot;</span>
-</span><span class='line'>    <span class="k">if</span> <span class="nv">$to_update_pinboard</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Retrieving bookmarks...&quot;</span>
-</span><span class='line'>        pinboard_api <span class="s2">&quot;/posts/all&quot;</span> <span class="s2">&quot;$CURL_TMP&quot;</span>
-</span><span class='line'>        <span class="c"># we need to convert the format into vimb&#39;s format</span>
-</span><span class='line'>        xml sel -t -m <span class="s1">&#39;/posts/post&#39;</span> -c <span class="s1">&#39;.&#39;</span> -n <span class="s2">&quot;$CURL_TMP&quot;</span> | <span class="k">while </span><span class="nb">read </span>line; <span class="k">do</span>
-</span><span class='line'>            <span class="c"># retrieve the attributes</span>
-</span><span class='line'>            <span class="nb">local </span><span class="nv">href</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@href&#39;`&quot;</span>
-</span><span class='line'>            <span class="nb">local </span><span class="nv">desc</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@description&#39;`&quot;</span>
-</span><span class='line'>            <span class="nb">local </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;`echo &quot;</span><span class="nv">$line</span><span class="s2">&quot; | xml sel -t -v &#39;/post/@tag&#39;`&quot;</span>
-</span><span class='line'>            <span class="c"># just adding the bookmark to tmp file</span>
-</span><span class='line'>            insert_vimb_bookmark <span class="s2">&quot;$href&quot;</span> <span class="s2">&quot;$desc&quot;</span> <span class="s2">&quot;$tag&quot;</span>
-</span><span class='line'>        <span class="k">done</span>
-</span><span class='line'>        <span class="c"># move the tmp file to overwrite the old bookmark file</span>
-</span><span class='line'>        <span class="c"># this might be dangerous if there&#39;re unsynced changes in the bookmark file </span>
-</span><span class='line'>        <span class="c"># but for the time being we&#39;d assume that the bookmark file is already in sync with</span>
-</span><span class='line'>        <span class="c"># the cloud</span>
-</span><span class='line'>        <span class="nb">echo</span> <span class="s2">&quot;Overwriting the old bookmark file...&quot;</span>
-</span><span class='line'>        mv -f <span class="s2">&quot;$BOOKMARK_TMP&quot;</span> <span class="s2">&quot;$BOOKMARK_FILE&quot;</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;No cloud-to-local synchronization required. $BOOKMARK_FILE is current.&quot;</span>
-</span><span class='line'>    <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c"># back up the bookmark file</span>
-</span><span class='line'>    <span class="k">if</span> <span class="nv">$to_update_local</span> <span class="o">||</span> <span class="nv">$to_update_pinboard</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">        </span><span class="nb">echo</span> <span class="s2">&quot;Backing up the current bookmark file...&quot;</span>
-</span><span class='line'>        cp -f <span class="s2">&quot;$BOOKMARK_FILE&quot;</span> <span class="s2">&quot;$BOOKMARK_BACKUP_FILE&quot;</span>
-</span><span class='line'>    <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;Moving current update time to last update time...&quot;</span>
-</span><span class='line'>    mv -f <span class="nv">$CUR_UPDATE_FILE</span> <span class="nv">$LAST_UPDATE_FILE</span>
-</span><span class='line'>    <span class="nb">echo</span> <span class="s2">&quot;Done.&quot;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#---------------------------------------------------------------</span>
-</span><span class='line'><span class="k">function </span>login_cmd<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> ! -d <span class="s2">&quot;$PINBOARD_DIR&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>mkdir <span class="s2">&quot;$PINBOARD_DIR&quot;</span>
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">  if</span> <span class="o">[[</span> ! -d <span class="s2">&quot;$PINBOARD_DIR&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$PINBOARD_DIR could not be made.&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;We will attempt to log into pinboard now.&quot;</span>
-</span><span class='line'>  <span class="sb">`</span>which <span class="nb">echo</span><span class="sb">`</span> -n <span class="s2">&quot;Please enter pinboard username: &quot;</span>
-</span><span class='line'>  <span class="nb">local </span><span class="nv">USER_NAME</span><span class="o">=</span><span class="sb">`</span>head -n 1<span class="sb">`</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="nv">$USER_NAME</span> &gt; <span class="s2">&quot;$PINBOARD_CFG&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nv">$CURL_CMD</span> -u <span class="nv">$USER_NAME</span> <span class="s2">&quot;$HTTPS_PREFIX/user/api_token&quot;</span> | tail -n 1 | sed <span class="s1">&#39;s/&lt;[^&gt;]*&gt;//g&#39;</span> &gt;&gt; <span class="nv">$PINBOARD_CFG</span>
-</span><span class='line'>  <span class="nb">local </span><span class="nv">CURL_EXIT_CODE</span><span class="o">=</span><span class="s2">&quot;$?&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$CURL_EXIT_CODE</span> !<span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Curl failed with exit code $CURL_EXIT_CODE&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">  if</span> <span class="o">[[</span> ! -e <span class="s2">&quot;$PINBOARD_CFG&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;$PINBOARD_CFG could not be made.&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">else </span>
-</span><span class='line'><span class="k">      </span>chmod og-rw <span class="s2">&quot;$PINBOARD_CFG&quot;</span>
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Created $PINBOARD_CFG.&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Logged in!&quot;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#***</span>
-</span><span class='line'><span class="c"># &quot;Main&quot;</span>
-</span><span class='line'><span class="c">#***</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[[</span> <span class="nv">$# </span>-lt 1 <span class="o">]]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">    </span>error <span class="s2">&quot;Expected a command for the second argument. \nTry \&quot;help\&quot;.&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#***</span>
-</span><span class='line'><span class="c"># Process the second commands</span>
-</span><span class='line'><span class="c">#***</span>
-</span><span class='line'><span class="k">case</span> <span class="s2">&quot;$1&quot;</span> in
-</span><span class='line'>    synchronize<span class="o">)</span>
-</span><span class='line'>        <span class="o">[</span> <span class="s2">&quot;PINBOARD$PPID&quot;</span> <span class="o">=</span> <span class="s2">&quot;$LOCKRUNPID&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="nb">exec </span>lockrun -qna PINBOARD /tmp/lockrun.pinboard <span class="s2">&quot;$0&quot;</span> <span class="s2">&quot;$@&quot;</span> <span class="o">||</span> <span class="nb">exit </span>1
-</span><span class='line'>        synchronize_cmd
-</span><span class='line'>        ;;
-</span><span class='line'>    login<span class="o">)</span>
-</span><span class='line'>        login_cmd
-</span><span class='line'>        ;;
-</span><span class='line'>    <span class="nb">help</span><span class="o">)</span>
-</span><span class='line'>        help_cmd
-</span><span class='line'>        ;;
-</span><span class='line'>    *<span class="o">)</span>
-</span><span class='line'>        error <span class="s2">&quot;Unknown command $1. Try \&quot;help\&quot;.&quot;</span> 2
-</span><span class='line'><span class="k">esac</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># exiting without any errors</span>
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-03T02:25:00+00:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/pinboard/'>pinboard</a>, <a class='category' href='/blog/categories/sh/'>sh</a>, <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/vimb/'>vimb</a>
-
-
-</div>
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
     
-        <a href="/blog/page/2/" class="next">Next</a>
+        <a href="2" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav>

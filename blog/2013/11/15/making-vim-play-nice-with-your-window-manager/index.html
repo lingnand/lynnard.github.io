@@ -16,7 +16,7 @@
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>&#8211;>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 </head>
@@ -90,7 +90,7 @@
 
 <p style="text-align:center;"><img src="/images/vim/swap_warning.png" alt="" /></p>
 
-<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance &ndash; and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
+<p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
 
 <ol>
 <li>whenever a file with an existing swap is asked to be opened, instead of showing the message, jump to that editing session of Vim and switch to the file in question</li>
@@ -100,7 +100,7 @@
 
 <h1>Collecting the pieces</h1>
 
-<p>One can argue that such features should come shipped with any modern editor &ndash; but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
+<p>One can argue that such features should come shipped with any modern editor - but well, this is our good old Vim running in terminals, so we probably shouldn&rsquo;t complain too much. But the good news is, I&rsquo;ve finally come to a solution for this based on <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> (and I don&rsquo;t know why I didn&rsquo;t bump into this little gem before).</p>
 
 <p>To start with, <a href="http://tomas.styblo.name/wmctrl/">wmctrl</a> is a little program that interacts with your window manager on the command line (yes that is possible). The most useful features include listing the workspaces, checking for window information, jumping to a specific window based on title or window ID.</p>
 
@@ -326,7 +326,7 @@
   
 
 
-<time datetime="2013-11-15T23:41:00+00:00" pubdate data-updated="true">Nov 15<span>th</span>, 2013</time></div>
+<time datetime="2013-11-15T23:41:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 

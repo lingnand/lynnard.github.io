@@ -16,7 +16,7 @@
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+	<!--<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>&#8211;>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 </head>
@@ -99,9 +99,9 @@
 <p>After I wrote that article, I&rsquo;ve taken some more serious moments at pondering about this and have gotten a few more insights:</p>
 
 <ol>
-<li>For the inner-most layout, <strong>Tabbed</strong> is still by far the most efficient available. The functional equivalent in vim is a <em>split view</em>. The rationale here is that you want to divide the whole screen into some non-overlapping rectangles, but at the same time you want to allow some windows to be <em>viewed</em> from the same rectangle. For example, imagine you have two rectangles &ndash; one for <em>research</em>, and the other for taking <em>notes</em> &ndash; you might want to open multiple browser windows in the <em>research</em> rectangle and switch between them while keeping the same <em>notes</em> rectangle on the other side.</li>
-<li>What&rsquo;s the best layout for managing these <em>rectangles</em>, you ask? For me, I used the stock <strong>Tall</strong> layout for a <em>long, long</em> time but I had to admit it&rsquo;s not very efficient. For one thing, although you have all the rectangles tiled, their position and width are not really controllable &ndash; the only thing you can do is shrinking and expanding the master view. On the other hand, the rectangles are essentially tiled in a one-dimensional manner &ndash; you navigate through these rectangles using <em>up&rsquo;s</em> and <em>down&rsquo;s</em> and at each point of time you only have access to this one axis.</li>
-<li>Again we turn to vim for inspiration &ndash; in vim, you can split each <em>view</em>, or <em>rectangle</em>, <em>vertically or horizontally</em>. You can navigate between these views <em>vertically or horizontally</em>. You can also shrink or expand each view <em>vertically or horizontally</em>. More importantly, when you perform these actions, other views aren&rsquo;t affected in major ways, and that&rsquo;s a really nice advantage which many people might overlook &ndash; a serious drawback of dynamic tiling (which XMonad is based on) is that each new window can disrupt the positions and sizes of existing windows, and that can be very frustrating for the person sitting before the screen trying to remember all of them &ndash; <em>YOU</em>.</li>
+<li>For the inner-most layout, <strong>Tabbed</strong> is still by far the most efficient available. The functional equivalent in vim is a <em>split view</em>. The rationale here is that you want to divide the whole screen into some non-overlapping rectangles, but at the same time you want to allow some windows to be <em>viewed</em> from the same rectangle. For example, imagine you have two rectangles - one for <em>research</em>, and the other for taking <em>notes</em> - you might want to open multiple browser windows in the <em>research</em> rectangle and switch between them while keeping the same <em>notes</em> rectangle on the other side.</li>
+<li>What&rsquo;s the best layout for managing these <em>rectangles</em>, you ask? For me, I used the stock <strong>Tall</strong> layout for a <em>long, long</em> time but I had to admit it&rsquo;s not very efficient. For one thing, although you have all the rectangles tiled, their position and width are not really controllable - the only thing you can do is shrinking and expanding the master view. On the other hand, the rectangles are essentially tiled in a one-dimensional manner - you navigate through these rectangles using <em>up&rsquo;s</em> and <em>down&rsquo;s</em> and at each point of time you only have access to this one axis.</li>
+<li>Again we turn to vim for inspiration - in vim, you can split each <em>view</em>, or <em>rectangle</em>, <em>vertically or horizontally</em>. You can navigate between these views <em>vertically or horizontally</em>. You can also shrink or expand each view <em>vertically or horizontally</em>. More importantly, when you perform these actions, other views aren&rsquo;t affected in major ways, and that&rsquo;s a really nice advantage which many people might overlook - a serious drawback of dynamic tiling (which XMonad is based on) is that each new window can disrupt the positions and sizes of existing windows, and that can be very frustrating for the person sitting before the screen trying to remember all of them - <em>YOU</em>.</li>
 </ol>
 
 
@@ -111,7 +111,7 @@
 
 <p><em>What should we do then?</em></p>
 
-<p>Luckily, during my mulling over this, I turned to <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups.html">XMonad.Layout.Groups</a> and <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups-Examples.html">XMonad.Layout.Groups.Examples</a> again. The <strong>Rows of columns</strong>, or as it is called in the examples, seems to be the exact answer to my need. Essentially a combination of <strong>ZoomRows</strong>, it allows one to divide a workspace into multiple columns, which each then holds several rows. The size of each <em>rectangle</em> within can be adjusted in both dimensions. However, by using this layout we have to forgo <strong>Tabbed</strong> for each rectangle &ndash; the <strong>Rows of columns</strong> is already taking advantage of the <strong>Groups</strong> combinator and we have no way to insert another level of group nesting below it.</p>
+<p>Luckily, during my mulling over this, I turned to <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups.html">XMonad.Layout.Groups</a> and <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Groups-Examples.html">XMonad.Layout.Groups.Examples</a> again. The <strong>Rows of columns</strong>, or as it is called in the examples, seems to be the exact answer to my need. Essentially a combination of <strong>ZoomRows</strong>, it allows one to divide a workspace into multiple columns, which each then holds several rows. The size of each <em>rectangle</em> within can be adjusted in both dimensions. However, by using this layout we have to forgo <strong>Tabbed</strong> for each rectangle - the <strong>Rows of columns</strong> is already taking advantage of the <strong>Groups</strong> combinator and we have no way to insert another level of group nesting below it.</p>
 
 <p><em>Or do we?</em></p>
 
@@ -143,9 +143,9 @@
 
 <p>  Note how similar this concept is to the <code>taskGroup</code> concept that I spent a lot of words explaining in my previous blog. Later in this blog you&rsquo;ll see how I combine these two concepts together and make <em>window sorting</em> possible.</p>
 
-<p>  <em>Also, just a slight digression:</em> I saw a lot of tutorials or videos online teaching people how to put all browser windows into one workspace and all text-editors into another &ndash; in my opinion such approaches miss the entire point of window tiling: if you can&rsquo;t compare an editor and a browser window side by side then there&rsquo;s no difference from just using tabbed editor and tabbed browser in a normal window manager &ndash; if you don&rsquo;t <em>need to</em> compare two windows, why bother <em>tiling them</em> in the first place? In that case a tabbed layout would be the most efficient one that makes full use of all screen estate.</p>
+<p>  <em>Also, just a slight digression:</em> I saw a lot of tutorials or videos online teaching people how to put all browser windows into one workspace and all text-editors into another - in my opinion such approaches miss the entire point of window tiling: if you can&rsquo;t compare an editor and a browser window side by side then there&rsquo;s no difference from just using tabbed editor and tabbed browser in a normal window manager - if you don&rsquo;t <em>need to</em> compare two windows, why bother <em>tiling them</em> in the first place? In that case a tabbed layout would be the most efficient one that makes full use of all screen estate.</p>
 
-<p>  My previous setup &ndash; that is, <strong>Tabbed</strong> groups embedded in a <strong>Tall</strong> layout &ndash; does not allow much functional separation among windows, assuming I&rsquo;m using a topical assortment of workspaces. This problem is now fully solved: the column dimension, as I explained at the beginning of this bullet point, serves to separate windows by functions. If I switch the layout at the column level to <strong>Full</strong>, then I essentially have <code>research</code> and <code>code</code> workspaces inside a bigger workspace called <code>xmonad</code> (if you&rsquo;d like to visualize it in that way), and I can switch back to columns and compare these functional groups if I need to.</p></li>
+<p>  My previous setup - that is, <strong>Tabbed</strong> groups embedded in a <strong>Tall</strong> layout - does not allow much functional separation among windows, assuming I&rsquo;m using a topical assortment of workspaces. This problem is now fully solved: the column dimension, as I explained at the beginning of this bullet point, serves to separate windows by functions. If I switch the layout at the column level to <strong>Full</strong>, then I essentially have <code>research</code> and <code>code</code> workspaces inside a bigger workspace called <code>xmonad</code> (if you&rsquo;d like to visualize it in that way), and I can switch back to columns and compare these functional groups if I need to.</p></li>
 <li>group windows in each functional group, or column, into rows (visually, it&rsquo;s probably more straightforward to call them rectangles or cells) e.g. inside the column <code>code</code>, you can have a <code>editor</code> rectangle holding vim instances and another <code>debugger</code> rectangle positioned below it holding xterms</li>
 <li>lastly for windows that do not need to be compared against each other, group them into tabs and fit them into each rectangle e.g. in the <code>debugger</code> rectangle you can have <code>xterm 1</code>, <code>xterm 2</code>, etc.</li>
 </ul>
@@ -170,7 +170,7 @@
 </ul>
 
 
-<p>The main part relevant to our 3-dimensional layout is the part labelled <code>columns</code> and <code>rows</code> &ndash; each column is also referenced by a number (just like workspaces); and each row is contained in a pair of square brackets for clarity.</p>
+<p>The main part relevant to our 3-dimensional layout is the part labelled <code>columns</code> and <code>rows</code> - each column is also referenced by a number (just like workspaces); and each row is contained in a pair of square brackets for clarity.</p>
 
 <p>It took me quite a while to hack the original <strong>Groups</strong> layout to enable proper logging of the full window structure. Those interested can scroll down to the bottom and go to my github link directly to see the source.</p>
 
@@ -201,15 +201,15 @@
 
 <h1>Window Sorting</h1>
 
-<p>Like I mentioned in the last section, the new dimension &ndash; <code>column</code> &ndash; allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
+<p>Like I mentioned in the last section, the new dimension - <code>column</code> - allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
 
 <p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
 
 <h2>Manual Window Sorting</h2>
 
-<p>I&rsquo;ve assigned <code>M-s</code> for this useful function. As soon as I press down this key combination, my XMonad loops through all the windows inside the current workspace and put them into columns, according to my task group definition. For example, if I have two <code>vimb</code> windows, one <code>vim</code> window and another <code>zathura</code> window all jumbled together in a single rectangle inside a workspace, pressing <code>M-s</code> gives me back three columns &ndash; one holding the two <code>vimb</code> windows, another holding the <code>vim</code>, and the last one holding the <code>zathura</code>. My function also tries to be as smart as possible: it will keep the focus on the same window after sorting; and it also tries to maintain the position of the current rectangle in the final assortment.</p>
+<p>I&rsquo;ve assigned <code>M-s</code> for this useful function. As soon as I press down this key combination, my XMonad loops through all the windows inside the current workspace and put them into columns, according to my task group definition. For example, if I have two <code>vimb</code> windows, one <code>vim</code> window and another <code>zathura</code> window all jumbled together in a single rectangle inside a workspace, pressing <code>M-s</code> gives me back three columns - one holding the two <code>vimb</code> windows, another holding the <code>vim</code>, and the last one holding the <code>zathura</code>. My function also tries to be as smart as possible: it will keep the focus on the same window after sorting; and it also tries to maintain the position of the current rectangle in the final assortment.</p>
 
-<p>On the implementation side, I don&rsquo;t feel there&rsquo;s too much <em>magic</em> to talk about. Sorting is just like filtering, which also makes use of <code>Query Bool</code>s. If you are familiar with them then that&rsquo;s good &ndash; you can do a hell lot of stuff with these predicate functions.</p>
+<p>On the implementation side, I don&rsquo;t feel there&rsquo;s too much <em>magic</em> to talk about. Sorting is just like filtering, which also makes use of <code>Query Bool</code>s. If you are familiar with them then that&rsquo;s good - you can do a hell lot of stuff with these predicate functions.</p>
 
 <h2><a id="auto_sort"></a>Automatic Window Sorting</h2>
 
@@ -217,7 +217,7 @@
 
 <ol>
 <li>imagine you are in a workspace and you&rsquo;ve spawned a <code>vim</code> window to write some code in</li>
-<li>now you want to search for something, so you press <code>M-[ b</code> &ndash; this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
+<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
 <li>since this is the first <code>vimb</code> window and there are no columns found in the workspace to contain a window with the matching task group, the <code>vimb</code> window is put into a new column and the focus automatically transfers to it</li>
 <li>all subsequent new <code>vimb</code> windows shall be inserted in that new column just created, given that you don&rsquo;t do any manual arrangement</li>
 </ol>
@@ -264,7 +264,7 @@
   
 
 
-<time datetime="2013-12-30T23:37:00+00:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time></div>
+<time datetime="2013-12-30T23:37:00+00:00" pubdate data-updated="true"></time></div>
 	<div class="tags">
 
 

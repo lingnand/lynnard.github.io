@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-24T22:46:50+01:00</updated>
+  <updated>2014-10-31T20:18:13+00:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -20,7 +20,7 @@
     <id>http://lynnard.tk/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been using zsh and its wonderful <em>vi-mode</em> line editing keybindings for a long time, but one thing that has always troubled me is the lack of visual clues to the current <em>mode</em>.</p>
 
-<p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough &ndash; we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
+<p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough - we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
 
 <p>Luckily you can do just that with the powerful zsh shell.</p>
 
@@ -36,22 +36,18 @@
 
 <p>Now just append this to the end of your <code>zshrc</code>.</p>
 
-<p>```sh
-zle-keymap-select () {</p>
-
-<pre><code>if [ "$TERM" = "xterm-256color" ]; then
-    if [ $KEYMAP = vicmd ]; then
-        # the command mode for vi
-        echo -ne "\e[2 q"
-    else
-        # the insert mode for vi
-        echo -ne "\e[4 q"
+<pre><code class="sh">zle-keymap-select () {
+    if [ "$TERM" = "xterm-256color" ]; then
+        if [ $KEYMAP = vicmd ]; then
+            # the command mode for vi
+            echo -ne "\e[2 q"
+        else
+            # the insert mode for vi
+            echo -ne "\e[4 q"
+        fi
     fi
-fi
+}
 </code></pre>
-
-<p>}
-```</p>
 
 <p><em>Boom</em>, you&rsquo;ve just configured your cursor to change shape on the fly according to your editing mode!</p>
 ]]></content>

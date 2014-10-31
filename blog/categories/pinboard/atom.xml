@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pinboard | .hack/lynnard]]></title>
   <link href="http://lynnard.tk/blog/categories/pinboard/atom.xml" rel="self"/>
   <link href="http://lynnard.tk/"/>
-  <updated>2014-06-24T22:46:50+01:00</updated>
+  <updated>2014-10-31T20:18:13+00:00</updated>
   <id>http://lynnard.tk/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -18,11 +18,11 @@
     <link href="http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
     <updated>2013-11-03T02:25:00+00:00</updated>
     <id>http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
-    <content type="html"><![CDATA[<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end &ndash; if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
+    <content type="html"><![CDATA[<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end - if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
 
-<p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs &ndash; usually you can just achieve what you want by a little bit of tinkering.</p>
+<p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs - usually you can just achieve what you want by a little bit of tinkering.</p>
 
-<p>To start with, the social bookmark service I&rsquo;m using is <a href="http://pinboard.in">Pinboard</a> and they offer an easy-to-understand, comprehensive api <a href="http://pinboard.in/api">here</a>. On the other hand, Vimb is even more straightforward on the treatment of bookmarks &ndash; it simply stores them in plain-text under its config directory.</p>
+<p>To start with, the social bookmark service I&rsquo;m using is <a href="http://pinboard.in">Pinboard</a> and they offer an easy-to-understand, comprehensive api <a href="http://pinboard.in/api">here</a>. On the other hand, Vimb is even more straightforward on the treatment of bookmarks - it simply stores them in plain-text under its config directory.</p>
 
 <p>With knowledge above we can easily build a synchronizer from scratch. The problem of synchronization is really about two smaller sub-problems:</p>
 
@@ -40,232 +40,193 @@
 
 <p>For completeness the whole script is <a href="downloads/code/pinboard">here</a> for download. The main abstract of the code is shown below</p>
 
-<p>```sh</p>
-
-<h1>$1 is the method to query upon, $2 is the file to direct the output, while all the subsequent arguments</h1>
-
-<h1>in the format &lsquo;name=value&rsquo; are appended as data arguments to</h1>
-
-<h1>the query</h1>
-
-<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
-
-<p>function pinboard_api() {</p>
-
-<pre><code>local datastring= data=
-for data in "${@:3}"
-do
-    # we need to escape the single quote..merr...
-    datastring="$datastring --data-urlencode \$'${data//\'/\'}'"
-done
-eval $CURL_CMD$datastring $HTTPS_PREFIX$1$AUTH_TOKEN &gt; $2
-local CURL_EXIT_CODE="$?"
-if [[ $CURL_EXIT_CODE != "0" ]] ; then
-    error "Curl failed with exit code $CURL_EXIT_CODE"
-fi
-</code></pre>
-
-<p>}</p>
-
-<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
-
-<p>function verify_config() {</p>
-
-<pre><code>if [[ ! -e "$PINBOARD_CFG" ]]; then
-    error "Could not find $PINBOARD_CFG file! \nIt should contain two lines. Line 1 the username. Line 2 the API token. \nYou can create it manually, or use the \"login\" command."
-fi
-
-USER_NAME=`head -n1 $PINBOARD_CFG`
-API_TOKEN=`tail -n1 $PINBOARD_CFG`
-AUTH_TOKEN="?auth_token=$USER_NAME:$API_TOKEN"
-</code></pre>
-
-<p>}</p>
-
-<h1>This will compare the current update with the last update and</h1>
-
-<h1>return true if there&rsquo;s new update</h1>
-
-<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
-
-<p>function pinboard_has_update() {</p>
-
-<pre><code># See if we need to do an update at all
-echo "Retrieving current pinboard update time..."
-pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
-if [[ ! -e "$LAST_UPDATE_FILE" ]]; then
-    echo "$LAST_UPDATE_FILE does not exist..."
-    return 0
-else
-    # Compare current update with last update
-    echo "Comparing last update with current update..."
-    diff "$CUR_UPDATE_FILE" "$LAST_UPDATE_FILE"
-    if [[ ! "$?" == "0" ]]; then 
-        return 0
-    fi ;
-fi
-return 1
-</code></pre>
-
-<p>}</p>
-
-<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
-
-<p>function synchronize_cmd() {</p>
-
-<pre><code>local to_update_pinboard=false to_update_local=false
-echo "######## Checking changes on the server ########"
-verify_config
-pinboard_has_update &amp;&amp; to_update_pinboard=true
-echo "######## Starting local-to-cloud synchronization ########"
-# first compare the two bookmarks file to see if there are any changes
-if [[ -e "$BOOKMARK_BACKUP_FILE" ]]; then
-    echo "Detecting changes to the bookmark file..."
-    local changes="`diff "$BOOKMARK_BACKUP_FILE" "$BOOKMARK_FILE"`" 
-    if [ -n "$changes" ]; then
-        to_update_local=true
-        # we need to grep for all deletions 
-        echo "$changes" | grep '^&lt;' | while read line; do
-            delete_pinboard_bookmark_from_vimb_format "${line#&lt; }" 
-        done
-        # have to exit the script if error occurred
-        (( $? != 0 )) &amp;&amp; exit "$?"
-        echo "$changes" | grep '^&gt;' | while read line; do
-            insert_pinboard_bookmark_from_vimb_format "${line#&gt; }" 
-        done
-        (( $? != 0 )) &amp;&amp; exit "$?"
-    else
-        echo "No local-to-cloud synchronization required. Local bookmark storage is in sync with pinboard account."
-    fi
-else
-    to_update_local=true
-    echo "Bookmark file has not been backed up before. Trying to insert all entries..."
-    while read line; do
-        insert_pinboard_bookmark_from_vimb_format "$line"
-    done &lt; "$BOOKMARK_FILE"
-fi
-
-if $to_update_local; then
-    # we have updated the server so we should refresh the update time
-    echo "Refreshing the last update time..."
-    pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
-fi
-
-echo "######## Starting cloud-to-local synchronization ########"
-if $to_update_pinboard; then
-    echo "Retrieving bookmarks..."
-    pinboard_api "/posts/all" "$CURL_TMP"
-    # we need to convert the format into vimb's format
-    xml sel -t -m '/posts/post' -c '.' -n "$CURL_TMP" | while read line; do
-        # retrieve the attributes
-        local href="`echo "$line" | xml sel -t -v '/post/@href'`"
-        local desc="`echo "$line" | xml sel -t -v '/post/@description'`"
-        local tag="`echo "$line" | xml sel -t -v '/post/@tag'`"
-        # just adding the bookmark to tmp file
-        insert_vimb_bookmark "$href" "$desc" "$tag"
+<pre><code class="sh"># $1 is the method to query upon, $2 is the file to direct the output, while all the subsequent arguments
+# in the format 'name=value' are appended as data arguments to
+# the query
+#---------------------------------------------------------------
+function pinboard_api() {
+    local datastring= data=
+    for data in "${@:3}"
+    do
+        # we need to escape the single quote..merr...
+        datastring="$datastring --data-urlencode \$'${data//\'/\'}'"
     done
-    # move the tmp file to overwrite the old bookmark file
-    # this might be dangerous if there're unsynced changes in the bookmark file 
-    # but for the time being we'd assume that the bookmark file is already in sync with
-    # the cloud
-    echo "Overwriting the old bookmark file..."
-    mv -f "$BOOKMARK_TMP" "$BOOKMARK_FILE"
-else
-    echo "No cloud-to-local synchronization required. $BOOKMARK_FILE is current."
+    eval $CURL_CMD$datastring $HTTPS_PREFIX$1$AUTH_TOKEN &gt; $2
+    local CURL_EXIT_CODE="$?"
+    if [[ $CURL_EXIT_CODE != "0" ]] ; then
+        error "Curl failed with exit code $CURL_EXIT_CODE"
+    fi
+}
+
+#---------------------------------------------------------------
+function verify_config() {
+    if [[ ! -e "$PINBOARD_CFG" ]]; then
+        error "Could not find $PINBOARD_CFG file! \nIt should contain two lines. Line 1 the username. Line 2 the API token. \nYou can create it manually, or use the \"login\" command."
+    fi
+
+    USER_NAME=`head -n1 $PINBOARD_CFG`
+    API_TOKEN=`tail -n1 $PINBOARD_CFG`
+    AUTH_TOKEN="?auth_token=$USER_NAME:$API_TOKEN"
+}
+
+# This will compare the current update with the last update and
+# return true if there's new update
+#---------------------------------------------------------------
+function pinboard_has_update() {
+    # See if we need to do an update at all
+    echo "Retrieving current pinboard update time..."
+    pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
+    if [[ ! -e "$LAST_UPDATE_FILE" ]]; then
+        echo "$LAST_UPDATE_FILE does not exist..."
+        return 0
+    else
+        # Compare current update with last update
+        echo "Comparing last update with current update..."
+        diff "$CUR_UPDATE_FILE" "$LAST_UPDATE_FILE"
+        if [[ ! "$?" == "0" ]]; then 
+            return 0
+        fi ;
+    fi
+    return 1
+}
+
+#---------------------------------------------------------------
+function synchronize_cmd() {
+    local to_update_pinboard=false to_update_local=false
+    echo "######## Checking changes on the server ########"
+    verify_config
+    pinboard_has_update &amp;&amp; to_update_pinboard=true
+    echo "######## Starting local-to-cloud synchronization ########"
+    # first compare the two bookmarks file to see if there are any changes
+    if [[ -e "$BOOKMARK_BACKUP_FILE" ]]; then
+        echo "Detecting changes to the bookmark file..."
+        local changes="`diff "$BOOKMARK_BACKUP_FILE" "$BOOKMARK_FILE"`" 
+        if [ -n "$changes" ]; then
+            to_update_local=true
+            # we need to grep for all deletions 
+            echo "$changes" | grep '^&lt;' | while read line; do
+                delete_pinboard_bookmark_from_vimb_format "${line#&lt; }" 
+            done
+            # have to exit the script if error occurred
+            (( $? != 0 )) &amp;&amp; exit "$?"
+            echo "$changes" | grep '^&gt;' | while read line; do
+                insert_pinboard_bookmark_from_vimb_format "${line#&gt; }" 
+            done
+            (( $? != 0 )) &amp;&amp; exit "$?"
+        else
+            echo "No local-to-cloud synchronization required. Local bookmark storage is in sync with pinboard account."
+        fi
+    else
+        to_update_local=true
+        echo "Bookmark file has not been backed up before. Trying to insert all entries..."
+        while read line; do
+            insert_pinboard_bookmark_from_vimb_format "$line"
+        done &lt; "$BOOKMARK_FILE"
+    fi
+
+    if $to_update_local; then
+        # we have updated the server so we should refresh the update time
+        echo "Refreshing the last update time..."
+        pinboard_api "/posts/update" "$CUR_UPDATE_FILE"
+    fi
+
+    echo "######## Starting cloud-to-local synchronization ########"
+    if $to_update_pinboard; then
+        echo "Retrieving bookmarks..."
+        pinboard_api "/posts/all" "$CURL_TMP"
+        # we need to convert the format into vimb's format
+        xml sel -t -m '/posts/post' -c '.' -n "$CURL_TMP" | while read line; do
+            # retrieve the attributes
+            local href="`echo "$line" | xml sel -t -v '/post/@href'`"
+            local desc="`echo "$line" | xml sel -t -v '/post/@description'`"
+            local tag="`echo "$line" | xml sel -t -v '/post/@tag'`"
+            # just adding the bookmark to tmp file
+            insert_vimb_bookmark "$href" "$desc" "$tag"
+        done
+        # move the tmp file to overwrite the old bookmark file
+        # this might be dangerous if there're unsynced changes in the bookmark file 
+        # but for the time being we'd assume that the bookmark file is already in sync with
+        # the cloud
+        echo "Overwriting the old bookmark file..."
+        mv -f "$BOOKMARK_TMP" "$BOOKMARK_FILE"
+    else
+        echo "No cloud-to-local synchronization required. $BOOKMARK_FILE is current."
+    fi
+
+    # back up the bookmark file
+    if $to_update_local || $to_update_pinboard; then
+        echo "Backing up the current bookmark file..."
+        cp -f "$BOOKMARK_FILE" "$BOOKMARK_BACKUP_FILE"
+    fi
+
+    echo "Moving current update time to last update time..."
+    mv -f $CUR_UPDATE_FILE $LAST_UPDATE_FILE
+    echo "Done."  
+}
+
+#---------------------------------------------------------------
+function login_cmd() {
+    if [[ ! -d "$PINBOARD_DIR" ]]; then
+        mkdir "$PINBOARD_DIR"
+    fi
+
+    if [[ ! -d "$PINBOARD_DIR" ]]; then
+        echo "$PINBOARD_DIR could not be made."
+        exit 1
+    fi
+
+    echo "We will attempt to log into pinboard now."
+    `which echo` -n "Please enter pinboard username: "
+    local USER_NAME=`head -n 1`
+    echo $USER_NAME &gt; "$PINBOARD_CFG"
+
+    $CURL_CMD -u $USER_NAME "$HTTPS_PREFIX/user/api_token" | tail -n 1 | sed 's/&lt;[^&gt;]*&gt;//g' &gt;&gt; $PINBOARD_CFG
+    local CURL_EXIT_CODE="$?"
+    if [[ $CURL_EXIT_CODE != "0" ]]; then
+        echo "Curl failed with exit code $CURL_EXIT_CODE"
+        exit 1
+    fi
+
+    if [[ ! -e "$PINBOARD_CFG" ]]; then
+        echo "$PINBOARD_CFG could not be made."
+        exit 1
+    else 
+        chmod og-rw "$PINBOARD_CFG"
+    fi
+
+    echo "Created $PINBOARD_CFG."
+    echo "Logged in!"
+}
+
+#***
+# "Main"
+#***
+
+if [[ $# -lt 1 ]]; then
+    error "Expected a command for the second argument. \nTry \"help\"."
 fi
 
-# back up the bookmark file
-if $to_update_local || $to_update_pinboard; then
-    echo "Backing up the current bookmark file..."
-    cp -f "$BOOKMARK_FILE" "$BOOKMARK_BACKUP_FILE"
-fi
+#***
+# Process the second commands
+#***
+case "$1" in
+    synchronize) 
+        [ "PINBOARD$PPID" = "$LOCKRUNPID" ] || exec lockrun -qna PINBOARD /tmp/lockrun.pinboard "$0" "$@" || exit 1
+        synchronize_cmd
+        ;;
+    login) 
+        login_cmd
+        ;;
+    help) 
+        help_cmd 
+        ;;
+    *)
+        error "Unknown command $1. Try \"help\"." 2
+esac
 
-echo "Moving current update time to last update time..."
-mv -f $CUR_UPDATE_FILE $LAST_UPDATE_FILE
-echo "Done."  
+# exiting without any errors
+exit 0
 </code></pre>
-
-<p>}</p>
-
-<h1>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h1>
-
-<p>function login_cmd() {</p>
-
-<pre><code>if [[ ! -d "$PINBOARD_DIR" ]]; then
-    mkdir "$PINBOARD_DIR"
-fi
-
-if [[ ! -d "$PINBOARD_DIR" ]]; then
-    echo "$PINBOARD_DIR could not be made."
-    exit 1
-fi
-
-echo "We will attempt to log into pinboard now."
-`which echo` -n "Please enter pinboard username: "
-local USER_NAME=`head -n 1`
-echo $USER_NAME &gt; "$PINBOARD_CFG"
-
-$CURL_CMD -u $USER_NAME "$HTTPS_PREFIX/user/api_token" | tail -n 1 | sed 's/&lt;[^&gt;]*&gt;//g' &gt;&gt; $PINBOARD_CFG
-local CURL_EXIT_CODE="$?"
-if [[ $CURL_EXIT_CODE != "0" ]]; then
-    echo "Curl failed with exit code $CURL_EXIT_CODE"
-    exit 1
-fi
-
-if [[ ! -e "$PINBOARD_CFG" ]]; then
-    echo "$PINBOARD_CFG could not be made."
-    exit 1
-else 
-    chmod og-rw "$PINBOARD_CFG"
-fi
-
-echo "Created $PINBOARD_CFG."
-echo "Logged in!"
-</code></pre>
-
-<p>}</p>
-
-<h1>***</h1>
-
-<h1>&ldquo;Main&rdquo;</h1>
-
-<h1>***</h1>
-
-<p>if [[ $# -lt 1 ]]; then</p>
-
-<pre><code>error "Expected a command for the second argument. \nTry \"help\"."
-</code></pre>
-
-<p>fi</p>
-
-<h1>***</h1>
-
-<h1>Process the second commands</h1>
-
-<h1>***</h1>
-
-<p>case &ldquo;$1&rdquo; in</p>
-
-<pre><code>synchronize) 
-    [ "PINBOARD$PPID" = "$LOCKRUNPID" ] || exec lockrun -qna PINBOARD /tmp/lockrun.pinboard "$0" "$@" || exit 1
-    synchronize_cmd
-    ;;
-login) 
-    login_cmd
-    ;;
-help) 
-    help_cmd 
-    ;;
-*)
-    error "Unknown command $1. Try \"help\"." 2
-</code></pre>
-
-<p>esac</p>
-
-<h1>exiting without any errors</h1>
-
-<p>exit 0
-```</p>
 ]]></content>
   </entry>
   
