@@ -166,7 +166,7 @@ elif ! git --no-pager diff --exit-code || [ -n "$(git ls-files --others --exclud
 fi
 
 echo "######## Beginning update ########"
-# if $to_update; then
+if $to_update; then
     echo "Commiting changes in the source branch..." 
     # the add commit phase don't really count towards update result as it can give back error code if there's nothing to commit
     git add -A 
@@ -175,8 +175,8 @@ echo "######## Beginning update ########"
     echo "Generating the website..."
     "$RUBY_BIN_DIR/bundle" exec rake gen_deploy
     exit 0
-# else
-#     echo "Nothing to update."
-# fi
+else
+    echo "Nothing to update."
+fi
 
 exit 1
