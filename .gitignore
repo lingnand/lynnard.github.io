@@ -18,10 +18,10 @@ Gemfile.lock
 source/_drafts
 source/_queue
 
-# *.SyncID
-# *.SyncIgnore
-# source/.SyncTrash/*
-# source/.SyncArchive/*
-# *.!Sync
-# *.SyncPart
-# *.SyncTemp
+.SyncTrash/
+.SyncArchive/
+*.SyncID
+*.SyncIgnore
+*.!Sync
+*.SyncPart
+*.SyncTemp
