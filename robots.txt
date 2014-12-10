@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://lynnard.tk/sitemap.xml 
+Sitemap: http://lynnard.me/sitemap.xml 

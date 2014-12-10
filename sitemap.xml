@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://lynnard.tk/blog/2014/10/31/coming-back/</loc>
+    <loc>http://lynnard.me/blog/2014/10/31/coming-back/</loc>
     <lastmod>2014-10-31T19:48:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/06/11/vimonad/</loc>
+    <loc>http://lynnard.me/blog/2014/06/11/vimonad/</loc>
     <lastmod>2014-06-11T16:19:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/03/31/xian-dai-jia-ju-xi-tong/</loc>
+    <loc>http://lynnard.me/blog/2014/03/31/xian-dai-jia-ju-xi-tong/</loc>
     <lastmod>2014-03-31T15:44:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/02/24/more-prompt-stuff/</loc>
+    <loc>http://lynnard.me/blog/2014/02/24/more-prompt-stuff/</loc>
     <lastmod>2014-02-24T17:00:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/02/09/the-tree/</loc>
+    <loc>http://lynnard.me/blog/2014/02/09/the-tree/</loc>
     <lastmod>2014-02-09T14:47:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/</loc>
+    <loc>http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/</loc>
     <lastmod>2014-01-06T17:57:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode/</loc>
+    <loc>http://lynnard.me/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode/</loc>
     <lastmod>2014-01-05T18:36:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/12/30/more-xmonad-goodies/</loc>
+    <loc>http://lynnard.me/blog/2013/12/30/more-xmonad-goodies/</loc>
     <lastmod>2013-12-30T23:37:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/</loc>
+    <loc>http://lynnard.me/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/</loc>
     <lastmod>2013-11-15T23:41:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/</loc>
+    <loc>http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/</loc>
     <lastmod>2013-11-05T16:45:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/</loc>
+    <loc>http://lynnard.me/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/</loc>
     <lastmod>2013-11-03T02:25:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/</loc>
+    <loc>http://lynnard.me/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/</loc>
     <lastmod>2013-11-03T00:37:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/08/18/gu-du-de-yin-li/</loc>
+    <loc>http://lynnard.me/blog/2013/08/18/gu-du-de-yin-li/</loc>
     <lastmod>2013-08-18T14:49:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/</loc>
+    <loc>http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/</loc>
     <lastmod>2013-08-11T13:36:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/08/11/biao-zhun-zhi-qiu-long/</loc>
+    <loc>http://lynnard.me/blog/2013/08/11/biao-zhun-zhi-qiu-long/</loc>
     <lastmod>2013-08-11T13:16:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/07/31/ren-xing-zhi-shang/</loc>
+    <loc>http://lynnard.me/blog/2013/07/31/ren-xing-zhi-shang/</loc>
     <lastmod>2013-07-31T15:02:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/2013/07/30/the-very-first-blog-post/</loc>
+    <loc>http://lynnard.me/blog/2013/07/30/the-very-first-blog-post/</loc>
     <lastmod>2013-07-30T12:08:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/</loc>
-    <lastmod>2014-12-10T22:29:10+00:00</lastmod>
+    <loc>http://lynnard.me/</loc>
+    <lastmod>2014-12-10T23:07:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/blog/archives/</loc>
-    <lastmod>2014-12-10T22:29:10+00:00</lastmod>
+    <loc>http://lynnard.me/blog/archives/</loc>
+    <lastmod>2014-12-10T23:07:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/projects/</loc>
-    <lastmod>2014-12-10T22:29:10+00:00</lastmod>
+    <loc>http://lynnard.me/projects/</loc>
+    <lastmod>2014-12-10T23:07:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/projects/lynnard-bot/</loc>
-    <lastmod>2014-12-10T22:29:10+00:00</lastmod>
+    <loc>http://lynnard.me/projects/lynnard-bot/</loc>
+    <lastmod>2014-12-10T23:07:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://lynnard.tk/projects/visionary-pioneer/</loc>
-    <lastmod>2014-12-10T22:29:10+00:00</lastmod>
+    <loc>http://lynnard.me/projects/visionary-pioneer/</loc>
+    <lastmod>2014-12-10T23:07:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: xmonad | .hack/lynnard]]></title>
-  <link href="http://lynnard.tk/blog/categories/xmonad/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/blog/categories/xmonad/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[VIMonad- transforming XMonad to Vim with Motion Keys, Register, Visual Mode, Macros, ...]]></title>
-    <link href="http://lynnard.tk/blog/2014/06/11/vimonad/"/>
+    <link href="http://lynnard.me/blog/2014/06/11/vimonad/"/>
     <updated>2014-06-11T16:19:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2014/06/11/vimonad</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve finally got the time to clean up my XMonad configurations, split them into modules, and formally made a fork at <a href="http://vimonad.lynnard.tk">VIMonad</a>.</p>
+    <id>http://lynnard.me/blog/2014/06/11/vimonad</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve finally got the time to clean up my XMonad configurations, split them into modules, and formally made a fork at <a href="http://vimonad.lynnard.me">VIMonad</a>.</p>
 
 <p>You can find all the description and documentation on its project page.</p>
 ]]></content>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[More prompt stuff: reverse completion, colored prompt, dynamic prompt/preview widget]]></title>
-    <link href="http://lynnard.tk/blog/2014/02/24/more-prompt-stuff/"/>
+    <link href="http://lynnard.me/blog/2014/02/24/more-prompt-stuff/"/>
     <updated>2014-02-24T17:00:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/02/24/more-prompt-stuff</id>
+    <id>http://lynnard.me/blog/2014/02/24/more-prompt-stuff</id>
     <content type="html"><![CDATA[<p>It&rsquo;s been a long time since I last wrote something on XMonad. It&rsquo;s not that I don&rsquo;t have anything to share in the last couple of weeks, but rather, I felt it a little bit troublesome to explain some of my most recent tweaks. But enough with my laziness, I finally decided to spend some quality time to write on these nifty new things.</p>
 
 <h1>Reverse completion</h1>
@@ -156,16 +156,16 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
   
   <entry>
     <title type="html"><![CDATA[Supercharge your XMonad! Colored Tabs, Dynamic Prompt, Window/Workspace Insert Position]]></title>
-    <link href="http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/"/>
+    <link href="http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/"/>
     <updated>2014-01-06T17:57:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position</id>
+    <id>http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position</id>
     <content type="html"><![CDATA[<p>Here&rsquo;s another post to show some of my latest hacks on XMonad.</p>
 
 <h1>Colored Tabs</h1>
 
 <p style="text-align:center;"><img src="/images/xmonad/color_tabs.png" alt="" /></p>
 
-<p>One of the things that annoyed me for the Tabbed layout is that I couldn&rsquo;t make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task groups</a> thus becomes a natural choice for me.</p>
+<p>One of the things that annoyed me for the Tabbed layout is that I couldn&rsquo;t make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task groups</a> thus becomes a natural choice for me.</p>
 
 <p>To apply this mod the key is to modify the <code>updateDeco</code> method in <code>XMonad.Layout.Decoration</code>.</p>
 
@@ -198,7 +198,7 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 <h2>Workspace Insert Position</h2>
 
-<p>Continuing from my <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">Dynamic Workspace</a>, the following keybinding are added:</p>
+<p>Continuing from my <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">Dynamic Workspace</a>, the following keybinding are added:</p>
 
 <ul>
 <li><code>M-a {a,M-a}</code>: launches the workspace creation prompt and on completion insert the workspace <em>just after the current one</em></li>
@@ -214,10 +214,10 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
   
   <entry>
     <title type="html"><![CDATA[More XMonad goodies: 3-dimensional Workspace, Window Sorting and Shelving]]></title>
-    <link href="http://lynnard.tk/blog/2013/12/30/more-xmonad-goodies/"/>
+    <link href="http://lynnard.me/blog/2013/12/30/more-xmonad-goodies/"/>
     <updated>2013-12-30T23:37:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/12/30/more-xmonad-goodies</id>
-    <content type="html"><![CDATA[<p>Following up my previous <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/">entry</a> on some <em>advanced vim-like</em> feature addition to XMonad, I&rsquo;ve played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.</p>
+    <id>http://lynnard.me/blog/2013/12/30/more-xmonad-goodies</id>
+    <content type="html"><![CDATA[<p>Following up my previous <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/">entry</a> on some <em>advanced vim-like</em> feature addition to XMonad, I&rsquo;ve played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.</p>
 
 <p><em>Well, that can be a good or bad thing, depending on how you look at it.</em></p>
 
@@ -227,7 +227,7 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 <h2>Inception</h2>
 
-<p>If you&rsquo;ve followed my previous blog on XMonad then hopefully you&rsquo;ve grasped my idea at building a <em>vim-splitter-like</em> layout for workspaces (if you&rsquo;ve forgotten by now, <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter">here</a>&rsquo;s the refreshment).</p>
+<p>If you&rsquo;ve followed my previous blog on XMonad then hopefully you&rsquo;ve grasped my idea at building a <em>vim-splitter-like</em> layout for workspaces (if you&rsquo;ve forgotten by now, <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter">here</a>&rsquo;s the refreshment).</p>
 
 <p>After I wrote that article, I&rsquo;ve taken some more serious moments at pondering about this and have gotten a few more insights:</p>
 
@@ -292,8 +292,8 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 <li>columnLayout: the layout used by the outermost group, or the columns in a workspace</li>
 <li>rectLayout: the layout used by the intermediate group (the one below columns but above the tabs)</li>
 <li>auto sort: <code>M</code> means <em>manual</em> while <code>A</code> means <em>auto</em>; will be explained in <a href="#auto_sort">a later section</a></li>
-<li>history: just like the history indicator in vim; <code>+</code> and <code>-</code> mean there are <em>newer</em> and <em>older</em> windows to navigate to respectively; refer to <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history">window history</a> if you are curious about how this is implemented</li>
-<li>ref key: the highlighted letter is the <code>filterKey</code> of the respective <code>taskGroup</code> (refer to <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> if you don&rsquo;t understand), which reminds me what filter key to press to perform actions on that group</li>
+<li>history: just like the history indicator in vim; <code>+</code> and <code>-</code> mean there are <em>newer</em> and <em>older</em> windows to navigate to respectively; refer to <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history">window history</a> if you are curious about how this is implemented</li>
+<li>ref key: the highlighted letter is the <code>filterKey</code> of the respective <code>taskGroup</code> (refer to <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> if you don&rsquo;t understand), which reminds me what filter key to press to perform actions on that group</li>
 </ul>
 
 
@@ -330,7 +330,7 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 <p>Like I mentioned in the last section, the new dimension - <code>column</code> - allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
 
-<p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
+<p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
 
 <h2>Manual Window Sorting</h2>
 
@@ -344,7 +344,7 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 <ol>
 <li>imagine you are in a workspace and you&rsquo;ve spawned a <code>vim</code> window to write some code in</li>
-<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
+<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
 <li>since this is the first <code>vimb</code> window and there are no columns found in the workspace to contain a window with the matching task group, the <code>vimb</code> window is put into a new column and the focus automatically transfers to it</li>
 <li>all subsequent new <code>vimb</code> windows shall be inserted in that new column just created, given that you don&rsquo;t do any manual arrangement</li>
 </ol>
@@ -354,7 +354,7 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 <h1>Shelf</h1>
 
-<p>Although we can now manage windows with <em>3 dimensions</em>, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad">perworkspace scratchpad</a> to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.</p>
+<p>Although we can now manage windows with <em>3 dimensions</em>, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad">perworkspace scratchpad</a> to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.</p>
 
 <p>The alternative is to use <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Minimize.html">XMonad.Layout.Minimize</a>. This allows any window in a workspace to be toggled, but it also has problems:</p>
 
@@ -380,9 +380,9 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
   
   <entry>
     <title type="html"><![CDATA[Making Vim play nice with your Window Manager]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/"/>
+    <link href="http://lynnard.me/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/"/>
     <updated>2013-11-15T23:41:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/15/making-vim-play-nice-with-your-window-manager</id>
+    <id>http://lynnard.me/blog/2013/11/15/making-vim-play-nice-with-your-window-manager</id>
     <content type="html"><![CDATA[<h1>Motivation</h1>
 
 <p>For people who&rsquo;ve used Vim extensively and exclusively, you&rsquo;ve probably seen this dreaded message a dozen of times</p>

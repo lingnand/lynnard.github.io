@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[.hack/lynnard]]></title>
-  <link href="http://lynnard.tk/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Coming back]]></title>
-    <link href="http://lynnard.tk/blog/2014/10/31/coming-back/"/>
+    <link href="http://lynnard.me/blog/2014/10/31/coming-back/"/>
     <updated>2014-10-31T19:48:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/10/31/coming-back</id>
+    <id>http://lynnard.me/blog/2014/10/31/coming-back</id>
     <content type="html"><![CDATA[<p>Haven&rsquo;t updated my website for ages.</p>
 
 <p><em>A lot has happened</em> - graduated from university, got a job, found a home in one of the busiest cities in the world, laptop broken, laptop fixed, laptop broken again, laptop fixed again.</p>
@@ -32,10 +32,10 @@
   
   <entry>
     <title type="html"><![CDATA[VIMonad- transforming XMonad to Vim with Motion Keys, Register, Visual Mode, Macros, ...]]></title>
-    <link href="http://lynnard.tk/blog/2014/06/11/vimonad/"/>
+    <link href="http://lynnard.me/blog/2014/06/11/vimonad/"/>
     <updated>2014-06-11T16:19:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2014/06/11/vimonad</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve finally got the time to clean up my XMonad configurations, split them into modules, and formally made a fork at <a href="http://vimonad.lynnard.tk">VIMonad</a>.</p>
+    <id>http://lynnard.me/blog/2014/06/11/vimonad</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve finally got the time to clean up my XMonad configurations, split them into modules, and formally made a fork at <a href="http://vimonad.lynnard.me">VIMonad</a>.</p>
 
 <p>You can find all the description and documentation on its project page.</p>
 ]]></content>
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[现代家居系统]]></title>
-    <link href="http://lynnard.tk/blog/2014/03/31/xian-dai-jia-ju-xi-tong/"/>
+    <link href="http://lynnard.me/blog/2014/03/31/xian-dai-jia-ju-xi-tong/"/>
     <updated>2014-03-31T15:44:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2014/03/31/xian-dai-jia-ju-xi-tong</id>
+    <id>http://lynnard.me/blog/2014/03/31/xian-dai-jia-ju-xi-tong</id>
     <content type="html"><![CDATA[<p>今天心血来潮，自己yy了一套现代家居系统。</p>
 
 <p>系统的第一步是把整个house做成一台电脑，所谓的live inside a computer的感觉。要实现这个相当简单（？），把家里所有的墙都改成OLED的可弯曲屏幕（并且支持触控），连接到家里的一台central server。Plug的插口上不仅有用来充电的插座，还会有usb等端口- 这样的话比如需要查看usbstick里面的图片直接把它插到墙上，墙上就会显示出内容。触控的需要也相当明显-家里的任何一个角落都可以对这台“电脑”进行控制-比如直接触摸墙壁就会显示出常用菜单。这个concept不仅仅可以用在墙面上，茶几台上也可以，餐桌上也可以，以此类推。</p>
@@ -58,9 +58,9 @@
   
   <entry>
     <title type="html"><![CDATA[More prompt stuff: reverse completion, colored prompt, dynamic prompt/preview widget]]></title>
-    <link href="http://lynnard.tk/blog/2014/02/24/more-prompt-stuff/"/>
+    <link href="http://lynnard.me/blog/2014/02/24/more-prompt-stuff/"/>
     <updated>2014-02-24T17:00:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/02/24/more-prompt-stuff</id>
+    <id>http://lynnard.me/blog/2014/02/24/more-prompt-stuff</id>
     <content type="html"><![CDATA[<p>It&rsquo;s been a long time since I last wrote something on XMonad. It&rsquo;s not that I don&rsquo;t have anything to share in the last couple of weeks, but rather, I felt it a little bit troublesome to explain some of my most recent tweaks. But enough with my laziness, I finally decided to spend some quality time to write on these nifty new things.</p>
 
 <h1>Reverse completion</h1>
@@ -73,13 +73,13 @@
 
 <p>The functions behind these color renderings aren&rsquo;t terribly complicated - it just looks for terminal color sequences and transform them into hex color codes that can be printed easily using standard X library.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/colored_prompt.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/colored_prompt.png" alt="" /></p>
 
 <p>However, here&rsquo;s the catch: if you are going with the color, make sure you know something about color encoding and have the time and effort to tweak it to make it look nice. Unfortunately I have neither of those and that&rsquo;s why I ended up not using any color after all.</p>
 
 <h1>More on Dynamic Prompt</h1>
 
-<p>The concept of dynamic prompt was first introduced in one of my earlier <a href="http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/">post</a>.</p>
+<p>The concept of dynamic prompt was first introduced in one of my earlier <a href="http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/">post</a>.</p>
 
 <p>One major gripe I&rsquo;ve always had regarding standard unix tools is that it&rsquo;s not that straightforward to perform certain tasks chained together in a visual and direct way.</p>
 
@@ -155,21 +155,21 @@
 
 <p>You want to narrow down to a directory having <code>Prompt</code> in its name instead of greping blindly in the current directory which might contain 1000 files. That means we need to use <code>l</code> widget to locate that directory and pass it back to the <code>g</code> widget as its argument. So type in <code>l Prompt</code>. Now you&rsquo;ll get some screen like this:</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget1.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget1.png" alt="" /></p>
 
 <p>Now press tab to autocomplete. The completion algorithm is smart enough to remove the preceding widget keyword automatically - <code>l</code> in this case.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget2.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget2.png" alt="" /></p>
 
 <h3>Step 4</h3>
 
 <p>Now you&rsquo;ve got the directory to grep in. Finish typing by adding the word to grep against.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget3.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget3.png" alt="" /></p>
 
 <p>Like before, tab through to the right file to make the final prompt line look like this:</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget4.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget4.png" alt="" /></p>
 
 <h3>Step 5</h3>
 
@@ -181,25 +181,25 @@
 
 <p>If you are familiar with <code>ranger</code>, you&rsquo;d know that it uses a preview script to render information about the file you are working on. The same works for my dyanmic prompt - if you&rsquo;ve given a file argument on the prompt, press another <code>Space</code> would trigger the previewing of that file argument.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget_preview_source.png" alt="previewing a source file" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget_preview_source.png" alt="previewing a source file" /></p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget_preview_pdf.png" alt="previewing a pdf file" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget_preview_pdf.png" alt="previewing a pdf file" /></p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget_preview_zip.png" alt="previewing a zip file" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget_preview_zip.png" alt="previewing a zip file" /></p>
 
 <h3>Other widgets</h3>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget_top.png" alt="top" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget_top.png" alt="top" /></p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/widget_git.png" alt="git" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/widget_git.png" alt="git" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[The Tree]]></title>
-    <link href="http://lynnard.tk/blog/2014/02/09/the-tree/"/>
+    <link href="http://lynnard.me/blog/2014/02/09/the-tree/"/>
     <updated>2014-02-09T14:47:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/02/09/the-tree</id>
+    <id>http://lynnard.me/blog/2014/02/09/the-tree</id>
     <content type="html"><![CDATA[<p>最近眼前总是浮现出一棵树。</p>
 
 <p>树是普通的行道树，算不上枝繁叶茂，也没有纵横交错的蟠根。只是一棵年轻的生命，无比宁静地伫立在一片与世隔绝的白色光晕中。</p>
@@ -208,7 +208,7 @@
 
 <p>也或许某天我真的在现实生活中找到了它，像个孩子一样欢快地向它飞奔而去，来到跟前却发现只是个梦。</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/tree-small.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/tree-small.png" alt="" /></p>
 
 <p>无论如何，还是尽量sketch出了脑海中它的模样。</p>
 ]]></content>
@@ -216,16 +216,16 @@
   
   <entry>
     <title type="html"><![CDATA[Supercharge your XMonad! Colored Tabs, Dynamic Prompt, Window/Workspace Insert Position]]></title>
-    <link href="http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/"/>
+    <link href="http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position/"/>
     <updated>2014-01-06T17:57:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position</id>
+    <id>http://lynnard.me/blog/2014/01/06/supercharge-your-xmonad-colored-tabs-dynamic-prompt-window-slash-workspace-insert-position</id>
     <content type="html"><![CDATA[<p>Here&rsquo;s another post to show some of my latest hacks on XMonad.</p>
 
 <h1>Colored Tabs</h1>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/color_tabs.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/color_tabs.png" alt="" /></p>
 
-<p>One of the things that annoyed me for the Tabbed layout is that I couldn&rsquo;t make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task groups</a> thus becomes a natural choice for me.</p>
+<p>One of the things that annoyed me for the Tabbed layout is that I couldn&rsquo;t make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task groups</a> thus becomes a natural choice for me.</p>
 
 <p>To apply this mod the key is to modify the <code>updateDeco</code> method in <code>XMonad.Layout.Decoration</code>.</p>
 
@@ -258,7 +258,7 @@
 
 <h2>Workspace Insert Position</h2>
 
-<p>Continuing from my <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">Dynamic Workspace</a>, the following keybinding are added:</p>
+<p>Continuing from my <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">Dynamic Workspace</a>, the following keybinding are added:</p>
 
 <ul>
 <li><code>M-a {a,M-a}</code>: launches the workspace creation prompt and on completion insert the workspace <em>just after the current one</em></li>
@@ -274,9 +274,9 @@
   
   <entry>
     <title type="html"><![CDATA[Change cursor shape for zsh vi-mode]]></title>
-    <link href="http://lynnard.tk/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode/"/>
+    <link href="http://lynnard.me/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode/"/>
     <updated>2014-01-05T18:36:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode</id>
+    <id>http://lynnard.me/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been using zsh and its wonderful <em>vi-mode</em> line editing keybindings for a long time, but one thing that has always troubled me is the lack of visual clues to the current <em>mode</em>.</p>
 
 <p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough - we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
@@ -326,10 +326,10 @@
   
   <entry>
     <title type="html"><![CDATA[More XMonad goodies: 3-dimensional Workspace, Window Sorting and Shelving]]></title>
-    <link href="http://lynnard.tk/blog/2013/12/30/more-xmonad-goodies/"/>
+    <link href="http://lynnard.me/blog/2013/12/30/more-xmonad-goodies/"/>
     <updated>2013-12-30T23:37:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/12/30/more-xmonad-goodies</id>
-    <content type="html"><![CDATA[<p>Following up my previous <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/">entry</a> on some <em>advanced vim-like</em> feature addition to XMonad, I&rsquo;ve played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.</p>
+    <id>http://lynnard.me/blog/2013/12/30/more-xmonad-goodies</id>
+    <content type="html"><![CDATA[<p>Following up my previous <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/">entry</a> on some <em>advanced vim-like</em> feature addition to XMonad, I&rsquo;ve played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.</p>
 
 <p><em>Well, that can be a good or bad thing, depending on how you look at it.</em></p>
 
@@ -339,7 +339,7 @@
 
 <h2>Inception</h2>
 
-<p>If you&rsquo;ve followed my previous blog on XMonad then hopefully you&rsquo;ve grasped my idea at building a <em>vim-splitter-like</em> layout for workspaces (if you&rsquo;ve forgotten by now, <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter">here</a>&rsquo;s the refreshment).</p>
+<p>If you&rsquo;ve followed my previous blog on XMonad then hopefully you&rsquo;ve grasped my idea at building a <em>vim-splitter-like</em> layout for workspaces (if you&rsquo;ve forgotten by now, <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter">here</a>&rsquo;s the refreshment).</p>
 
 <p>After I wrote that article, I&rsquo;ve taken some more serious moments at pondering about this and have gotten a few more insights:</p>
 
@@ -402,7 +402,7 @@
 
 <p>Here&rsquo;s what my dzen <em>log bar</em> typically looks like</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/logbar.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/logbar.png" alt="" /></p>
 
 <p>Some of the terms might require explanation:</p>
 
@@ -410,8 +410,8 @@
 <li>columnLayout: the layout used by the outermost group, or the columns in a workspace</li>
 <li>rectLayout: the layout used by the intermediate group (the one below columns but above the tabs)</li>
 <li>auto sort: <code>M</code> means <em>manual</em> while <code>A</code> means <em>auto</em>; will be explained in <a href="#auto_sort">a later section</a></li>
-<li>history: just like the history indicator in vim; <code>+</code> and <code>-</code> mean there are <em>newer</em> and <em>older</em> windows to navigate to respectively; refer to <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history">window history</a> if you are curious about how this is implemented</li>
-<li>ref key: the highlighted letter is the <code>filterKey</code> of the respective <code>taskGroup</code> (refer to <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> if you don&rsquo;t understand), which reminds me what filter key to press to perform actions on that group</li>
+<li>history: just like the history indicator in vim; <code>+</code> and <code>-</code> mean there are <em>newer</em> and <em>older</em> windows to navigate to respectively; refer to <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history">window history</a> if you are curious about how this is implemented</li>
+<li>ref key: the highlighted letter is the <code>filterKey</code> of the respective <code>taskGroup</code> (refer to <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> if you don&rsquo;t understand), which reminds me what filter key to press to perform actions on that group</li>
 </ul>
 
 
@@ -448,7 +448,7 @@
 
 <p>Like I mentioned in the last section, the new dimension - <code>column</code> - allows me to group windows by their functions inside each workspace; and since I&rsquo;ve already defined many task groups in my config file, why not combine the two together? The results are what I call <em>Window Sorting</em> and <em>Auto Window Sorting</em>.</p>
 
-<p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
+<p><em>Note: you&rsquo;d need to first understand <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">task group</a> before you can possibly understand what I&rsquo;m doing here</em></p>
 
 <h2>Manual Window Sorting</h2>
 
@@ -462,7 +462,7 @@
 
 <ol>
 <li>imagine you are in a workspace and you&rsquo;ve spawned a <code>vim</code> window to write some code in</li>
-<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
+<li>now you want to search for something, so you press <code>M-[ b</code> - this triggers the <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group">cycling protocol</a> of the <code>vimb</code> task group, and since there are no <code>vimb</code> windows to cycle about, the construction function of the group is invoked and a new <code>vimb</code> window is created</li>
 <li>since this is the first <code>vimb</code> window and there are no columns found in the workspace to contain a window with the matching task group, the <code>vimb</code> window is put into a new column and the focus automatically transfers to it</li>
 <li>all subsequent new <code>vimb</code> windows shall be inserted in that new column just created, given that you don&rsquo;t do any manual arrangement</li>
 </ol>
@@ -472,7 +472,7 @@
 
 <h1>Shelf</h1>
 
-<p>Although we can now manage windows with <em>3 dimensions</em>, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use <a href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad">perworkspace scratchpad</a> to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.</p>
+<p>Although we can now manage windows with <em>3 dimensions</em>, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use <a href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad">perworkspace scratchpad</a> to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.</p>
 
 <p>The alternative is to use <a href="http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Minimize.html">XMonad.Layout.Minimize</a>. This allows any window in a workspace to be toggled, but it also has problems:</p>
 
@@ -498,14 +498,14 @@
   
   <entry>
     <title type="html"><![CDATA[Making Vim play nice with your Window Manager]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/"/>
+    <link href="http://lynnard.me/blog/2013/11/15/making-vim-play-nice-with-your-window-manager/"/>
     <updated>2013-11-15T23:41:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/15/making-vim-play-nice-with-your-window-manager</id>
+    <id>http://lynnard.me/blog/2013/11/15/making-vim-play-nice-with-your-window-manager</id>
     <content type="html"><![CDATA[<h1>Motivation</h1>
 
 <p>For people who&rsquo;ve used Vim extensively and exclusively, you&rsquo;ve probably seen this dreaded message a dozen of times</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/vim/swap_warning.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/vim/swap_warning.png" alt="" /></p>
 
 <p>For most cases this glaring warning is there just because you&rsquo;ve forgotten having opened the same file in another Vim instance - and it happens for me a lot. Therefore for a long time I&rsquo;ve been thinking of an extension to Vim that:</p>
 
@@ -568,7 +568,7 @@
 
 <p>This is best shown in code</p>
 
-<figure class='code'><figcaption><span>sh (wtitle)</span> <a href='http://lynnard.tk/downloads/code/wtitle'>download</a></figcaption>
+<figure class='code'><figcaption><span>sh (wtitle)</span> <a href='http://lynnard.me/downloads/code/wtitle'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -632,7 +632,7 @@
 
 <p>All this can be wrapped up in this tiny script</p>
 
-<figure class='code'><figcaption><span>sh (xvim)</span> <a href='http://lynnard.tk/downloads/code/xvim'>download</a></figcaption>
+<figure class='code'><figcaption><span>sh (xvim)</span> <a href='http://lynnard.me/downloads/code/xvim'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -732,10 +732,10 @@
   
   <entry>
     <title type="html"><![CDATA[Building a Vim-like XMonad -- Prompt, Task Groups, Topical Workspaces, Float styles and more]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/"/>
+    <link href="http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/"/>
     <updated>2013-11-05T16:45:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more</id>
-    <content type="html"><![CDATA[<p><strong>Update: I&rsquo;ve formally made a package called <em>VIMonad</em> with all the features discussed here (as well as other more interesting ones) <a href="http://vimonad.lynnard.tk">here</a>.</strong></p>
+    <id>http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more</id>
+    <content type="html"><![CDATA[<p><strong>Update: I&rsquo;ve formally made a package called <em>VIMonad</em> with all the features discussed here (as well as other more interesting ones) <a href="http://vimonad.lynnard.me">here</a>.</strong></p>
 
 <p>About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using - or rather stuck with - is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently.</p>
 
@@ -827,7 +827,7 @@
 
 <p>A preview of the effect:</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/splitter.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/splitter.png" alt="" /></p>
 
 <p>An implication of this change is that now <em>EVERY WINDOW</em> becomes a tab. Additionally, new windows won&rsquo;t change the outer layout in anyway - they just start as a new tab in the current group. This essentially eliminates any need for application-level window tabbing: now you don&rsquo;t need <a href="http://tools.suckless.org/tabbed/">suckless tabbed</a> for tabbing your xterm windows, or Firefox/Chrome for their ostentatious but aesthetically un-unifiable tabs. The responsibility of window management truely falls to XMonad and it does it tons better (I actually hope that Vim can delegate window management to XMonad too but apparently many functionalities can&rsquo;t be shared across in this way). Just a few reasons why this is so much better:</p>
 
@@ -857,23 +857,23 @@
 
 <p>A screenshot of the calculator:</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/prompt_calc.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/prompt_calc.png" alt="" /></p>
 
 <p>And an example of using Chinese dictionaries:</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/prompt_dict.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/prompt_dict.png" alt="" /></p>
 
 <h3>Vimb prompt</h3>
 
 <p>Vimb stores history and bookmarks in plain-text and that makes building a prompt for it (think about Omnibox for Firefox) a breeze. My implementation just repeatedly greps the words on the prompt in Vimb&rsquo;s bookmark and history file and outputs the result in formatted columns; and when the input is empty shows the last 10 visited URLs.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/prompt_vimb.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/prompt_vimb.png" alt="" /></p>
 
 <h3>Taskwarrior prompt</h3>
 
 <p>I was once attracted by <a href="http://taskwarrior.org">Taskwarrior</a> and had since written a complete prompt system for it. Pressing <code>&lt;tab&gt;</code> and <code>&lt;S-tab&gt;</code> will autocomplete tasks and it also shows the real-time output for the filters used in the command. In addition, it autocompletes projects, due times, commands, etc. I&rsquo;ve also integrated <code>taskopen</code> into the system such that pressing <code>&lt;Return&gt;</code> on any focused task automatically opens the notes file for it.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/prompt_task.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/prompt_task.png" alt="" /></p>
 
 <h2><a id="topical_workspace"></a>Topical workspaces</h2>
 
@@ -985,7 +985,7 @@
 
 <p>The searching of tags, again, is achieved via a prompt.</p>
 
-<p style="text-align:center;"><img src="http://lynnard.tk/images/xmonad/prompt_ws_view.png" alt="" /></p>
+<p style="text-align:center;"><img src="http://lynnard.me/images/xmonad/prompt_ws_view.png" alt="" /></p>
 
 <h2><a id="dynamic_workspace"></a>Dynamic workspaces</h2>
 
@@ -1124,9 +1124,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pinboard synchronization with Vimb/Vimprobable bookmarks]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
+    <link href="http://lynnard.me/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
     <updated>2013-11-03T02:25:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
+    <id>http://lynnard.me/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
     <content type="html"><![CDATA[<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end - if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
 
 <p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs - usually you can just achieve what you want by a little bit of tinkering.</p>
@@ -1528,9 +1528,9 @@
   
   <entry>
     <title type="html"><![CDATA[Implementing the missing drafting and queueing function in Octopress]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/"/>
+    <link href="http://lynnard.me/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/"/>
     <updated>2013-11-03T00:37:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress</id>
+    <id>http://lynnard.me/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress</id>
     <content type="html"><![CDATA[<p>It&rsquo;s been a while since I first started using Octopress. Its simple and elegant way of writing has now become my <em>de facto</em> standard of writing, but there are still things to be desired. For one thing, the workflow consisting of <em>writing, commiting, compiling and deploying</em> is still not <em>lazy</em> enough; ideally the only thing that should be required of the writer is <em>to write</em>. Inspired by Dennis Wegner in his <a href="http://instant-thinking.de/2012/08/03/synced-and-scheduled-blogging-with-octopress/">Synced and scheduled blogging with Octopress</a>, I worked on a bash script to allow for friction-free, painless deployment process that goes totally automatic underhood.</p>
 
 <h3>A short summary of the tinkering</h3>
@@ -1746,9 +1746,9 @@
   
   <entry>
     <title type="html"><![CDATA[孤独的引力]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/18/gu-du-de-yin-li/"/>
+    <link href="http://lynnard.me/blog/2013/08/18/gu-du-de-yin-li/"/>
     <updated>2013-08-18T14:49:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/18/gu-du-de-yin-li</id>
+    <id>http://lynnard.me/blog/2013/08/18/gu-du-de-yin-li</id>
     <content type="html"><![CDATA[<blockquote><p>独生子的意义再明显不过，那就是孤独，孤立，孤寂，与他人的隔绝——简言之，这是些独自运转的星球。村上从中发现的吸引力正是孤寂行星所特有的磁场：在全然的自我隔绝里有极大的黑暗，一个人若无法自外界获得光亮与慰藉，就只能强迫自己独力支撑。他以为听到来自另一个人的回应，其实不过是两个星球的喃喃自语，他们谈话，却与彼此不相干。那种声响看起来如此相似以致被误认为是声的交汇，实际上他们只能相互碰撞，却无法融合。他们是孤立的个体，而予对方以取暖幻象。    &mdash;-阿不壳</p></blockquote>
 
 <p>这是一篇关于村上春树<em>《国境以南 太阳以西》</em>的<a href="http://book.douban.com/review/1072104/">书评</a>中的一部分。作者把我想表达的意思都完美地表达了出来&ndash;年轻一代内心的<em>孤独感</em>以及人与人间那种虚幻的<em>维系（bond）</em>。当初读这本书时是一口气读完的。村上很好地发挥出了他的特长，通过一个<em>冷静、风趣</em>的视角，又一次抓住了一个个<em>文艺小屌</em>们的心。反观村上的这种写作风格，对于一个场景更多地倾向于对环境（scene）的详写而人物（actor）的略写，同时极少地使用<em>上帝视角</em>，故给人一种亦实亦幻感。</p>
@@ -1759,9 +1759,9 @@
   
   <entry>
     <title type="html"><![CDATA[无法（无限？）刷新的人生]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
+    <link href="http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
     <updated>2013-08-11T13:36:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
+    <id>http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
     <content type="html"><![CDATA[<div>
     <style>
     .icon { 
@@ -1773,13 +1773,13 @@
 
 <p>不知从什么时候开始对下列图标产生一种莫名的恐惧感</p>
 
-<p style="text-align:center;"><img class="icon" src="http://lynnard.tk/images/refresh/refresh_icon_ios1.png" width="20" height="20">
-<img class="icon" src="http://lynnard.tk/images/refresh/refresh_icon_ios2.gif" width="20" height="20">
-<img class="icon" src="http://lynnard.tk/images/refresh/refresh_icon_android.png" width="20" height="20"></p>
+<p style="text-align:center;"><img class="icon" src="http://lynnard.me/images/refresh/refresh_icon_ios1.png" width="20" height="20">
+<img class="icon" src="http://lynnard.me/images/refresh/refresh_icon_ios2.gif" width="20" height="20">
+<img class="icon" src="http://lynnard.me/images/refresh/refresh_icon_android.png" width="20" height="20"></p>
 
 <p>回想起来，最早对这类图标的认识来源于浏览器&ndash;对于大部分网页来说，refresh的意思更接近于reset，作用是快速地回到那个初始的、你所熟悉的状态。然而现在这类图标被广泛地使用于各类信息类应用：比如社交类的人人、微博、facebook，新闻类的flipboard、新浪，etc。在这些应用中，刷新意味着更新，而每次更新都意味着看到这样的画面</p>
 
-<p style="text-align:center;"><img class="center" src="http://lynnard.tk/images/refresh/refresh_weibo_new.png" width="360"></p>
+<p style="text-align:center;"><img class="center" src="http://lynnard.me/images/refresh/refresh_weibo_new.png" width="360"></p>
 
 <p>我本人是无法理解能不停刷人人、微博的人的大脑构造的&ndash;在我看来，不管我怎么快地刷新都会有新的消息，而我看的速度永远追不上它刷新的速度。在这个信息时代也许这就是成王败寇的关键&ndash;如果你能驾驭这个信息的潮流（ride the tide of information），你就能时刻站在时代的最前线，抓住最新的机会；而如果你跟我一样，是一个难以追上时代的人，你就会成为一个被时代所遗忘的old-timer；而且跟时代的差距很可能会越拉越大。</p>
 
@@ -1799,9 +1799,9 @@
   
   <entry>
     <title type="html"><![CDATA[标准之囚笼]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/11/biao-zhun-zhi-qiu-long/"/>
+    <link href="http://lynnard.me/blog/2013/08/11/biao-zhun-zhi-qiu-long/"/>
     <updated>2013-08-11T13:16:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/11/biao-zhun-zhi-qiu-long</id>
+    <id>http://lynnard.me/blog/2013/08/11/biao-zhun-zhi-qiu-long</id>
     <content type="html"><![CDATA[<p>高度发达的社会总是伴随高度发展的标准。如果你是一个蚂蚁，你要懂得如何和你的小伙伴们一起搬运食物；如果你是一只蜜蜂，你要懂得怎么跳8字舞；如果很不幸你是一个人类，你要懂得交通规则、为人处世、生存之道。。。事实上，你要懂得如此之多的规则以至于你从小开始就必须花十几年的时间来学习这些规则。对于社会来说，这些规则是必要的&ndash;它保证了我们所熟悉的这个环境能按照我们常规的思维方式慵懒地运行下去。但是这份慵懒的代价呢？过多的标准。</p>
 
 <p>标准无外乎两种&ndash;<em>正标准</em>和<em>反标准</em>。正标准规定什么该做，比如“饭前要洗手”；反标准则相反&ndash;什么不能做，比如“不能随地大小便”。从几率学来说，正标准更有局限性：在满足的条件下，遵守这个标准意味着放弃其他<em>千万种可能的行为</em>；反标准则宽松的多&ndash;你可以干<em>任何</em>事，但唯独不能干这件事。个人感觉人类社会还是反标准多一些。大部分社会其实都建立在一种保守体制上，通过人类的恐惧感来加深标准。最明显的例子就是法律，一旦犯法就会被惩罚&ndash;在过去的封建或集权政治里这也许就意味着极刑，而正是这种极刑的存在加深了普通人对于王权（也就是<em>标准</em>的象征）的敬畏。虽然不那么明显，但是文化里面的<em>反标准</em>同样鳞次栉比&ndash;东方人的<em>羞耻</em>文化（shame culture）就是最好的例子：人跟人的交往非常注意彼此间的距离感，很多事都是<em>不能</em>做的，而一旦做了就意味着强烈的羞辱感。纵观历史，这种现象也是可以理解的&ndash;正标准的<em>存活率</em>显然要比反标准低的多：就跟科学论证一样，推翻一个正标准只需要一个反例；而推翻一个反标准则需要证明没有这个标准的千万种可能性要优于有这个标准的（千万种-1）的可能性。</p>
@@ -1814,19 +1814,19 @@
   
   <entry>
     <title type="html"><![CDATA[人性之熵]]></title>
-    <link href="http://lynnard.tk/blog/2013/07/31/ren-xing-zhi-shang/"/>
+    <link href="http://lynnard.me/blog/2013/07/31/ren-xing-zhi-shang/"/>
     <updated>2013-07-31T15:02:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/07/31/ren-xing-zhi-shang</id>
-    <content type="html"><![CDATA[<p><a class='fancybox' rel='cowboy_crew' href='http://lynnard.tk/images/cowboy_bebop/crew0.jpg'><img src='http://lynnard.tk/images/cowboy_bebop/crew0.jpg' alt='The lovely crew of Cowboy Bebop; Click to view more'/></a>
-<a class='fancybox' rel='cowboy_crew' href='http://lynnard.tk/images/cowboy_bebop/crew1.jpg'></a></p>
+    <id>http://lynnard.me/blog/2013/07/31/ren-xing-zhi-shang</id>
+    <content type="html"><![CDATA[<p><a class='fancybox' rel='cowboy_crew' href='http://lynnard.me/images/cowboy_bebop/crew0.jpg'><img src='http://lynnard.me/images/cowboy_bebop/crew0.jpg' alt='The lovely crew of Cowboy Bebop; Click to view more'/></a>
+<a class='fancybox' rel='cowboy_crew' href='http://lynnard.me/images/cowboy_bebop/crew1.jpg'></a></p>
 
-<p><a class='fancybox' rel='samurai_crew' href='http://lynnard.tk/images/samurai_champloo/theme.jpg'><img src='http://lynnard.tk/images/samurai_champloo/theme.jpg' alt='Samurai的浮世绘风格是大受好评的'></a></p>
+<p><a class='fancybox' rel='samurai_crew' href='http://lynnard.me/images/samurai_champloo/theme.jpg'><img src='http://lynnard.me/images/samurai_champloo/theme.jpg' alt='Samurai的浮世绘风格是大受好评的'></a></p>
 
 <p>不得不说，渡边的作品都很懒。不管是名噪一时的<em>Cowboy Bebop</em>，还是后来略低调的<em>Samurai Champloo</em>，主人公们的懒散都是刻画的一个重点。同其他大多动漫每集二十多分钟充斥各种悬疑、惊险、或是fantasy的做法不同，渡边的镜头里常会有主角们静默发呆的镜头，仅仅通过他们的表情和背景音乐来传递里面的微妙情感。</p>
 
 <div style='margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto; width: 300px'>
-<a class='fancybox' rel='silence' href='http://lynnard.tk/images/cowboy_bebop/spike_silent.png'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='http://lynnard.tk/images/cowboy_bebop/spike_silent_thumbnail.jpg'/></a> 
-<a class='fancybox' rel='silence' href='http://lynnard.tk/images/samurai_champloo/mugen_silent.jpg'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='http://lynnard.tk/images/samurai_champloo/mugen_silent_thumbnail.jpg'/></a>
+<a class='fancybox' rel='silence' href='http://lynnard.me/images/cowboy_bebop/spike_silent.png'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='http://lynnard.me/images/cowboy_bebop/spike_silent_thumbnail.jpg'/></a> 
+<a class='fancybox' rel='silence' href='http://lynnard.me/images/samurai_champloo/mugen_silent.jpg'><img width=100 style='margin-left: 20px; margin-right: 20px; outline: 5px solid white; box-shadow: 5px 5px 5px #888888' src='http://lynnard.me/images/samurai_champloo/mugen_silent_thumbnail.jpg'/></a>
 </div>
 
 
@@ -1848,9 +1848,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lynnard's very first nerdy rant about blogging]]></title>
-    <link href="http://lynnard.tk/blog/2013/07/30/the-very-first-blog-post/"/>
+    <link href="http://lynnard.me/blog/2013/07/30/the-very-first-blog-post/"/>
     <updated>2013-07-30T12:08:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/07/30/the-very-first-blog-post</id>
+    <id>http://lynnard.me/blog/2013/07/30/the-very-first-blog-post</id>
     <content type="html"><![CDATA[<p>Finally opened my own blogspace. I&rsquo;ve been dreaming about this day for a <em>long, long</em> time but never got time to set it up properly. For one thing, the <em>common</em> blogging scene is so crowded with web-interface-backed alternatives such as Wordpress - which at best is cumbersome and not <em>hacker-minded</em>. An easy dig around the net reveals to me the gem in the sea: <strong>Octopress</strong>.</p>
 
 <h2>What is Octopress?</h2>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: sh | .hack/lynnard]]></title>
-  <link href="http://lynnard.tk/blog/categories/sh/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/blog/categories/sh/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pinboard synchronization with Vimb/Vimprobable bookmarks]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
+    <link href="http://lynnard.me/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks/"/>
     <updated>2013-11-03T02:25:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
+    <id>http://lynnard.me/blog/2013/11/03/pinboard-synchronization-with-vimb-slash-vimprobable-bookmarks</id>
     <content type="html"><![CDATA[<p>When it comes to workflow, I&rsquo;m a screen-estate <em>fascist</em> who disapproves of any &lsquo;extra&rsquo; GUI elements like buttons and menu-bars. That&rsquo;s why I switched to Vimperator from conventional idioms like Safari and Firefox a long time ago; and that&rsquo;s also the reason that I switched to <a href="https://github.com/fanglingsu/vimb">Vimb</a>/<a href="http://www.vimprobable.org">Vimprobable</a> from Vimperator in the end - if all I need is Vim-like features from Vimperator, why bother having Firefox in the first place?</p>
 
 <p>All is well except a few things. One of them is what I&rsquo;m going to talk about today, bookmark synchronization with popular online services. With light-weight browsers such as Vimb, you can&rsquo;t really expect the developer to write extensions for such things <em>(well, how many developers does Vimb have? Mhh, just one)</em> However, this simplicity is also the beauty of such light-weight programs - usually you can just achieve what you want by a little bit of tinkering.</p>
@@ -232,9 +232,9 @@ exit 0
   
   <entry>
     <title type="html"><![CDATA[Implementing the missing drafting and queueing function in Octopress]]></title>
-    <link href="http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/"/>
+    <link href="http://lynnard.me/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress/"/>
     <updated>2013-11-03T00:37:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress</id>
+    <id>http://lynnard.me/blog/2013/11/03/implementing-the-missing-drafting-and-queueing-function-in-octopress</id>
     <content type="html"><![CDATA[<p>It&rsquo;s been a while since I first started using Octopress. Its simple and elegant way of writing has now become my <em>de facto</em> standard of writing, but there are still things to be desired. For one thing, the workflow consisting of <em>writing, commiting, compiling and deploying</em> is still not <em>lazy</em> enough; ideally the only thing that should be required of the writer is <em>to write</em>. Inspired by Dennis Wegner in his <a href="http://instant-thinking.de/2012/08/03/synced-and-scheduled-blogging-with-octopress/">Synced and scheduled blogging with Octopress</a>, I worked on a bash script to allow for friction-free, painless deployment process that goes totally automatic underhood.</p>
 
 <h3>A short summary of the tinkering</h3>

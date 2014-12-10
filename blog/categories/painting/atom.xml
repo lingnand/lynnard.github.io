@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: painting | .hack/lynnard]]></title>
-  <link href="http://lynnard.tk/blog/categories/painting/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/blog/categories/painting/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Tree]]></title>
-    <link href="http://lynnard.tk/blog/2014/02/09/the-tree/"/>
+    <link href="http://lynnard.me/blog/2014/02/09/the-tree/"/>
     <updated>2014-02-09T14:47:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/02/09/the-tree</id>
+    <id>http://lynnard.me/blog/2014/02/09/the-tree</id>
     <content type="html"><![CDATA[<p>最近眼前总是浮现出一棵树。</p>
 
 <p>树是普通的行道树，算不上枝繁叶茂，也没有纵横交错的蟠根。只是一棵年轻的生命，无比宁静地伫立在一片与世隔绝的白色光晕中。</p>

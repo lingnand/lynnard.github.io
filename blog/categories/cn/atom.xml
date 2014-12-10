@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: cn | .hack/lynnard]]></title>
-  <link href="http://lynnard.tk/blog/categories/cn/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/blog/categories/cn/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[现代家居系统]]></title>
-    <link href="http://lynnard.tk/blog/2014/03/31/xian-dai-jia-ju-xi-tong/"/>
+    <link href="http://lynnard.me/blog/2014/03/31/xian-dai-jia-ju-xi-tong/"/>
     <updated>2014-03-31T15:44:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2014/03/31/xian-dai-jia-ju-xi-tong</id>
+    <id>http://lynnard.me/blog/2014/03/31/xian-dai-jia-ju-xi-tong</id>
     <content type="html"><![CDATA[<p>今天心血来潮，自己yy了一套现代家居系统。</p>
 
 <p>系统的第一步是把整个house做成一台电脑，所谓的live inside a computer的感觉。要实现这个相当简单（？），把家里所有的墙都改成OLED的可弯曲屏幕（并且支持触控），连接到家里的一台central server。Plug的插口上不仅有用来充电的插座，还会有usb等端口- 这样的话比如需要查看usbstick里面的图片直接把它插到墙上，墙上就会显示出内容。触控的需要也相当明显-家里的任何一个角落都可以对这台“电脑”进行控制-比如直接触摸墙壁就会显示出常用菜单。这个concept不仅仅可以用在墙面上，茶几台上也可以，餐桌上也可以，以此类推。</p>
@@ -30,9 +30,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Tree]]></title>
-    <link href="http://lynnard.tk/blog/2014/02/09/the-tree/"/>
+    <link href="http://lynnard.me/blog/2014/02/09/the-tree/"/>
     <updated>2014-02-09T14:47:00+00:00</updated>
-    <id>http://lynnard.tk/blog/2014/02/09/the-tree</id>
+    <id>http://lynnard.me/blog/2014/02/09/the-tree</id>
     <content type="html"><![CDATA[<p>最近眼前总是浮现出一棵树。</p>
 
 <p>树是普通的行道树，算不上枝繁叶茂，也没有纵横交错的蟠根。只是一棵年轻的生命，无比宁静地伫立在一片与世隔绝的白色光晕中。</p>
@@ -49,9 +49,9 @@
   
   <entry>
     <title type="html"><![CDATA[孤独的引力]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/18/gu-du-de-yin-li/"/>
+    <link href="http://lynnard.me/blog/2013/08/18/gu-du-de-yin-li/"/>
     <updated>2013-08-18T14:49:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/18/gu-du-de-yin-li</id>
+    <id>http://lynnard.me/blog/2013/08/18/gu-du-de-yin-li</id>
     <content type="html"><![CDATA[<blockquote><p>独生子的意义再明显不过，那就是孤独，孤立，孤寂，与他人的隔绝——简言之，这是些独自运转的星球。村上从中发现的吸引力正是孤寂行星所特有的磁场：在全然的自我隔绝里有极大的黑暗，一个人若无法自外界获得光亮与慰藉，就只能强迫自己独力支撑。他以为听到来自另一个人的回应，其实不过是两个星球的喃喃自语，他们谈话，却与彼此不相干。那种声响看起来如此相似以致被误认为是声的交汇，实际上他们只能相互碰撞，却无法融合。他们是孤立的个体，而予对方以取暖幻象。    &mdash;-阿不壳</p></blockquote>
 
 <p>这是一篇关于村上春树<em>《国境以南 太阳以西》</em>的<a href="http://book.douban.com/review/1072104/">书评</a>中的一部分。作者把我想表达的意思都完美地表达了出来&ndash;年轻一代内心的<em>孤独感</em>以及人与人间那种虚幻的<em>维系（bond）</em>。当初读这本书时是一口气读完的。村上很好地发挥出了他的特长，通过一个<em>冷静、风趣</em>的视角，又一次抓住了一个个<em>文艺小屌</em>们的心。反观村上的这种写作风格，对于一个场景更多地倾向于对环境（scene）的详写而人物（actor）的略写，同时极少地使用<em>上帝视角</em>，故给人一种亦实亦幻感。</p>
@@ -62,9 +62,9 @@
   
   <entry>
     <title type="html"><![CDATA[无法（无限？）刷新的人生]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
+    <link href="http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
     <updated>2013-08-11T13:36:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
+    <id>http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
     <content type="html"><![CDATA[<div>
     <style>
     .icon { 
@@ -102,9 +102,9 @@
   
   <entry>
     <title type="html"><![CDATA[标准之囚笼]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/11/biao-zhun-zhi-qiu-long/"/>
+    <link href="http://lynnard.me/blog/2013/08/11/biao-zhun-zhi-qiu-long/"/>
     <updated>2013-08-11T13:16:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/11/biao-zhun-zhi-qiu-long</id>
+    <id>http://lynnard.me/blog/2013/08/11/biao-zhun-zhi-qiu-long</id>
     <content type="html"><![CDATA[<p>高度发达的社会总是伴随高度发展的标准。如果你是一个蚂蚁，你要懂得如何和你的小伙伴们一起搬运食物；如果你是一只蜜蜂，你要懂得怎么跳8字舞；如果很不幸你是一个人类，你要懂得交通规则、为人处世、生存之道。。。事实上，你要懂得如此之多的规则以至于你从小开始就必须花十几年的时间来学习这些规则。对于社会来说，这些规则是必要的&ndash;它保证了我们所熟悉的这个环境能按照我们常规的思维方式慵懒地运行下去。但是这份慵懒的代价呢？过多的标准。</p>
 
 <p>标准无外乎两种&ndash;<em>正标准</em>和<em>反标准</em>。正标准规定什么该做，比如“饭前要洗手”；反标准则相反&ndash;什么不能做，比如“不能随地大小便”。从几率学来说，正标准更有局限性：在满足的条件下，遵守这个标准意味着放弃其他<em>千万种可能的行为</em>；反标准则宽松的多&ndash;你可以干<em>任何</em>事，但唯独不能干这件事。个人感觉人类社会还是反标准多一些。大部分社会其实都建立在一种保守体制上，通过人类的恐惧感来加深标准。最明显的例子就是法律，一旦犯法就会被惩罚&ndash;在过去的封建或集权政治里这也许就意味着极刑，而正是这种极刑的存在加深了普通人对于王权（也就是<em>标准</em>的象征）的敬畏。虽然不那么明显，但是文化里面的<em>反标准</em>同样鳞次栉比&ndash;东方人的<em>羞耻</em>文化（shame culture）就是最好的例子：人跟人的交往非常注意彼此间的距离感，很多事都是<em>不能</em>做的，而一旦做了就意味着强烈的羞辱感。纵观历史，这种现象也是可以理解的&ndash;正标准的<em>存活率</em>显然要比反标准低的多：就跟科学论证一样，推翻一个正标准只需要一个反例；而推翻一个反标准则需要证明没有这个标准的千万种可能性要优于有这个标准的（千万种-1）的可能性。</p>

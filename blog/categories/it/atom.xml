@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: it | .hack/lynnard]]></title>
-  <link href="http://lynnard.tk/blog/categories/it/atom.xml" rel="self"/>
-  <link href="http://lynnard.tk/"/>
-  <updated>2014-12-10T22:29:10+00:00</updated>
-  <id>http://lynnard.tk/</id>
+  <link href="http://lynnard.me/blog/categories/it/atom.xml" rel="self"/>
+  <link href="http://lynnard.me/"/>
+  <updated>2014-12-10T23:07:51+00:00</updated>
+  <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[无法（无限？）刷新的人生]]></title>
-    <link href="http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
+    <link href="http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng/"/>
     <updated>2013-08-11T13:36:00+01:00</updated>
-    <id>http://lynnard.tk/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
+    <id>http://lynnard.me/blog/2013/08/11/wu-fa-(wu-xian)shua-xin-de-ren-sheng</id>
     <content type="html"><![CDATA[<div>
     <style>
     .icon { 
