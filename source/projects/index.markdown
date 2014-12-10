@@ -7,7 +7,7 @@ Here's a list of on-going projects that I've had the time and interest to invest
 
 # Workflow
 
-## [VIMonad](http://vimonad.lynnard.tk)
+## [VIMonad](http://vimonad.lynnard.me)
 
 bringing VIM philosophy to window management
 
@@ -17,7 +17,7 @@ subscribe to RSS image feeds and download images automatically
 
 # Music
 
-## [RPD](http://rpd.lynnard.tk)
+## [RPD](http://rpd.lynnard.me)
 
 radio player daemon capable of streaming music from multiple services in the background
 
@@ -33,17 +33,17 @@ command line lyrics display for RPD
 
 [Alfred](http://www.alfredapp.com) extension for RPD control
 
-## [mutagen-CLI](http://mutagen.lynnard.tk)
+## [mutagen-CLI](http://mutagen.lynnard.me)
 
 universal command line ID3 tagger/viewer
 
 # Web
 
-## [Octopress-CLI](http://octopress.lynnard.tk)
+## [Octopress-CLI](http://octopress.lynnard.me)
 
 CLI command set for managing and updating [Octopress](http://octopress.org)
 
-## [pinboard-sync](http://pinboard.lynnard.tk)
+## [pinboard-sync](http://pinboard.lynnard.me)
 
 pinboard bookmark synchronization with local cache
 
@@ -67,11 +67,11 @@ a chatter-bot with its own Wechat account
 
 ## [Visionary Pioneer](/projects/visionary-pioneer)
 
-{% video http://lynnard.tk/videos/VisionaryPioneer.mp4 640 480 http://lynnard.tk/images/visionary-pioneer/visionary-pioneer.png %}
+{% video http://lynnard.me/videos/VisionaryPioneer.mp4 640 480 http://lynnard.me/images/visionary-pioneer/visionary-pioneer.png %}
 
 # Game
 
-## [LN2D](http://ln2d.lynnard.tk)
+## [LN2D](http://ln2d.lynnard.me)
 
 a component-based gaming library for `Objective-C`
 

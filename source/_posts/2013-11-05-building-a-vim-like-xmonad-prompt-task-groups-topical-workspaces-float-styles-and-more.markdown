@@ -9,7 +9,7 @@ published: true
 categories: [xmonad, vim, haskell, tech, en]
 ---
 
-**Update: I've formally made a package called *VIMonad* with all the features discussed here (as well as other more interesting ones) [here](http://vimonad.lynnard.tk).**
+**Update: I've formally made a package called *VIMonad* with all the features discussed here (as well as other more interesting ones) [here](http://vimonad.lynnard.me).**
 
 About a year ago, a friend of mine reading Computer Science introduced me to XMonad. At that time the window manager I was using - or rather stuck with - is Aqua from Mac OS X, and I was fanatically resorting to tmux as a temporary replacement for all purposes. This might be one of the most important moments for my working environment, since from that time I was enchanted by the simplicity of a Linux system and switched to Arch Linux + XMonad permanently. 
 

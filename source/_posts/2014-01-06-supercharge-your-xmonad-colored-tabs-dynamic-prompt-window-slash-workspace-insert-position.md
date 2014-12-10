@@ -14,7 +14,7 @@ Colored Tabs
 
 ->![](/images/xmonad/color_tabs.png)<-
 
-One of the things that annoyed me for the Tabbed layout is that I couldn't make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different [task groups](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group) thus becomes a natural choice for me.
+One of the things that annoyed me for the Tabbed layout is that I couldn't make out which program is in which tab from the look of the tabs alone easily. Having a different theme for different [task groups](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group) thus becomes a natural choice for me.
 
 To apply this mod the key is to modify the `updateDeco` method in `XMonad.Layout.Decoration`.
 
@@ -48,7 +48,7 @@ Why would this be useful? Imagine you are using a browser application like `vimb
 Workspace Insert Position
 -------------------------
 
-Continuing from my [Dynamic Workspace](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group), the following keybinding are added:
+Continuing from my [Dynamic Workspace](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group), the following keybinding are added:
 
 * `M-a {a,M-a}`: launches the workspace creation prompt and on completion insert the workspace *just after the current one*
 * `M-a {i,M-i}`: same as before but on completion insert the workspace *just before the current one*

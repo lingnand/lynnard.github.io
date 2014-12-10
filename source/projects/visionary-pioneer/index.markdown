@@ -6,7 +6,7 @@ comments: false
 
 Visionary Pioneer is a robot puppy that helps clean your house.
 
-{% video http://lynnard.tk/videos/VisionaryPioneer.mp4 640 480 http://lynnard.tk/images/visionary-pioneer/visionary-pioneer.png %}
+{% video http://lynnard.me/videos/VisionaryPioneer.mp4 640 480 http://lynnard.tk/images/visionary-pioneer/visionary-pioneer.png %}
 
 ## So it is a puppy!
 

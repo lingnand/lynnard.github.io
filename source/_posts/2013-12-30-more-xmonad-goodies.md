@@ -6,7 +6,7 @@ comments: true
 categories: [xmonad, en]
 ---
 
-Following up my previous [entry](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/) on some *advanced vim-like* feature addition to XMonad, I've played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.
+Following up my previous [entry](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/) on some *advanced vim-like* feature addition to XMonad, I've played around with my configuration a bit more and apparently made it more than 2000 lines, marking a new milestone where my config file has even more lines than the core xmonad source.
 
 *Well, that can be a good or bad thing, depending on how you look at it.*
 
@@ -18,7 +18,7 @@ But the good news is that most of the new additions I consider quite useful, and
 Inception
 ---------
 
-If you've followed my previous blog on XMonad then hopefully you've grasped my idea at building a *vim-splitter-like* layout for workspaces (if you've forgotten by now, [here](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter)'s the refreshment).
+If you've followed my previous blog on XMonad then hopefully you've grasped my idea at building a *vim-splitter-like* layout for workspaces (if you've forgotten by now, [here](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#splitter)'s the refreshment).
 
 After I wrote that article, I've taken some more serious moments at pondering about this and have gotten a few more insights:
 
@@ -80,7 +80,7 @@ Some of the terms might require explanation:
 * columnLayout: the layout used by the outermost group, or the columns in a workspace
 * rectLayout: the layout used by the intermediate group (the one below columns but above the tabs)
 * auto sort: `M` means *manual* while `A` means *auto*; will be explained in [a later section](#auto_sort)
-* history: just like the history indicator in vim; `+` and `-` mean there are *newer* and *older* windows to navigate to respectively; refer to [window history](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history) if you are curious about how this is implemented
+* history: just like the history indicator in vim; `+` and `-` mean there are *newer* and *older* windows to navigate to respectively; refer to [window history](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#window_history) if you are curious about how this is implemented
 * ref key: the highlighted letter is the `filterKey` of the respective `taskGroup` (refer to [task group] if you don't understand), which reminds me what filter key to press to perform actions on that group
 
 The main part relevant to our 3-dimensional layout is the part labelled `columns` and `rows` - each column is also referenced by a number (just like workspaces); and each row is contained in a pair of square brackets for clarity.
@@ -129,7 +129,7 @@ On the implementation side, I don't feel there's too much *magic* to talk about.
 This is more interesting as what I'm trying to achieve is essentially `Manage Hook` within *workspace*. Each workspace starts off in the *manual* mode, as indicated by the `M` in the sample image of my dzen bar. But if I press down `M-S-s`, *automatic* mode is turned on and the `M` changes to `A`. In the *automatic* mode, each new window is inserted into the column which has the highest percentage of windows of the same task group; if such column is not found, a new column is created before the current column for that new window to fit in. An example will better illustrate the use case: 
 
 1. imagine you are in a workspace and you've spawned a `vim` window to write some code in
-2. now you want to search for something, so you press `M-[ b` - this triggers the [cycling protocol](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group) of the `vimb` task group, and since there are no `vimb` windows to cycle about, the construction function of the group is invoked and a new `vimb` window is created
+2. now you want to search for something, so you press `M-[ b` - this triggers the [cycling protocol](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group) of the `vimb` task group, and since there are no `vimb` windows to cycle about, the construction function of the group is invoked and a new `vimb` window is created
 3. since this is the first `vimb` window and there are no columns found in the workspace to contain a window with the matching task group, the `vimb` window is put into a new column and the focus automatically transfers to it
 4. all subsequent new `vimb` windows shall be inserted in that new column just created, given that you don't do any manual arrangement
 
@@ -138,7 +138,7 @@ As you can see, this automates some common sorting tasks while at the same time 
 Shelf
 =====
 
-Although we can now manage windows with *3 dimensions*, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use [perworkspace scratchpad](http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad) to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.
+Although we can now manage windows with *3 dimensions*, maximise a column or even maximise a rectangle, sometimes we still wish that a window can be stashed somewhere temporarily. In my previous post I talked about how we can use [perworkspace scratchpad](http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#scratchpad) to achieve this aim, but what I realized later is that it still has some major limitation, the biggest of which is that all the scratchpads have to be pre-defined in the config file.
 
 The alternative is to use [XMonad.Layout.Minimize](http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Layout-Minimize.html). This allows any window in a workspace to be toggled, but it also has problems:
 
@@ -156,4 +156,4 @@ What's more?
 This is by no means the end of all possible things one can do with XMonad. In particular, I haven't played around with `UrgencyHook`s and a couple of other seemingly useful modules. The more I customize XMonad, the more I begin to appreciate how powerful and flexible it is. For those interested in the customizations I've talked about in my blogs, I've managed to put all of them into a single repo. [Here](https://github.com/lynnard/xmonad).
 
 
-[task group]: http://lynnard.tk/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group
+[task group]: http://lynnard.me/blog/2013/11/05/building-a-vim-like-xmonad-prompt-task-groups-topical-workspaces-float-styles-and-more/#task_group
