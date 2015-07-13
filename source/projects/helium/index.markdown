@@ -6,7 +6,9 @@ comments: false
 
 **H**ighlight **E**ditor with **LI**ght-weight r**U**ntime environ**M**ent, or **Helium**, is a *Blackberry 10* text editor designed for speed, performance and versatility. Packed with power and customizability, Helium is a must-have for any professional who works with text files.
 
-<a class='fancybox' rel='helium' href='/images/helium/1.white_theme.png' title='Summerfruit theme'><img src='/images/helium/1.white_theme.png' alt='Click to view more'/></a>
+[Go to Blackberry App World](https://appworld.blackberry.com/webstore/content/59963952)
+
+<a class='fancybox' rel='helium' href='/images/helium/1.white_theme.png' title='Summerfruit theme'>{% img center /images/helium/1.white_theme.png 720 '' 'Click to view more' %}</a>
 <a class='fancybox' rel='helium' href='/images/helium/2.white_theme_html.png' title='Editing html'></a>
 <a class='fancybox' rel='helium' href='/images/helium/3.run_html.png' title='Previewing html'></a>
 <a class='fancybox' rel='helium' href='/images/helium/4.tabs.png' title='Multi-tabbed editing'></a>
