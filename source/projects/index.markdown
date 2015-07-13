@@ -7,6 +7,10 @@ Here's a list of on-going projects that I've had the time and interest to invest
 
 # Workflow
 
+## [Helium](/projects/helium)
+
+a multi-tabbed code editor with syntax highlight *on BB10* 
+
 ## [VIMonad](http://vimonad.lynnard.me)
 
 bringing VIM philosophy to window management
