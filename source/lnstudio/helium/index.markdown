@@ -8,7 +8,7 @@ comments: false
 
 [Go to Blackberry App World](https://appworld.blackberry.com/webstore/content/59963952)
 
-<a class='fancybox' rel='helium' href='/images/helium/1.white_theme.png' title='Summerfruit theme'>{% img center /images/helium/1.white_theme.png 720 '' 'Click to view more' %}</a>
+<a class='fancybox' rel='helium' href='/images/helium/1.white_theme.png' title='Summerfruit theme'><img width='720px' style='display:block;margin-left:auto;margin-right:auto' src='/images/helium/1.white_theme.png' alt='Click to view more'/></a>
 <a class='fancybox' rel='helium' href='/images/helium/2.white_theme_html.png' title='Editing html'></a>
 <a class='fancybox' rel='helium' href='/images/helium/3.run_html.png' title='Previewing html'></a>
 <a class='fancybox' rel='helium' href='/images/helium/4.tabs.png' title='Multi-tabbed editing'></a>
@@ -48,5 +48,3 @@ Helium includes popular colorschemes such as *summerfruit* and *Tomorrow*. It al
 ## Zero interruption
 
 Never wait for a file to be saved into your Dropbox again. Helium is good at multithreading - that means saving files in background, highlighting each document in a different routine, and not getting into your way so that you can keep on with your work for as long as possible.
-
-## Privacy policy
