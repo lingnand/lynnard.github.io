@@ -4,7 +4,7 @@
   <title><![CDATA[Category: en | .hack/lynnard]]></title>
   <link href="http://lynnard.me/blog/categories/en/atom.xml" rel="self"/>
   <link href="http://lynnard.me/"/>
-  <updated>2015-07-19T10:35:56+01:00</updated>
+  <updated>2015-08-15T01:05:05+01:00</updated>
   <id>http://lynnard.me/</id>
   <author>
     <name><![CDATA[Lynnard]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sometimes I wish I'm a dog]]></title>
+    <link href="http://lynnard.me/blog/2015/08/15/"/>
+    <updated>2015-08-15T01:04:00+01:00</updated>
+    <id>http://lynnard.me/blog/2015/08/</id>
+    <content type="html"><![CDATA[<p>A dog that eats well and sleeps well, of course.</p>
+
+<p>And with a good owner hopefully, who&rsquo;ll walk me around on sunny weekends and buy me expensive toys.</p>
+
+<p>And don&rsquo;t forget nice fur and strong muscles - these are a must for successful relationships.</p>
+
+<p>Oh, and don&rsquo;t ever envy humans - they are smart, interesting and can do whatever they want, but, there surely is no reason to want to become a human.</p>
+
+<p>&hellip;or is there?</p>
+
+<p>It&rsquo;s unfortunate that every time I pay such thoughts a visit it ends up in a circle, where the thing I wish to become would somehow take a shape that wishes back to become what I am right now.</p>
+
+<p>It seems that the frustration is not in trying to <em>be something</em>, but really in trying to <em>be more than something</em>.</p>
+
+<p>That means a good dog should never try to be more than a dog.</p>
+
+<p><em>And a good human should never wish to be a dog.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Coming back]]></title>
@@ -226,46 +251,6 @@ XMonadContrib/XMonad/Prompt/Shell.hs:    , shellPrompt
 
 
 <p>There is another set of key bindings beginning with <code>M-S-a</code> which creates the new workspace in the same way but also at the same time move the current window to it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Change cursor shape for zsh vi-mode]]></title>
-    <link href="http://lynnard.me/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode/"/>
-    <updated>2014-01-05T18:36:00+00:00</updated>
-    <id>http://lynnard.me/blog/2014/01/05/change-cursor-shape-for-zsh-vi-mode</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve been using zsh and its wonderful <em>vi-mode</em> line editing keybindings for a long time, but one thing that has always troubled me is the lack of visual clues to the current <em>mode</em>.</p>
-
-<p>With <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> you can optionally have an indicator to the right of the prompt telling you this, but I feel it&rsquo;s not <em>native</em> enough - we need something simpler and more direct, just as in vim I&rsquo;ve set my cursor to be an underscore in the insert mode and a solid block in the command mode.</p>
-
-<p>Luckily you can do just that with the powerful zsh shell.</p>
-
-<p>First off the relevant escape sequences for changing the cursor shape are:</p>
-
-<ul>
-<li><code>"\e[4 q"</code>: solid underscore</li>
-<li><code>"\e[2 q"</code>: solid block</li>
-</ul>
-
-
-<p>The hook called when your vi mode changes is <code>zle-keymap-select</code>. If you want comprehensiveness, also include <code>zle-line-init</code> and <code>zle-line-finish</code>.</p>
-
-<p>Now just append this to the end of your <code>zshrc</code>.</p>
-
-<pre><code class="sh">zle-keymap-select () {
-    if [ "$TERM" = "xterm-256color" ]; then
-        if [ $KEYMAP = vicmd ]; then
-            # the command mode for vi
-            echo -ne "\e[2 q"
-        else
-            # the insert mode for vi
-            echo -ne "\e[4 q"
-        fi
-    fi
-}
-</code></pre>
-
-<p><em>Boom</em>, you&rsquo;ve just configured your cursor to change shape on the fly according to your editing mode!</p>
 ]]></content>
   </entry>
   

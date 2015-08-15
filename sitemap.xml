@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://lynnard.me/blog/2015/08/15/</loc>
+    <lastmod>2015-08-15T01:04:00+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://lynnard.me/blog/2014/10/31/coming-back/</loc>
     <lastmod>2014-10-31T19:48:00+00:00</lastmod>
     <priority>0.8</priority>
@@ -87,43 +92,43 @@
   </url>
   <url>
     <loc>http://lynnard.me/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://lynnard.me/blog/archives/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://lynnard.me/projects/visionary-pioneer/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://lynnard.me/projects/lynnard-bot/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://lynnard.me/lnstudio/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://lynnard.me/lnstudio/helium/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://lynnard.me/projects/</loc>
-    <lastmod>2015-07-19T10:35:56+01:00</lastmod>
+    <lastmod>2015-08-15T01:05:05+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
